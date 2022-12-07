@@ -9,8 +9,7 @@
 
   import { CONTEXT } from "../../constants";
 
-  import Focus from "../Focus";
-  import id from "../id";
+  import Collapsible from "../Collapsible";
 
   export let value: any;
   export let disabled: boolean = false;
@@ -25,22 +24,39 @@
   const focusStore = getContext<Writable<FocusStoreType>>(CONTEXT.FOCUS);
   const accordionItemStore = writable<AccordionItemStoreType>({
     value,
-    open: false,
-    disabled,
-    id: id(),
   });
+
+  let open = false;
 
   setContext(CONTEXT.ACCORDION_ITEM, accordionItemStore);
 
-  $: {
-    accordionItemStore.update(state => ({
-        ...state,
-        disabled: disabled || $accordionStore.disabled,
-        open: $accordionStore.open.includes(value),
-    }))
+  $: open = $accordionStore.open.includes(value);
+
+  function toggle() {
+    if (!open) {
+      accordionStore.update((store) => {
+        store.open = store.open.filter((item) => item !== value);
+        return store;
+      });
+    } else {
+      accordionStore.update((store) => {
+        if (store.type === "single") {
+          store.open = [value];
+        } else {
+          store.open = [...store.open, value];
+        }
+        return store;
+      });
+    }
   }
 </script>
 
-<div class={$$props.class} use:Focus.Item={{ focusable: true, active: true, store: focusStore }}>
+<Collapsible.Container
+  bind:open
+  {disabled}
+  class={$$props.class}
+  focus={{ focusable: true, active: true, store: focusStore }}
+  on:toggle={toggle}
+>
   <slot />
-</div>
+</Collapsible.Container>

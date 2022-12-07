@@ -8,7 +8,4 @@ export type AccordionStoreType = {
 
 export type AccordionItemStoreType = {
     value: any;
-    open: boolean;
-    disabled: boolean;
-    id: string;
 }
