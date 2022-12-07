@@ -1,10 +1,11 @@
 <script lang="ts">
-  import {slide} from 'svelte/transition';
+  import { slide } from "svelte/transition";
 
   import svelteLogo from "./assets/svelte.svg";
   import Counter from "./lib/Counter.svelte";
 
   import Accordion from "./lib/components/Accordion";
+  import AspectRatio from "./lib/components/AspectRatio";
   import Checkbox from "./lib/components/Checkbox";
   import Switch from "./lib/components/Switch";
   import Radio from "./lib/components/Radio";
@@ -80,6 +81,15 @@
     </Accordion.Item>
   </Accordion.Container>
 
+  <div class="img-container">
+    <AspectRatio ratio={16 / 9}>
+      <img
+        src="https://images.unsplash.com/photo-1535025183041-0991a977e25b?w=300&dpr=2&q=80"
+        alt="Landscape photograph by Tobias Tullius"
+      />
+    </AspectRatio>
+  </div>
+
   <p>
     Check out <a
       href="https://github.com/sveltejs/kit#readme"
@@ -105,6 +115,15 @@
   }
   .read-the-docs {
     color: #888;
+  }
+  .img-container {
+    width: 200px;
+    overflow: hidden;
+  }
+  .img-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
   :global(.switch__track) {
     width: 40px;
@@ -137,63 +156,62 @@
     background: green;
   }
   .accordion__container {
-  border-radius: 6px;
-  width: 300px;
-  background-color: pink;
-  box-shadow: 0 2px 10px black;
-}
-.accordion__item {
-  overflow: hidden;
-  margin-top: 1px;
-}
+    border-radius: 6px;
+    width: 300px;
+    background-color: pink;
+    box-shadow: 0 2px 10px black;
+  }
+  .accordion__item {
+    overflow: hidden;
+    margin-top: 1px;
+  }
 
-.accordion__item:first-child {
-  margin-top: 0;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
+  .accordion__item:first-child {
+    margin-top: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
 
-.accordion__item:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
+  .accordion__item:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
 
-.accordion__item:focus-within {
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 0 0 2px var(--mauve12);
-}
+  .accordion__item:focus-within {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 2px var(--mauve12);
+  }
 
-.accordion__trigger {
-  width: 100%;
-  font-family: inherit;
-  background-color: transparent;
-  padding: 0 20px;
-  height: 45px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 15px;
-  line-height: 1;
-  color: violet;
-  box-shadow: 0 1px 0 pink;
-  background-color: white;
-}
+  .accordion__trigger {
+    width: 100%;
+    font-family: inherit;
+    background-color: transparent;
+    padding: 0 20px;
+    height: 45px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    line-height: 1;
+    color: violet;
+    box-shadow: 0 1px 0 pink;
+    background-color: white;
+  }
 
-.accordion__trigger:hover {
-  background-color: plum;
-  color: white;
-}
+  .accordion__trigger:hover {
+    background-color: plum;
+    color: white;
+  }
 
-.accordion__content {
-  overflow: hidden;
-  font-size: 15px;
-  color: plum;
-  background-color: pink;
-}
-.accordion__content__text {
-  padding: 15px 20px;
-}
-
+  .accordion__content {
+    overflow: hidden;
+    font-size: 15px;
+    color: plum;
+    background-color: pink;
+  }
+  .accordion__content__text {
+    padding: 15px 20px;
+  }
 </style>
