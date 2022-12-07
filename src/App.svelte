@@ -7,8 +7,10 @@
   import Accordion from "./lib/components/Accordion";
   import AspectRatio from "./lib/components/AspectRatio";
   import Checkbox from "./lib/components/Checkbox";
+  import Collapsible from './lib/components/Collapsible';
   import Switch from "./lib/components/Switch";
   import Radio from "./lib/components/Radio";
+  import Trigger from "./lib/components/Accordion/Trigger.svelte";
 </script>
 
 <main>
@@ -80,6 +82,17 @@
       </Accordion.Content>
     </Accordion.Item>
   </Accordion.Container>
+
+  <Collapsible.Container>
+      <Collapsible.Trigger>+</Collapsible.Trigger>
+      <Collapsible.Content>
+        <ul>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+      </Collapsible.Content>
+  </Collapsible.Container>
 
   <div class="img-container">
     <AspectRatio ratio={16 / 9}>

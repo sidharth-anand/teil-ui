@@ -6,4 +6,5 @@ export const CONTEXT = {
     SWITCH: 'SwitchContext',
     RADIO: 'RadioContext',
     FOCUS: 'FocusContext',
+    COLLAPSIBLE: 'CollapsibleContext',
 };
