@@ -1,0 +1,199 @@
+<script lang="ts">
+  import {slide} from 'svelte/transition';
+
+  import svelteLogo from "./assets/svelte.svg";
+  import Counter from "./lib/Counter.svelte";
+
+  import Accordion from "./lib/components/Accordion";
+  import Checkbox from "./lib/components/Checkbox";
+  import Switch from "./lib/components/Switch";
+  import Radio from "./lib/components/Radio";
+</script>
+
+<main>
+  <div>
+    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+      <img src="/vite.svg" class="logo" alt="Vite Logo" />
+    </a>
+    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
+      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+    </a>
+  </div>
+  <h1>Vite + Svelte</h1>
+
+  <div class="card">
+    <Counter />
+    <Checkbox.Box>
+      <Checkbox.Indicator>
+        <svelte:fragment slot="checked">+</svelte:fragment>
+        <svelte:fragment slot="unchecked">-</svelte:fragment>
+      </Checkbox.Indicator>
+    </Checkbox.Box>
+    <Switch.Track class="switch__track">
+      <Switch.Thumb class="switch__thumb" />
+    </Switch.Track>
+  </div>
+
+  <Radio.Group class="radio__group">
+    <Radio.Button class="radio__button" id="x" value="asd">
+      <Radio.Indicator class="radio__indicator" />
+    </Radio.Button>
+    <Radio.Button class="radio__button" id="y" value="qwe">
+      <Radio.Indicator class="radio__indicator" />
+    </Radio.Button>
+    <label htmlfor="x">ASD</label>
+    <label htmlfor="y">QWE</label>
+  </Radio.Group>
+
+  <Accordion.Container class="accordion__container">
+    <Accordion.Item class="accordion__item" value="item-1">
+      <Accordion.Trigger class="accordion__trigger"
+        >Is it accessible?</Accordion.Trigger
+      >
+      <Accordion.Content class="accordion__content">
+        <div class="accordion__content__text" transition:slide>
+          Yes! You can animate the Accordion with CSS or JavaScript.
+        </div></Accordion.Content
+      >
+    </Accordion.Item>
+
+    <Accordion.Item class="accordion__item" value="item-2">
+      <Accordion.Trigger class="accordion__trigger"
+        >Is it unstyled?</Accordion.Trigger
+      >
+      <Accordion.Content class="accordion__content">
+        <div class="accordion__content__text" transition:slide>
+          Yes! You can animate the Accordion with CSS or JavaScript.
+        </div>
+      </Accordion.Content>
+    </Accordion.Item>
+
+    <Accordion.Item class="accordion__item" value="item-3">
+      <Accordion.Trigger class="accordion__trigger"
+        >Can it be animated?</Accordion.Trigger
+      >
+      <Accordion.Content class="accordion__content">
+        <div class="accordion__content__text" transition:slide>
+          Yes! You can animate the Accordion with CSS or JavaScript.
+        </div>
+      </Accordion.Content>
+    </Accordion.Item>
+  </Accordion.Container>
+
+  <p>
+    Check out <a
+      href="https://github.com/sveltejs/kit#readme"
+      target="_blank"
+      rel="noreferrer">SvelteKit</a
+    >, the official Svelte app framework powered by Vite!
+  </p>
+
+  <p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
+</main>
+
+<style global>
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.svelte:hover {
+    filter: drop-shadow(0 0 2em #ff3e00aa);
+  }
+  .read-the-docs {
+    color: #888;
+  }
+  :global(.switch__track) {
+    width: 40px;
+    height: 20px;
+    border-radius: 15px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  :global(.switch__thumb) {
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    display: block;
+  }
+  :global(.switch__track[checked="true"] .switch__thumb) {
+    background: green;
+    transform: translateX(20px);
+    transform-origin: center;
+  }
+  :global(.radio__button .radio__indicator) {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: white;
+  }
+  :global(.radio__button[checked="true"] .radio__indicator) {
+    background: green;
+  }
+  .accordion__container {
+  border-radius: 6px;
+  width: 300px;
+  background-color: pink;
+  box-shadow: 0 2px 10px black;
+}
+.accordion__item {
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.accordion__item:first-child {
+  margin-top: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.accordion__item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.accordion__item:focus-within {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 2px var(--mauve12);
+}
+
+.accordion__trigger {
+  width: 100%;
+  font-family: inherit;
+  background-color: transparent;
+  padding: 0 20px;
+  height: 45px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 1;
+  color: violet;
+  box-shadow: 0 1px 0 pink;
+  background-color: white;
+}
+
+.accordion__trigger:hover {
+  background-color: plum;
+  color: white;
+}
+
+.accordion__content {
+  overflow: hidden;
+  font-size: 15px;
+  color: plum;
+  background-color: pink;
+}
+.accordion__content__text {
+  padding: 15px 20px;
+}
+
+</style>
