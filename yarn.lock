@@ -12,6 +12,18 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.18.tgz#128b76ecb9be48b60cf5cfc1c63a4f00691a3239"
   integrity sha512-L4jVKS82XVhw2nvzLg/19ClLWg0y27ulRwuP7lcyL6AbUWB5aPglXY3M21mauDQMDfRLs8cQmeT03r/+X3cZYQ==
 
+"@floating-ui/core@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.0.4.tgz#03066eaea8e9b2a2cd3f5aaa60f1e0f580ebe88e"
+  integrity sha512-FPFLbg2b06MIw1dqk2SOEMAMX3xlrreGjcui5OTxfBDtaKTmh0kioOVjT8gcfl58juawL/yF+S+gnq8aUYQx/Q==
+
+"@floating-ui/dom@^1.0.4", "@floating-ui/dom@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.0.9.tgz#3ae1d3e776bc90b9d33b1922f9498fb6f80f3b12"
+  integrity sha512-nF9P6/BoARdt+h+CdUW3td4EUVngeDONCGuzRgnZveRZiJETx63cxhinE0JaPPC2tbcdTY9IGZocS5/7ag3xRg==
+  dependencies:
+    "@floating-ui/core" "^1.0.4"
+
 "@jridgewell/resolve-uri@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.1.0.tgz#2203b118c157721addfe69d47b70465463066d78"
@@ -154,6 +166,11 @@ debug@^4.3.4:
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
+
+dedent-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/dedent-js/-/dedent-js-1.0.1.tgz#bee5fb7c9e727d85dffa24590d10ec1ab1255305"
+  integrity sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==
 
 deepmerge@^4.2.2:
   version "4.2.2"
@@ -426,6 +443,13 @@ kleur@^4.1.5:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
   integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
+lower-case@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-2.0.2.tgz#6fa237c63dbdc4a82ca0fd882e4722dc5e634e28"
+  integrity sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==
+  dependencies:
+    tslib "^2.0.3"
+
 magic-string@^0.25.7:
   version "0.25.9"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.9.tgz#de7f9faf91ef8a1c91d02c2e5314c8277dbcdd1c"
@@ -492,6 +516,14 @@ nanoid@^3.3.4:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
+no-case@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.4.tgz#d361fd5c9800f558551a8369fc0dcd4662b6124d"
+  integrity sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==
+  dependencies:
+    lower-case "^2.0.2"
+    tslib "^2.0.3"
+
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
@@ -510,6 +542,14 @@ parent-module@^1.0.0:
   integrity sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==
   dependencies:
     callsites "^3.0.0"
+
+pascal-case@^3.1.1:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/pascal-case/-/pascal-case-3.1.2.tgz#b48e0ef2b98e205e7c1dae747d0b1508237660eb"
+  integrity sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==
+  dependencies:
+    no-case "^3.0.4"
+    tslib "^2.0.3"
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
@@ -655,6 +695,14 @@ svelte-check@^2.9.2:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-floating-ui@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/svelte-floating-ui/-/svelte-floating-ui-1.1.6.tgz#1dd8e0684addc59f8ec41e50dfd95445123d7ee1"
+  integrity sha512-lJfrc34+xSxKs+5AtnYj32uRIjaxGjhT92cOiNL3zEqaJ755JxUqXCf6tk+9G1wkCuqkK9A8tscVBsyY3iLmVQ==
+  dependencies:
+    "@floating-ui/dom" "^1.0.4"
+    svelte2tsx "^0.5.11"
+
 svelte-hmr@^0.15.1:
   version "0.15.1"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.15.1.tgz#d11d878a0bbb12ec1cba030f580cd2049f4ec86b"
@@ -672,6 +720,14 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.10.7:
     sorcery "^0.10.0"
     strip-indent "^3.0.0"
 
+svelte2tsx@^0.5.11:
+  version "0.5.22"
+  resolved "https://registry.yarnpkg.com/svelte2tsx/-/svelte2tsx-0.5.22.tgz#3d3610691b062cd4679ce60ebaef53b896aa51ba"
+  integrity sha512-OytIql7Bv53oFuL0jjsnp/gNvR4ngAUdAjswgibmIQT2Lj2OIQYn2J3gKqRd+wSj/n3M/wrz4zJpudQRSfncZw==
+  dependencies:
+    dedent-js "^1.0.1"
+    pascal-case "^3.1.1"
+
 svelte@^3.52.0:
   version "3.53.1"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.53.1.tgz#db9d7df7a8f570e8e22547444c149208b1914442"
@@ -684,7 +740,7 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-tslib@^2.4.0:
+tslib@^2.0.3, tslib@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
   integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==

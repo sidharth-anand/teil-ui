@@ -7,4 +7,5 @@ export const CONTEXT = {
     RADIO: 'RadioContext',
     FOCUS: 'FocusContext',
     COLLAPSIBLE: 'CollapsibleContext',
+    POPPER: 'PopperContext',
 };

@@ -7,10 +7,11 @@
   import Accordion from "./lib/components/Accordion";
   import AspectRatio from "./lib/components/AspectRatio";
   import Checkbox from "./lib/components/Checkbox";
-  import Collapsible from './lib/components/Collapsible';
+  import Collapsible from "./lib/components/Collapsible";
   import Switch from "./lib/components/Switch";
   import Radio from "./lib/components/Radio";
-  import Trigger from "./lib/components/Accordion/Trigger.svelte";
+  import Popper from "./lib/components/Popper";
+  import Arrow from "./lib/components/Popper/Arrow.svelte";
 </script>
 
 <main>
@@ -84,14 +85,14 @@
   </Accordion.Container>
 
   <Collapsible.Container>
-      <Collapsible.Trigger>+</Collapsible.Trigger>
-      <Collapsible.Content>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-        </ul>
-      </Collapsible.Content>
+    <Collapsible.Trigger>+</Collapsible.Trigger>
+    <Collapsible.Content>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </Collapsible.Content>
   </Collapsible.Container>
 
   <div class="img-container">
@@ -102,6 +103,16 @@
       />
     </AspectRatio>
   </div>
+
+  <Popper.Container>
+    <Popper.Anchor class="popper__anchor">
+      <button>Click me</button>
+    </Popper.Anchor>
+    <Popper.Content class="popper__content" side="right" alignment="center">
+      <div>Popper content</div>
+      <Popper.Arrow class="popper__arrow" height={20} width={40} />
+    </Popper.Content>
+  </Popper.Container>
 
   <p>
     Check out <a
@@ -226,5 +237,11 @@
   }
   .accordion__content__text {
     padding: 15px 20px;
+  }
+  .popper__anchor button {
+    width: 100%;
+  }
+  .popper__arrow {
+    fill: green;
   }
 </style>
