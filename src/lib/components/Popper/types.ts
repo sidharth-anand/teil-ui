@@ -1,6 +1,4 @@
-import type { Writable } from 'svelte/store';
-
-import type { ReferenceAction } from "svelte-floating-ui";
+import type { ReferenceAction, UpdatePosition, ComputeConfig } from "svelte-floating-ui";
 
 export type Side = 'top' | 'right' | 'bottom' | 'left';
 export type Alignment = 'start' | 'center' | 'end';
@@ -22,5 +20,4 @@ export type PopperStoreType = {
     anchor?: Measurable;
     side?: Side;
     reference?: ReferenceAction;
-    arrowStore?: Writable<HTMLElement | null>;
 };

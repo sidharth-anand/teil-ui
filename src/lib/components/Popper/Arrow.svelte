@@ -50,14 +50,7 @@
   }
 
   const popperStore = getContext<Writable<PopperStoreType>>(CONTEXT.POPPER);
-
-  $: arrowStore = $popperStore.arrowStore;
-
-  $: {
-    popperStore.update((state) => ({
-      ...state,
-    }));
-  }
+  const arrowStore = getContext<Writable<HTMLElement>>(CONTEXT.POPPERARROW);
 </script>
 
 <span

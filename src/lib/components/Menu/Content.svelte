@@ -7,7 +7,6 @@
   import { hasContext, getContext, setContext } from "svelte";
 
   import { hideOthers } from "aria-hidden";
-  import { portal } from "svelte-portal";
 
   import { CONTEXT } from "../../constants";
   import {

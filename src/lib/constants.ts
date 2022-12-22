@@ -8,6 +8,7 @@ export const CONTEXT = {
     FOCUS: 'FocusContext',
     COLLAPSIBLE: 'CollapsibleContext',
     POPPER: 'PopperContext',
+    POPPERARROW: 'PopperArrowContext',
     MENU: 'MenuContext',
     SUBMENU: 'SubmenuContext',
     MENUINDICATOR: 'MenuIndicatorContext',

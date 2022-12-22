@@ -1,31 +1,29 @@
 <script lang="ts">
+  import type { Writable } from "svelte/store";
+
+  import type { ComputeConfig } from "svelte-floating-ui";
+
   import type {
     PopperStoreType,
     Side,
     Alignment,
     Boundary,
     Sticky,
-    Position,
   } from "./types";
-  import type { Writable } from "svelte/store";
 
-  import { hasContext, getContext } from "svelte";
+  import { hasContext, getContext, setContext } from "svelte";
   import { writable } from "svelte/store";
 
   import { offset, shift, limitShift, hide, flip } from "@floating-ui/dom";
-  import { arrow, createFloatingActions } from "svelte-floating-ui";
+  import { createFloatingActions } from "svelte-floating-ui";
 
   import { CONTEXT } from "../../constants";
-
-  import { transformOrigin } from "./middleware";
 
   export let side: Side = "bottom";
   export let alignment: Alignment = "center";
 
   export let sideOffset: number = 0;
   export let alignmentOffset: number = 0;
-
-  export let arrowPadding: number = 0;
 
   export let boundaries: Boundary | Array<Boundary> = [];
   export let boundaryPadding: number | Partial<Record<Side, number>> = 0;
@@ -60,9 +58,10 @@
   popperStore.update((state) => ({
     ...state,
     side,
-    arrowStore,
     reference: floatingRef,
   }));
+
+  setContext(CONTEXT.POPPERARROW, arrowStore);
 </script>
 
 {#if $popperStore.initialized}
@@ -72,9 +71,10 @@
       strategy: "fixed",
       //@ts-ignore
       placement: side + (alignment !== "center" ? "-" + alignment : ""),
+      autoUpdate: true,
       middleware: [
         offset({
-          mainAxis: sideOffset + $arrowStore?.offsetHeight ?? 0,
+          mainAxis: sideOffset + ($arrowStore?.offsetHeight ?? 0),
           alignmentAxis: alignmentOffset,
         }),
         avoidCollisions
@@ -85,14 +85,7 @@
               ...overflowDetection,
             })
           : undefined,
-        $arrowStore
-          ? arrow({ element: arrowStore, padding: arrowPadding })
-          : undefined,
         avoidCollisions ? flip({ ...overflowDetection }) : undefined,
-        transformOrigin({
-          width: $arrowStore?.offsetWidth ?? 0,
-          height: $arrowStore?.offsetHeight ?? 0,
-        }),
         hideWhenDetached ? hide({ strategy: "referenceHidden" }) : undefined,
       ].filter((m) => m !== undefined),
     }}

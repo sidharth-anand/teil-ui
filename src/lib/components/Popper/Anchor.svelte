@@ -27,12 +27,21 @@
 </script>
 
 {#if $popperStore.reference}
-  <div
-    class="{$$props.class || ''} {virtualElement !== undefined
-      ? 'popper-virtual-anchor'
-      : ''}"
-    use:$popperStore.reference
-  >
+  {#if virtualElement === undefined}
+    <div class={$$props.class || ""} use:$popperStore.reference>
+      <slot />
+    </div>
+  {:else}
     <slot />
-  </div>
+    <div
+      class="{$$props.class || ''} popper-virtual-element"
+      style="
+        position: fixed; 
+        top: {virtualElement.getBoundingClientRect().y}px;
+        left: {virtualElement.getBoundingClientRect().x}px;
+        width: 0;
+        height: 0;"
+      use:$popperStore.reference
+    />
+  {/if}
 {/if}

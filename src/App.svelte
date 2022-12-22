@@ -12,6 +12,7 @@
   import Radio from "./lib/components/Radio";
   import Popper from "./lib/components/Popper";
   import Menu from "./lib/components/Menu";
+  import ContextMenu from "./lib/components/ContextMenu";
 </script>
 
 <main>
@@ -114,7 +115,7 @@
     </Popper.Content>
   </Popper.Container>
 
-  <Menu.Container open>
+  <Menu.Container>
     <Menu.Anchor class="menu__anchor"><button>ASD</button></Menu.Anchor>
     <Menu.Content class="menu__content">
       <Popper.Arrow class="popper__arrow" height={10} width={20} />
@@ -154,6 +155,23 @@
       </Menu.RadioGroup>
     </Menu.Content>
   </Menu.Container>
+
+  <ContextMenu.Container>
+    <ContextMenu.Trigger class="contextmenu__area">
+      Right click for context menu
+    </ContextMenu.Trigger>
+    <ContextMenu.Content>
+      <ContextMenu.Item>
+        <a>Item 1</a>
+      </ContextMenu.Item>
+      <ContextMenu.Item>
+        <a>Item 2</a>
+      </ContextMenu.Item>
+      <ContextMenu.Item>
+        <a>Item 3</a>
+      </ContextMenu.Item>
+    </ContextMenu.Content>
+  </ContextMenu.Container>
 
   <p>
     Check out <a
@@ -287,5 +305,11 @@
   }
   .menu__anchor {
     margin-bottom: 200px;
+  }
+  .contextmenu__area {
+    display: block;
+    border: 1px dashed white;
+    text-align: center;
+    padding: 25px 25px;
   }
 </style>
