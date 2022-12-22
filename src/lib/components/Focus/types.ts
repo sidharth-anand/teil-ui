@@ -9,13 +9,21 @@ export type FocusItemState = {
     focusable: boolean;
     focused: boolean;
     active: boolean;
+
+    node: HTMLElement;
 }
 
 export type FocusStoreType = {
     orientation: Orientation;
     direction: Direction;
     loop: boolean;
+
     forceFocusAll: boolean;
+    forceFocusContainer: boolean;
+    forceFocusFirst: boolean;
+    
+    focusContainerOnMount: boolean;
+    blurContainerOnLeave: boolean;
 
     currentStopIndex?: number;
     tabbingOut: boolean;
@@ -29,9 +37,23 @@ export type FocusStoreType = {
     unregister: (index: number) => void;
 };
 
+export type FocusContextOptions = {
+    orientation: Orientation;
+    direction: Direction;
+    loop: boolean;
+
+    forceFocusAll?: boolean;
+    forceFocusContainer?: boolean;
+    forceFocusFirst?: boolean;
+    
+    focusContainerOnMount?: boolean;
+    blurContainerOnLeave?: boolean;
+};
+
 export type FocusItemActionInput = {
     focusable?: boolean;
+    focused?: boolean;
     active?: boolean;
-    
+
     store: Writable<FocusStoreType>;
 }

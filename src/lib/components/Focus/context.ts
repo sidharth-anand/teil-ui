@@ -1,7 +1,9 @@
-import { get, writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 
-import type { Direction, FocusIntent, FocusStoreType, Orientation } from "./types";
+import type { FocusContextOptions, FocusIntent, FocusStoreType } from "./types";
+
+import { get, writable } from "svelte/store";
+
 
 const register = (items: Array<number>): number => {
     return items.push(items.length + 1);
@@ -21,14 +23,12 @@ const shiftFocus = (items: Array<number>, intent: FocusIntent, loop: boolean, fo
         } else {
             focusStore.update((state) => ({
                 ...state,
-                currentStopIndex: items[0],
+                currentStopIndex: -1,
             }));
         }
     }
 
-    const focusable = Array.from(get(focusStore).state.entries())
-        .filter(([, item]) => item.focusable)
-        .map(([index]) => index);
+    const focusable = items.filter(item => get(focusStore).state.get(item).focusable);
 
     const currentIndex = focusable.findIndex(
         (index) => index === get(focusStore).currentStopIndex
@@ -60,24 +60,28 @@ const shiftFocus = (items: Array<number>, intent: FocusIntent, loop: boolean, fo
     return focusable[nextIndex];
 };
 
-export function createFocusContext(orientation: Orientation, direction: Direction, loop: boolean, forceFocusAll: boolean = false) {
-    const items: Array<number> = [];
-
+export function createFocusContext(options: FocusContextOptions) {
     const focusStore: Writable<FocusStoreType> = writable({
-        orientation,
-        direction,
-        loop,
-        forceFocusAll,
+        orientation: options.orientation,
+        direction: options.direction,
+        loop: options.loop,
+
+        forceFocusAll: options.forceFocusAll ?? false,
+        forceFocusContainer: options.forceFocusContainer ?? false,
+        forceFocusFirst: options.forceFocusFirst ?? false,
+
+        focusContainerOnMount: options.focusContainerOnMount ?? false,
+        blurContainerOnLeave: options.blurContainerOnLeave ?? false,
 
         tabbingOut: false,
 
-        items,
+        items: new Array(),
         state: new Map(),
 
-        shiftFocus: (intent: FocusIntent) => shiftFocus(items, intent, loop, focusStore),
+        shiftFocus: function (intent: FocusIntent) { return shiftFocus(this.items, intent, options.loop, focusStore) },
 
-        register: () => register(items),
-        unregister: (index: number) => unregister(items, index),
+        register: function () { return register(this.items) },
+        unregister: function (index: number) { return unregister(this.items, index) },
     });
 
     return focusStore;

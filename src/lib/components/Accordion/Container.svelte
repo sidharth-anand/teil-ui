@@ -22,7 +22,12 @@
     type,
     disabled,
   });
-  const focusStore = createFocusContext("vertical", "rtl", true, true);
+  const focusStore = createFocusContext({
+    orientation: "vertical",
+    direction: "ltr",
+    loop: true,
+    forceFocusAll: true,
+  });
 
   setContext(CONTEXT.ACCORDION, accordionStore);
   setContext(CONTEXT.FOCUS, focusStore);

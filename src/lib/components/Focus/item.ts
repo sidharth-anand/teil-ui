@@ -1,6 +1,6 @@
 import { get } from "svelte/store";
 
-import type { FocusIntent, FocusItemActionInput, Direction, Orientation } from "./types";
+import type { FocusIntent, FocusItemActionInput, FocusItemState, Direction, Orientation } from "./types";
 
 const KeyFocusMap: Record<string, FocusIntent> = {
     ArrowLeft: "previous",
@@ -43,6 +43,12 @@ function getFocusIntent(event: KeyboardEvent, direction: Direction, orientation:
     }
 }
 
+function sortItems(indices: Array<number>, states: Map<number, FocusItemState>): Array<number> {
+    return indices.sort((a, b) =>
+        states.get(a).node.compareDocumentPosition(states.get(b).node) & Node.DOCUMENT_POSITION_PRECEDING
+    );
+}
+
 export function FocusItem(node: HTMLElement, input: FocusItemActionInput) {
     const store = input.store;
 
@@ -52,7 +58,13 @@ export function FocusItem(node: HTMLElement, input: FocusItemActionInput) {
         focusable: input.focusable ?? true,
         focused: false,
         active: input.active ?? false,
+        node
     });
+
+    store.update(state => ({
+        ...state,
+        items: sortItems(state.items, state.state)
+    }));
 
     node.addEventListener('mousedown', (event) => {
         if (!get(store).state.get(index).focusable) {
@@ -89,6 +101,8 @@ export function FocusItem(node: HTMLElement, input: FocusItemActionInput) {
     store.subscribe(state => {
         if (!state.forceFocusAll) {
             node.tabIndex = state.currentStopIndex === index ? 0 : -1;
+        } else if (state.forceFocusContainer && state.forceFocusAll) {
+            node.tabIndex = 0;
         }
 
         if (state.currentStopIndex === index) {
@@ -100,10 +114,18 @@ export function FocusItem(node: HTMLElement, input: FocusItemActionInput) {
 
     return {
         update: (input: FocusItemActionInput) => {
+            if (input.focused && input.focused !== get(store).state.get(index).focused) {
+                store.update(state => ({
+                    ...state,
+                    currentStopIndex: index
+                }));
+            }
+
             get(store).state.set(index, {
                 focusable: input.focusable ?? true,
-                focused: false,
+                focused: input.focused ?? false,
                 active: input.active ?? false,
+                node,
             });
         },
         destroy: () => {

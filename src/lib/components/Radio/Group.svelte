@@ -23,7 +23,7 @@
     disabled,
   });
 
-  const focusStore = createFocusContext(orientation, direction, loop);
+  const focusStore = createFocusContext({ orientation, direction, loop });
 
   setContext(CONTEXT.RADIO, radioStore);
   setContext(CONTEXT.FOCUS, focusStore);
