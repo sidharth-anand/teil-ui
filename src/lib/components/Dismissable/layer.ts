@@ -1,15 +1,6 @@
 import type { DismissableLayerActionOptions, DismissableStoreType } from "./types";
 
-import { createEventDispatcher } from "svelte";
 import { get } from 'svelte/store';
-
-type DismissableLayerEventTypes = {
-    escape: KeyboardEvent;
-    pointerDownOutside: PointerEvent;
-    focusOutside: FocusEvent;
-    interactOutside: PointerEvent | FocusEvent;
-    dismiss: void;
-};
 
 let DocumentPointerEvents: string = "";
 
@@ -20,8 +11,6 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
     const store = options.store;
 
     let disableOutsidePointerEvents = options.disableOutsidePointerEvents ?? false;
-
-    const dispatch = createEventDispatcher<DismissableLayerEventTypes>();
 
     let pointerInside = false;
     let focusInside = false;
@@ -75,22 +64,21 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
             return;
         }
 
+        let dispatchedEvent: CustomEvent<FocusEvent | PointerEvent>
+
         if (event instanceof PointerEvent) {
-            dispatch("pointerDownOutside", event, {
-                cancelable: true,
-            });
+            dispatchedEvent = new CustomEvent("pointerDownOutside", { bubbles: false, cancelable: true, detail: event })
+            node.dispatchEvent(dispatchedEvent);
         } else {
-            dispatch("focusOutside", event, {
-                cancelable: true,
-            });
+            dispatchedEvent = new CustomEvent("focusOutside", { bubbles: false, cancelable: true, detail: event });
+            event.target.dispatchEvent(dispatchedEvent);
         }
 
-        dispatch("interactOutside", event, {
-            cancelable: true,
-        });
+        node.dispatchEvent(new CustomEvent("interactOutside", { cancelable: true, detail: event }));
 
-        if (!event.defaultPrevented) {
-            dispatch("dismiss");
+
+        if (!dispatchedEvent.defaultPrevented) {
+            node.dispatchEvent(new CustomEvent("dismiss", { cancelable: true }));
         }
     }
 
@@ -112,16 +100,15 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
     function focusOutside(event: FocusEvent) {
         if (event.target && !focusInside) {
             outsideEvent(event);
-            focusInside = false;
         }
     }
 
     function keypress(event: KeyboardEvent) {
         if (event.key === "Escape" && highestLayer) {
-            dispatch("escape", event);
+            node.dispatchEvent(new CustomEvent("escape", { detail: event }));
 
             if (!event.defaultPrevented) {
-                dispatch("dismiss");
+                node.dispatchEvent(new CustomEvent("dismiss"));
             }
         }
     }
@@ -152,14 +139,26 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
 
         document.removeEventListener('pointerdown', pointerDown);
         document.removeEventListener('focusin', focusOutside);
-        document.removeEventListener('keypress', keypress);
+        document.removeEventListener('keydown', keypress);
     }
 
     store.subscribe(state => init(state));
 
+    changePointerStyle();
+
     document.addEventListener('pointerdown', pointerDown);
     document.addEventListener('focusin', focusOutside);
-    document.addEventListener('keypress', keypress);
+    document.addEventListener('keydown', keypress);
+
+    node.addEventListener('pointerdown', () => {
+        pointerInside = true;
+    }, { capture: true });
+    node.addEventListener('focus', () => {
+        focusInside = true;
+    }, { capture: true });
+    node.addEventListener('blur', () => {
+        focusInside = false;
+    }, { capture: true });
 
     return {
         update,
