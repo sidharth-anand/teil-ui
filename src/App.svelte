@@ -11,7 +11,7 @@
   import Switch from "./lib/components/Switch";
   import Radio from "./lib/components/Radio";
   import Popper from "./lib/components/Popper";
-  import Arrow from "./lib/components/Popper/Arrow.svelte";
+  import Menu from "./lib/components/Menu";
 </script>
 
 <main>
@@ -113,6 +113,47 @@
       <Popper.Arrow class="popper__arrow" height={20} width={40} />
     </Popper.Content>
   </Popper.Container>
+
+  <Menu.Container open>
+    <Menu.Anchor class="menu__anchor"><button>ASD</button></Menu.Anchor>
+    <Menu.Content class="menu__content">
+      <Popper.Arrow class="popper__arrow" height={10} width={20} />
+      <Menu.Group>
+        <Menu.Item><a>Item 1</a></Menu.Item>
+        <Menu.Item><a>Item 2</a></Menu.Item>
+        <Menu.Item><a>Item 3</a></Menu.Item>
+        <Menu.Sub>
+          <a slot="item">Submenu Item -&lt;</a>
+          <Menu.Content slot="menu">
+            <Popper.Arrow class="popper__arrow" height={10} width={20} />
+            <Menu.Group>
+              <Menu.Item><a>Submenu Item 1</a></Menu.Item>
+              <Menu.Item><a>Submenu Item 2</a></Menu.Item>
+              <Menu.Item><a>Submenu Item 3</a></Menu.Item>
+            </Menu.Group>
+          </Menu.Content>
+        </Menu.Sub>
+        <Menu.ItemCheck>
+          Check Item
+          <Menu.ItemIndicator>
+            <svelte:fragment slot="checked">+</svelte:fragment>
+          </Menu.ItemIndicator>
+        </Menu.ItemCheck>
+      </Menu.Group>
+      <Menu.Label>Radio Group</Menu.Label>
+      <Menu.RadioGroup>
+        <Menu.ItemRadio value="a"><Menu.ItemIndicator>
+          <svelte:fragment slot="checked">+</svelte:fragment>
+        </Menu.ItemIndicator> Option A</Menu.ItemRadio>
+        <Menu.ItemRadio value="b"><Menu.ItemIndicator>
+          <svelte:fragment slot="checked">+</svelte:fragment>
+        </Menu.ItemIndicator> Option B</Menu.ItemRadio>
+        <Menu.ItemRadio value="c"><Menu.ItemIndicator>
+          <svelte:fragment slot="checked">+</svelte:fragment>
+        </Menu.ItemIndicator> Option C</Menu.ItemRadio>
+      </Menu.RadioGroup>
+    </Menu.Content>
+  </Menu.Container>
 
   <p>
     Check out <a
@@ -243,5 +284,8 @@
   }
   .popper__arrow {
     fill: green;
+  }
+  .menu__anchor {
+    margin-bottom: 200px;
   }
 </style>

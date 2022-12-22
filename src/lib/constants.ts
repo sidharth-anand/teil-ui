@@ -9,5 +9,7 @@ export const CONTEXT = {
     COLLAPSIBLE: 'CollapsibleContext',
     POPPER: 'PopperContext',
     MENU: 'MenuContext',
+    SUBMENU: 'SubmenuContext',
+    MENUINDICATOR: 'MenuIndicatorContext',
     DISMISSABLE: 'DismissableContext'
 };

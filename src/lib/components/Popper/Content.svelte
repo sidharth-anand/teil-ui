@@ -85,7 +85,9 @@
               ...overflowDetection,
             })
           : undefined,
-        arrow({ element: arrowStore, padding: arrowPadding }),
+        $arrowStore
+          ? arrow({ element: arrowStore, padding: arrowPadding })
+          : undefined,
         avoidCollisions ? flip({ ...overflowDetection }) : undefined,
         transformOrigin({
           width: $arrowStore?.offsetWidth ?? 0,
