@@ -13,5 +13,6 @@ export const CONTEXT = {
     SUBMENU: 'SubmenuContext',
     MENUINDICATOR: 'MenuIndicatorContext',
     DIALOG: 'DialogContext',
-    DISMISSABLE: 'DismissableContext'
+    DISMISSABLE: 'DismissableContext',
+    DROPDOWNMENU: 'DropdownMenuContext',
 };

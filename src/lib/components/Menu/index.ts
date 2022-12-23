@@ -1,3 +1,5 @@
+import Popper from '../Popper';
+
 import Anchor from './Anchor.svelte';
 import Container from './Container.svelte';
 import Content from './Content.svelte';
@@ -10,4 +12,4 @@ import Label from './Label.svelte';
 import RadioGroup from './RadioGroup.svelte';
 import Sub from './Sub.svelte';
 
-export default { Anchor, Container, Content, Group, Item, ItemCheck, ItemIndicator, ItemRadio, Label, RadioGroup, Sub };
+export default { Arrow: Popper.Arrow, Anchor, Container, Content, Group, Item, ItemCheck, ItemIndicator, ItemRadio, Label, RadioGroup, Sub };

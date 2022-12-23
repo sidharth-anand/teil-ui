@@ -14,6 +14,7 @@
   import Menu from "./lib/components/Menu";
   import ContextMenu from "./lib/components/ContextMenu";
   import Dialog from "./lib/components/Dialog";
+  import DropdownMenu from "./lib/components/DropdownMenu";
 </script>
 
 <main>
@@ -194,6 +195,23 @@
       <Dialog.Close>Close</Dialog.Close>
     </Dialog.Content>
   </Dialog.Container>
+
+  <DropdownMenu.Container>
+    <DropdownMenu.Trigger>
+      Dropdown
+    </DropdownMenu.Trigger>
+    <DropdownMenu.Content>
+      <DropdownMenu.Item>
+        <a>Item 1</a>
+      </DropdownMenu.Item>
+      <DropdownMenu.Item>
+        <a>Item 2</a>
+      </DropdownMenu.Item>
+      <DropdownMenu.Item>
+        <a>Item 3</a>
+      </DropdownMenu.Item>
+    </DropdownMenu.Content>
+  </DropdownMenu.Container>
 
   <p>
     Check out <a

@@ -2,6 +2,8 @@
   import type { Writable } from "svelte/store";
 
   import type { FocusIntent } from "../Focus/types";
+  import type { Side, Alignment } from "../Popper/types";
+
   import type { MenuStoreType, SubmenuStoreType } from "./types";
 
   import { hasContext, getContext, setContext } from "svelte";
@@ -21,6 +23,12 @@
   import Dismissable from "../Dismissable";
   import Focus from "../Focus";
   import Popper from "../Popper";
+
+  export let side: Side | null = null;
+  export let alignment: Alignment | null = null;
+
+  export let id: string | null = null;
+  export let labelled: string | null = null;
 
   if (!hasContext(CONTEXT.MENU)) {
     throw new Error("Menu.Anchor must be used inside Menu.Container");
@@ -154,7 +162,7 @@
       focusStore.update((state) => ({
         ...state,
         currentStopIndex: undefined,
-        focusContainerOnMount: false
+        focusContainerOnMount: false,
       }));
 
       $submenuStore.reset?.();
@@ -191,19 +199,29 @@
 </script>
 
 <Popper.Content
-  side={$menuStore.submenu
+  side={side !== null
+    ? side
+    : $menuStore.submenu
     ? $menuStore.direction === "ltr"
       ? "right"
       : "left"
     : "bottom"}
-  alignment="start"
+  alignment={alignment !== null ? alignment : "start"}
 >
   {#if $menuStore.open}
     <div
       bind:this={element}
-      id={$menuStore.submenu ? $submenuStore.contentID : null}
+      id={id !== null
+        ? id
+        : $menuStore.submenu
+        ? $submenuStore.contentID
+        : null}
       class={$$props.class}
-      aria-labelledby={$menuStore.submenu ? $submenuStore.triggerID : null}
+      aria-labelledby={labelled !== null
+        ? labelled
+        : $menuStore.submenu
+        ? $submenuStore.triggerID
+        : null}
       data-menu-content
       on:focusOutside={focusOutside}
       on:escape={escape}
