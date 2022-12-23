@@ -12,5 +12,6 @@ export const CONTEXT = {
     MENU: 'MenuContext',
     SUBMENU: 'SubmenuContext',
     MENUINDICATOR: 'MenuIndicatorContext',
+    DIALOG: 'DialogContext',
     DISMISSABLE: 'DismissableContext'
 };

@@ -13,6 +13,7 @@
   import Popper from "./lib/components/Popper";
   import Menu from "./lib/components/Menu";
   import ContextMenu from "./lib/components/ContextMenu";
+  import Dialog from "./lib/components/Dialog";
 </script>
 
 <main>
@@ -143,15 +144,21 @@
       </Menu.Group>
       <Menu.Label>Radio Group</Menu.Label>
       <Menu.RadioGroup>
-        <Menu.ItemRadio value="a"><Menu.ItemIndicator>
-          <svelte:fragment slot="checked">+</svelte:fragment>
-        </Menu.ItemIndicator> Option A</Menu.ItemRadio>
-        <Menu.ItemRadio value="b"><Menu.ItemIndicator>
-          <svelte:fragment slot="checked">+</svelte:fragment>
-        </Menu.ItemIndicator> Option B</Menu.ItemRadio>
-        <Menu.ItemRadio value="c"><Menu.ItemIndicator>
-          <svelte:fragment slot="checked">+</svelte:fragment>
-        </Menu.ItemIndicator> Option C</Menu.ItemRadio>
+        <Menu.ItemRadio value="a"
+          ><Menu.ItemIndicator>
+            <svelte:fragment slot="checked">+</svelte:fragment>
+          </Menu.ItemIndicator> Option A</Menu.ItemRadio
+        >
+        <Menu.ItemRadio value="b"
+          ><Menu.ItemIndicator>
+            <svelte:fragment slot="checked">+</svelte:fragment>
+          </Menu.ItemIndicator> Option B</Menu.ItemRadio
+        >
+        <Menu.ItemRadio value="c"
+          ><Menu.ItemIndicator>
+            <svelte:fragment slot="checked">+</svelte:fragment>
+          </Menu.ItemIndicator> Option C</Menu.ItemRadio
+        >
       </Menu.RadioGroup>
     </Menu.Content>
   </Menu.Container>
@@ -172,6 +179,21 @@
       </ContextMenu.Item>
     </ContextMenu.Content>
   </ContextMenu.Container>
+
+  <Dialog.Container modal>
+    <Dialog.Trigger>Open Dialog</Dialog.Trigger>
+    <Dialog.Overlay class="dialog__overlay" />
+    <Dialog.Content class="dialog__content">
+      <Dialog.Title>Dialog Title</Dialog.Title>
+      <Dialog.Description>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+        condimentum, nisl nec tincidunt lacinia, tortor nisl aliquam tortor,
+        eget aliquam nisl nunc vel lorem. Sed euismod, nisl non aliquam
+        tincidunt, nisl nunc aliquam tortor, eget aliquam nisl nunc vel lorem.
+      </Dialog.Description>
+      <Dialog.Close>Close</Dialog.Close>
+    </Dialog.Content>
+  </Dialog.Container>
 
   <p>
     Check out <a
@@ -311,5 +333,28 @@
     border: 1px dashed white;
     text-align: center;
     padding: 25px 25px;
+  }
+
+  .dialog__overlay {
+    background-color: darkgray;
+    opacity: 0.3;
+    position: fixed;
+    inset: 0;
+  }
+
+  .dialog__content {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+      hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 450px;
+    max-height: 85vh;
+    padding: 25px;
+    color: black;
   }
 </style>

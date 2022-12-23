@@ -62,6 +62,8 @@
   }));
 
   setContext(CONTEXT.POPPERARROW, arrowStore);
+
+  //TODO: Fix offset when arrow is present
 </script>
 
 {#if $popperStore.initialized}
