@@ -16,7 +16,7 @@
   import Dialog from "./lib/components/Dialog";
   import DropdownMenu from "./lib/components/DropdownMenu";
   import HoverCard from "./lib/components/HoverCard";
-  import Close from "./lib/components/Dialog/Close.svelte";
+  import Progress from "./lib/components/Progress";
 </script>
 
 <main>
@@ -218,6 +218,10 @@
     <HoverCard.Content>Preview Content</HoverCard.Content>
   </HoverCard.Container>
 
+  <Progress.Track class="progress__track" value={60} max={100}>
+    <Progress.Bar class="progress__bar" />
+  </Progress.Track>
+
   <p>
     Check out <a
       href="https://github.com/sveltejs/kit#readme"
@@ -379,5 +383,22 @@
     max-height: 85vh;
     padding: 25px;
     color: black;
+  }
+  .progress__track {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.44);
+    border-radius: 99999px;
+    width: 300px;
+    height: 25px;
+    transform: translateZ(0);
+  }
+
+  .progress__bar {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    transition: transform 660ms cubic-bezier(0.65, 0, 0.35, 1);
+    transform: translateX(-40%);
   }
 </style>

@@ -16,4 +16,5 @@ export const CONTEXT = {
     DISMISSABLE: 'DismissableContext',
     DROPDOWNMENU: 'DropdownMenuContext',
     HOVERCARD: 'HoverCardContext',
+    PRORGRESS: 'ProgressContext',
 };
