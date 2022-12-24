@@ -28,7 +28,15 @@
 
 {#if $popperStore.reference}
   {#if virtualElement === undefined}
-    <div class={$$props.class || ""} use:$popperStore.reference>
+    <div
+      class={$$props.class || ""}
+      on:pointerenter
+      on:pointerleave
+      on:focus
+      on:blur
+      on:touchstart
+      use:$popperStore.reference
+    >
       <slot />
     </div>
   {:else}
@@ -41,6 +49,11 @@
         left: {virtualElement.getBoundingClientRect().x}px;
         width: 0;
         height: 0;"
+      on:pointerenter
+      on:pointerleave
+      on:focus
+      on:blur
+      on:touchstart
       use:$popperStore.reference
     />
   {/if}

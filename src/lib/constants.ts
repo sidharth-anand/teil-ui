@@ -15,4 +15,5 @@ export const CONTEXT = {
     DIALOG: 'DialogContext',
     DISMISSABLE: 'DismissableContext',
     DROPDOWNMENU: 'DropdownMenuContext',
+    HOVERCARD: 'HoverCardContext',
 };

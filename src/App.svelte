@@ -15,6 +15,8 @@
   import ContextMenu from "./lib/components/ContextMenu";
   import Dialog from "./lib/components/Dialog";
   import DropdownMenu from "./lib/components/DropdownMenu";
+  import HoverCard from "./lib/components/HoverCard";
+  import Close from "./lib/components/Dialog/Close.svelte";
 </script>
 
 <main>
@@ -197,9 +199,7 @@
   </Dialog.Container>
 
   <DropdownMenu.Container>
-    <DropdownMenu.Trigger>
-      Dropdown
-    </DropdownMenu.Trigger>
+    <DropdownMenu.Trigger>Dropdown</DropdownMenu.Trigger>
     <DropdownMenu.Content>
       <DropdownMenu.Item>
         <a>Item 1</a>
@@ -212,6 +212,11 @@
       </DropdownMenu.Item>
     </DropdownMenu.Content>
   </DropdownMenu.Container>
+
+  <HoverCard.Container>
+    <HoverCard.Trigger>+</HoverCard.Trigger>
+    <HoverCard.Content>Preview Content</HoverCard.Content>
+  </HoverCard.Container>
 
   <p>
     Check out <a
