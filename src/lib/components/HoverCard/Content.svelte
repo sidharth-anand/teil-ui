@@ -69,16 +69,22 @@
   }
 
   function disableTabbing() {
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_ELEMENT, {
-      acceptNode: (node: any) => {
-        return node.tabIndex >= 0
-          ? NodeFilter.FILTER_ACCEPT
-          : NodeFilter.FILTER_SKIP;
-      },
-    });
+    if (element) {
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_ELEMENT,
+        {
+          acceptNode: (node: any) => {
+            return node.tabIndex >= 0
+              ? NodeFilter.FILTER_ACCEPT
+              : NodeFilter.FILTER_SKIP;
+          },
+        }
+      );
 
-    while (walker.nextNode()) {
-      (walker.currentNode as HTMLElement).setAttribute("tabindex", "-1");
+      while (walker.nextNode()) {
+        (walker.currentNode as HTMLElement).setAttribute("tabindex", "-1");
+      }
     }
   }
 
@@ -105,6 +111,12 @@
       }
 
       body.style.userSelect = "none";
+    }
+  }
+
+  $: {
+    if ($hoverCardStore.open && element) {
+      disableTabbing();
     }
   }
 </script>

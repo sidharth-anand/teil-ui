@@ -2,7 +2,6 @@
   import { slide } from "svelte/transition";
 
   import svelteLogo from "./assets/svelte.svg";
-  import Counter from "./lib/Counter.svelte";
 
   import Accordion from "./lib/components/Accordion";
   import AspectRatio from "./lib/components/AspectRatio";
@@ -17,6 +16,8 @@
   import DropdownMenu from "./lib/components/DropdownMenu";
   import HoverCard from "./lib/components/HoverCard";
   import Progress from "./lib/components/Progress";
+  import Scroll from "./lib/components/Scroll";
+  import Thumb from "./lib/components/Switch/Thumb.svelte";
 </script>
 
 <main>
@@ -31,7 +32,6 @@
   <h1>Vite + Svelte</h1>
 
   <div class="card">
-    <Counter />
     <Checkbox.Box>
       <Checkbox.Indicator>
         <svelte:fragment slot="checked">+</svelte:fragment>
@@ -222,6 +222,20 @@
     <Progress.Bar class="progress__bar" />
   </Progress.Track>
 
+  <Scroll.Area type="hover" class="scroll__area">
+    <Scroll.Viewport class="scroll__viewport">
+      <div>
+        <div class="scroll__viewport-heading">Tags</div>
+        {#each Array(100) as _, i}
+          <div class="scroll__viewport-item">Item {i}</div>
+        {/each}
+      </div>
+    </Scroll.Viewport>
+    <Scroll.Bar class="scroll__bar">
+      <Scroll.Thumb class="scroll__thumb" />
+    </Scroll.Bar>
+  </Scroll.Area>
+
   <p>
     Check out <a
       href="https://github.com/sveltejs/kit#readme"
@@ -401,4 +415,76 @@
     transition: transform 660ms cubic-bezier(0.65, 0, 0.35, 1);
     transform: translateX(-40%);
   }
+
+  .scroll__area {
+  width: 200px;
+  height: 225px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.44);
+  background-color: white;
+  --scrollbar-size: 5px;
+}
+
+.scroll__viewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.scroll__bar {
+  display: flex;
+  user-select: none;
+  touch-action: none;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  background: rgba(0, 0, 0, 0.44);
+  transition: background 160ms ease-out;
+}
+.scroll__bar:hover {
+  background: var(--blackA8);
+}
+.scroll__bar[data-orientation='vertical'] {
+  width: var(--scrollbar-size);
+}
+.scroll__bar[data-orientation='horizontal'] {
+  flex-direction: column;
+  height: var(--scrollbar-size);
+}
+
+.scroll__thumb {
+  flex: 1;
+  background: mediumslateblue;
+  border-radius: var(--scrollbar-size);
+  position: relative;
+}
+/* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
+.scroll__thumb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.scroll__viewport-heading {
+  color: violet;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.scroll__viewport-item {
+  color: mediumslateblue;
+  font-size: 13px;
+  line-height: 18px;
+  margin-top: 10px;
+  border-top: 1px solid pink;
+  padding-top: 10px;
+}
+
 </style>

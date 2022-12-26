@@ -12,9 +12,6 @@
   export let delayOpen: number = 700;
   export let delayClose: number = 300;
 
-  let openTimer: NodeJS.Timeout = null;
-  let closeTimer: NodeJS.Timeout = null;
-
   if (!hasContext(CONTEXT.HOVERCARD)) {
     throw new Error(
       "HoverCard.Trigger must be used inside HoverCard.Container"
@@ -24,6 +21,9 @@
   const hoverCardStore = getContext<Writable<HoverCardStoreType>>(
     CONTEXT.HOVERCARD
   );
+
+  let openTimer: NodeJS.Timeout = null;
+  let closeTimer: NodeJS.Timeout = null;
 
   function toggle(open: boolean) {
     hoverCardStore.update((state) => ({

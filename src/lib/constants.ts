@@ -17,4 +17,5 @@ export const CONTEXT = {
     DROPDOWNMENU: 'DropdownMenuContext',
     HOVERCARD: 'HoverCardContext',
     PRORGRESS: 'ProgressContext',
+    SCROLL: 'ScrollContext',
 };
