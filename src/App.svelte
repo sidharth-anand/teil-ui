@@ -17,7 +17,7 @@
   import HoverCard from "./lib/components/HoverCard";
   import Progress from "./lib/components/Progress";
   import Scroll from "./lib/components/Scroll";
-  import Thumb from "./lib/components/Switch/Thumb.svelte";
+  import Slider from "./lib/components/Slider";
 </script>
 
 <main>
@@ -236,6 +236,13 @@
     </Scroll.Bar>
   </Scroll.Area>
 
+  <Slider.Container class="slider__container" value={[50]}>
+    <Slider.Track class="slider__track">
+      <Slider.Range class="slider__range" />
+    </Slider.Track>
+    <Slider.Thumb class="slider__thumb" />
+  </Slider.Container>
+
   <p>
     Check out <a
       href="https://github.com/sveltejs/kit#readme"
@@ -417,74 +424,126 @@
   }
 
   .scroll__area {
-  width: 200px;
-  height: 225px;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.44);
-  background-color: white;
-  --scrollbar-size: 5px;
-}
+    width: 200px;
+    height: 225px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.44);
+    background-color: white;
+    --scrollbar-size: 5px;
+  }
 
-.scroll__viewport {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-}
+  .scroll__viewport {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
 
-.scroll__bar {
-  display: flex;
-  user-select: none;
-  touch-action: none;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  background: rgba(0, 0, 0, 0.44);
-  transition: background 160ms ease-out;
-}
-.scroll__bar:hover {
-  background: var(--blackA8);
-}
-.scroll__bar[data-orientation='vertical'] {
-  width: var(--scrollbar-size);
-}
-.scroll__bar[data-orientation='horizontal'] {
-  flex-direction: column;
-  height: var(--scrollbar-size);
-}
+  .scroll__bar {
+    display: flex;
+    user-select: none;
+    touch-action: none;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background: rgba(0, 0, 0, 0.44);
+    transition: background 160ms ease-out;
+  }
+  .scroll__bar:hover {
+    background: var(--blackA8);
+  }
+  .scroll__bar[data-orientation="vertical"] {
+    width: var(--scrollbar-size);
+  }
+  .scroll__bar[data-orientation="horizontal"] {
+    flex-direction: column;
+    height: var(--scrollbar-size);
+  }
 
-.scroll__thumb {
-  flex: 1;
-  background: mediumslateblue;
-  border-radius: var(--scrollbar-size);
-  position: relative;
-}
-/* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
-.scroll__thumb::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  min-width: 44px;
-  min-height: 44px;
-}
+  .scroll__thumb {
+    flex: 1;
+    background: mediumslateblue;
+    border-radius: var(--scrollbar-size);
+    position: relative;
+  }
+  /* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
+  .scroll__thumb::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    min-width: 44px;
+    min-height: 44px;
+  }
 
-.scroll__viewport-heading {
-  color: violet;
-  font-size: 15px;
-  line-height: 18px;
-  font-weight: 500;
-}
+  .scroll__viewport-heading {
+    color: violet;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 500;
+  }
 
-.scroll__viewport-item {
-  color: mediumslateblue;
-  font-size: 13px;
-  line-height: 18px;
-  margin-top: 10px;
-  border-top: 1px solid pink;
-  padding-top: 10px;
-}
+  .scroll__viewport-item {
+    color: mediumslateblue;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 10px;
+    border-top: 1px solid pink;
+    padding-top: 10px;
+  }
 
+  .slider__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    touch-action: none;
+    width: 200px;
+  }
+  .slider__container[aria-orientation="horizontal"] {
+    height: 20px;
+  }
+  .slider__container[aria-orientation="vertical"] {
+    flex-direction: column;
+    width: 20px;
+    height: 100px;
+  }
+
+  .slider__track {
+    background-color: white;
+    position: relative;
+    flex-grow: 1;
+    border-radius: 9999px;
+  }
+  .slider__track[aria-orientation="horizontal"] {
+    height: 3px;
+  }
+  .slider__track[aria-orientation="vertical"] {
+    width: 3px;
+  }
+
+  .slider__range {
+    position: absolute;
+    background-color: white;
+    border-radius: 9999px;
+    height: 100%;
+  }
+
+  .slider__thumb {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.44);
+    border-radius: 10px;
+  }
+  .slider__thumb:hover {
+    background-color: violet;
+  }
+  .slider__thumb:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.88);
+  }
 </style>
