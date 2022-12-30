@@ -18,6 +18,7 @@
   import Progress from "./lib/components/Progress";
   import Scroll from "./lib/components/Scroll";
   import Slider from "./lib/components/Slider";
+  import Toggle from './lib/components/Toggle';
 </script>
 
 <main>
@@ -242,6 +243,8 @@
     </Slider.Track>
     <Slider.Thumb class="slider__thumb" />
   </Slider.Container>
+
+  <Toggle class="toggle">I</Toggle>
 
   <p>
     Check out <a
@@ -546,4 +549,29 @@
     outline: none;
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.88);
   }
+
+  .toggle {
+  background-color: white;
+  color: pink;
+  height: 35px;
+  width: 35px;
+  border-radius: 4px;
+  display: flex;
+  font-size: 15px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px black;
+}
+.toggle:hover {
+  background-color: violet;
+}
+.toggle[aria-pressed='true'] {
+  background-color: palevioletred;
+  color: white;
+}
+.toggle:focus {
+  box-shadow: 0 0 0 2px black;
+}
+
 </style>
