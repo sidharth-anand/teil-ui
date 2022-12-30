@@ -19,4 +19,5 @@ export const CONTEXT = {
     PRORGRESS: 'ProgressContext',
     SCROLL: 'ScrollContext',
     SLIDER: 'SliderContext',
+    TOGGLEGROUP: 'ToggleGroupContext',
 };

@@ -18,7 +18,8 @@
   import Progress from "./lib/components/Progress";
   import Scroll from "./lib/components/Scroll";
   import Slider from "./lib/components/Slider";
-  import Toggle from './lib/components/Toggle';
+  import Toggle from "./lib/components/Toggle";
+  import ToggleGroup from "./lib/components/ToggleGroup";
 </script>
 
 <main>
@@ -245,6 +246,12 @@
   </Slider.Container>
 
   <Toggle class="toggle">I</Toggle>
+
+  <ToggleGroup.Group type="multi" class="toggle__group">
+    <ToggleGroup.Button value="1" class="toggle">1</ToggleGroup.Button>
+    <ToggleGroup.Button value="2" class="toggle">2</ToggleGroup.Button>
+    <ToggleGroup.Button value="3" class="toggle">3</ToggleGroup.Button>
+  </ToggleGroup.Group>
 
   <p>
     Check out <a
@@ -551,27 +558,44 @@
   }
 
   .toggle {
-  background-color: white;
-  color: pink;
-  height: 35px;
-  width: 35px;
-  border-radius: 4px;
-  display: flex;
-  font-size: 15px;
-  line-height: 1;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 10px black;
-}
-.toggle:hover {
-  background-color: violet;
-}
-.toggle[aria-pressed='true'] {
-  background-color: palevioletred;
-  color: white;
-}
-.toggle:focus {
-  box-shadow: 0 0 0 2px black;
-}
-
+    background-color: white;
+    color: pink;
+    height: 35px;
+    width: 35px;
+    border-radius: 4px;
+    display: flex;
+    font-size: 15px;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px black;
+  }
+  .toggle:hover {
+    background-color: violet;
+  }
+  .toggle[aria-pressed="true"], .toggle[aria-checked="true"] {
+    background-color: palevioletred;
+    color: white;
+  }
+  .toggle:focus {
+    box-shadow: 0 0 0 2px black;
+  }
+  .toggle__group {
+    display: inline-flex;
+    background-color: magenta;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px black;
+  }
+  .toggle__group > .toggle {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .toggle__group > .toggle:first-of-type {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .toggle__group > .toggle:last-of-type {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
 </style>
