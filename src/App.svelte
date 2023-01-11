@@ -19,10 +19,11 @@
   import Scroll from "./lib/components/Scroll";
   import Select from "./lib/components/Select";
   import Slider from "./lib/components/Slider";
+  import Tabs from "./lib/components/Tabs";
   import Toggle from "./lib/components/Toggle";
   import ToggleGroup from "./lib/components/ToggleGroup";
 
-  import SelectItem from './SelectItem.svelte';
+  import SelectItem from "./SelectItem.svelte";
 </script>
 
 <main>
@@ -298,6 +299,15 @@
       <Select.Down class="SelectScrollButton">+</Select.Down>
     </Select.Content>
   </Select.Container>
+
+  <Tabs.Container class="tabs__container" value="1">
+    <Tabs.List class="tabs__list">
+      <Tabs.Trigger value="1" class="tabs__trigger">Account</Tabs.Trigger>
+      <Tabs.Trigger value="2" class="tabs__trigger">Password</Tabs.Trigger>
+    </Tabs.List>
+    <Tabs.Content value="1" class="tabs__content">Tab 1</Tabs.Content>
+    <Tabs.Content value="2" class="tabs__content">Tab 2</Tabs.Content>
+  </Tabs.Container>
 
   <p>
     Check out <a
@@ -647,96 +657,155 @@
   }
 
   .SelectTrigger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  padding: 0 15px;
-  font-size: 13px;
-  line-height: 1;
-  height: 35px;
-  gap: 5px;
-  background-color: white;
-  color: violet;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
-}
-.SelectTrigger:hover {
-  background-color: magenta;
-}
-.SelectTrigger:focus {
-  box-shadow: 0 0 0 2px black;
-}
-.SelectTrigger[data-placeholder] {
-  color: violet;
-}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 13px;
+    line-height: 1;
+    height: 35px;
+    gap: 5px;
+    background-color: white;
+    color: violet;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+  .SelectTrigger:hover {
+    background-color: magenta;
+  }
+  .SelectTrigger:focus {
+    box-shadow: 0 0 0 2px black;
+  }
+  .SelectTrigger[data-placeholder] {
+    color: violet;
+  }
 
-.SelectIcon {
-  color: violet;
-}
+  .SelectIcon {
+    color: violet;
+  }
 
-.SelectContent {
-  overflow: hidden;
-  background-color: white;
-  border-radius: 6px;
-  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
-}
+  .SelectContent {
+    overflow: hidden;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+      0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+  }
 
-.SelectViewport {
-  padding: 5px;
-}
+  .SelectViewport {
+    padding: 5px;
+  }
 
-.SelectItem {
-  font-size: 13px;
-  line-height: 1;
-  color: violet;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  height: 25px;
-  padding: 0 35px 0 25px;
-  position: relative;
-  user-select: none;
-}
-.SelectItem[data-disabled] {
-  color: magenta;
-  pointer-events: none;
-}
-.SelectItem[data-highlighted] {
-  outline: none;
-  background-color: var(--violet9);
-  color: var(--violet1);
-}
+  .SelectItem {
+    font-size: 13px;
+    line-height: 1;
+    color: violet;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    padding: 0 35px 0 25px;
+    position: relative;
+    user-select: none;
+  }
+  .SelectItem[data-disabled] {
+    color: magenta;
+    pointer-events: none;
+  }
+  .SelectItem[data-highlighted] {
+    outline: none;
+    background-color: var(--violet9);
+    color: var(--violet1);
+  }
 
-.SelectLabel {
-  padding: 0 25px;
-  font-size: 12px;
-  line-height: 25px;
-  color: magenta;
-}
+  .SelectLabel {
+    padding: 0 25px;
+    font-size: 12px;
+    line-height: 25px;
+    color: magenta;
+  }
 
-.SelectSeparator {
-  height: 1px;
-  background-color: magenta;
-  margin: 5px;
-}
+  .SelectSeparator {
+    height: 1px;
+    background-color: magenta;
+    margin: 5px;
+  }
 
-.SelectItemIndicator {
-  position: absolute;
-  left: 0;
-  width: 25px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+  .SelectItemIndicator {
+    position: absolute;
+    left: 0;
+    width: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.SelectScrollButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 25px;
-  background-color: white;
-  color: violet;
-  cursor: default;
-}
+  .SelectScrollButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    background-color: white;
+    color: violet;
+    cursor: default;
+  }
 
+  .tabs__container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.44);
+  }
+
+  .tabs__list {
+    flex-shrink: 0;
+    display: flex;
+    border-bottom: 1px solid black;
+  }
+
+  .tabs__trigger {
+    font-family: inherit;
+    background-color: white;
+    padding: 0 20px;
+    height: 45px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 1;
+    color: magenta;
+    user-select: none;
+    border-radius: 0;
+  }
+
+  .tabs__trigger:first-child {
+    border-top-left-radius: 6px;
+  }
+  .tabs__trigger:last-child {
+    border-top-right-radius: 6px;
+  }
+  .tabs__trigger:hover {
+    color: violet;
+  }
+  .tabs__trigger[aria-expanded="true"] {
+    color: violet;
+    box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
+  }
+  .tabs__trigger:focus {
+    position: relative;
+    box-shadow: 0 0 0 2px black;
+  }
+  .tabs__content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    outline: none;
+  }
+  .tabs__content:focus {
+    box-shadow: 0 0 0 2px black;
+  }
 </style>

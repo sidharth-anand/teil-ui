@@ -22,5 +22,6 @@ export const CONTEXT = {
     SELECTGROUP: 'SelectGroupContext',
     SELECTITEM: 'SelectItemContext',
     SLIDER: 'SliderContext',
+    TABS: 'TabsContext',
     TOGGLEGROUP: 'ToggleGroupContext',
 };
