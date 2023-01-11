@@ -18,6 +18,9 @@ export const CONTEXT = {
     HOVERCARD: 'HoverCardContext',
     PRORGRESS: 'ProgressContext',
     SCROLL: 'ScrollContext',
+    SELECT: 'SelectContext',
+    SELECTGROUP: 'SelectGroupContext',
+    SELECTITEM: 'SelectItemContext',
     SLIDER: 'SliderContext',
     TOGGLEGROUP: 'ToggleGroupContext',
 };

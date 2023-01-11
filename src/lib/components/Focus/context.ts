@@ -70,6 +70,7 @@ export function createFocusContext(options: FocusContextOptions) {
         forceFocusContainer: options.forceFocusContainer ?? false,
         forceFocusFirst: options.forceFocusFirst ?? false,
 
+        disableTabbing: options.disableTabbing ?? false,
         focusContainerOnMount: options.focusContainerOnMount ?? false,
         blurContainerOnLeave: options.blurContainerOnLeave ?? false,
 
@@ -77,6 +78,8 @@ export function createFocusContext(options: FocusContextOptions) {
 
         items: new Array(),
         state: new Map(),
+
+        getFocusIntent: options.getFocusIntent,
 
         shiftFocus: function (intent: FocusIntent) { return shiftFocus(this.items, intent, options.loop, focusStore) },
 

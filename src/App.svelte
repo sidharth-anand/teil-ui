@@ -17,9 +17,12 @@
   import HoverCard from "./lib/components/HoverCard";
   import Progress from "./lib/components/Progress";
   import Scroll from "./lib/components/Scroll";
+  import Select from "./lib/components/Select";
   import Slider from "./lib/components/Slider";
   import Toggle from "./lib/components/Toggle";
   import ToggleGroup from "./lib/components/ToggleGroup";
+
+  import SelectItem from './SelectItem.svelte';
 </script>
 
 <main>
@@ -247,11 +250,54 @@
 
   <Toggle class="toggle">I</Toggle>
 
-  <ToggleGroup.Group type="multi" class="toggle__group">
+  <ToggleGroup.Group class="toggle__group">
     <ToggleGroup.Button value="1" class="toggle">1</ToggleGroup.Button>
     <ToggleGroup.Button value="2" class="toggle">2</ToggleGroup.Button>
     <ToggleGroup.Button value="3" class="toggle">3</ToggleGroup.Button>
   </ToggleGroup.Group>
+
+  <Select.Container>
+    <Select.Trigger class="SelectTrigger" aria-label="Food">
+      <Select.Value placeholder="Select a fruit…" />
+      <Select.Icon class="SelectIcon">+</Select.Icon>
+    </Select.Trigger>
+    <Select.Content class="SelectContent">
+      <Select.Up class="SelectScrollButton">+</Select.Up>
+      <Select.Viewport class="SelectViewport">
+        <Select.Group>
+          <Select.Label class="SelectLabel">Fruits</Select.Label>
+
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+          <SelectItem value="blueberry">Blueberry</SelectItem>
+          <SelectItem value="grapes">Grapes</SelectItem>
+          <SelectItem value="pineapple">Pineapple</SelectItem>
+        </Select.Group>
+
+        <Select.Separator class="SelectSeparator" />
+
+        <Select.Group>
+          <Select.Label class="SelectLabel">Vegetables</Select.Label>
+          <SelectItem value="aubergine">Aubergine</SelectItem>
+          <SelectItem value="broccoli">Broccoli</SelectItem>
+          <SelectItem value="carrot">Carrot</SelectItem>
+          <SelectItem value="courgette">Courgette</SelectItem>
+          <SelectItem value="leek">leek</SelectItem>
+        </Select.Group>
+
+        <Select.Separator class="SelectSeparator" />
+
+        <Select.Group>
+          <Select.Label class="SelectLabel">Meat</Select.Label>
+          <SelectItem value="beef">Beef</SelectItem>
+          <SelectItem value="chicken">Chicken</SelectItem>
+          <SelectItem value="lamb">Lamb</SelectItem>
+          <SelectItem value="pork">Pork</SelectItem>
+        </Select.Group>
+      </Select.Viewport>
+      <Select.Down class="SelectScrollButton">+</Select.Down>
+    </Select.Content>
+  </Select.Container>
 
   <p>
     Check out <a
@@ -573,7 +619,8 @@
   .toggle:hover {
     background-color: violet;
   }
-  .toggle[aria-pressed="true"], .toggle[aria-checked="true"] {
+  .toggle[aria-pressed="true"],
+  .toggle[aria-checked="true"] {
     background-color: palevioletred;
     color: white;
   }
@@ -598,4 +645,98 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
   }
+
+  .SelectTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 13px;
+  line-height: 1;
+  height: 35px;
+  gap: 5px;
+  background-color: white;
+  color: violet;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+.SelectTrigger:hover {
+  background-color: magenta;
+}
+.SelectTrigger:focus {
+  box-shadow: 0 0 0 2px black;
+}
+.SelectTrigger[data-placeholder] {
+  color: violet;
+}
+
+.SelectIcon {
+  color: violet;
+}
+
+.SelectContent {
+  overflow: hidden;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+}
+
+.SelectViewport {
+  padding: 5px;
+}
+
+.SelectItem {
+  font-size: 13px;
+  line-height: 1;
+  color: violet;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 35px 0 25px;
+  position: relative;
+  user-select: none;
+}
+.SelectItem[data-disabled] {
+  color: magenta;
+  pointer-events: none;
+}
+.SelectItem[data-highlighted] {
+  outline: none;
+  background-color: var(--violet9);
+  color: var(--violet1);
+}
+
+.SelectLabel {
+  padding: 0 25px;
+  font-size: 12px;
+  line-height: 25px;
+  color: magenta;
+}
+
+.SelectSeparator {
+  height: 1px;
+  background-color: magenta;
+  margin: 5px;
+}
+
+.SelectItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SelectScrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  background-color: white;
+  color: violet;
+  cursor: default;
+}
+
 </style>

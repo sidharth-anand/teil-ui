@@ -15,7 +15,7 @@
   const popperStore = getContext<Writable<PopperStoreType>>(CONTEXT.POPPER);
 
   $: {
-    if ($popperStore.reference) {
+    if ($popperStore.reference && !$popperStore.initialized) {
       setTimeout(() => {
         popperStore.update((state) => ({
           ...state,

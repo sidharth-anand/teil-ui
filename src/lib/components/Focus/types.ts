@@ -22,6 +22,7 @@ export type FocusStoreType = {
     forceFocusContainer: boolean;
     forceFocusFirst: boolean;
     
+    disableTabbing: boolean;
     focusContainerOnMount: boolean;
     blurContainerOnLeave: boolean;
 
@@ -30,6 +31,8 @@ export type FocusStoreType = {
 
     items: Array<number>;
     state: Map<number, FocusItemState>;
+
+    getFocusIntent?: (event: KeyboardEvent) => FocusIntent;
 
     shiftFocus: (intent: FocusIntent) => number;
 
@@ -46,8 +49,11 @@ export type FocusContextOptions = {
     forceFocusContainer?: boolean;
     forceFocusFirst?: boolean;
     
+    disableTabbing?: boolean;
     focusContainerOnMount?: boolean;
     blurContainerOnLeave?: boolean;
+
+    getFocusIntent?: (event: KeyboardEvent) => FocusIntent;
 };
 
 export type FocusItemActionInput = {

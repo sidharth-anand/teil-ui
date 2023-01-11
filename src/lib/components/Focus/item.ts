@@ -78,6 +78,11 @@ export function FocusItem(node: HTMLElement, input: FocusItemActionInput) {
     });
 
     node.addEventListener('keydown', (event) => {
+        if (get(store).disableTabbing && event.key === 'Tab') {
+            event.preventDefault();
+            return;
+        }
+
         if (event.key === 'Tab' && event.shiftKey) {
             store.update(state => ({
                 ...state,
@@ -90,7 +95,7 @@ export function FocusItem(node: HTMLElement, input: FocusItemActionInput) {
             return;
         }
 
-        const intent = getFocusIntent(event, get(store).direction, get(store).orientation);
+        const intent = get(store).getFocusIntent ? get(store).getFocusIntent(event) : getFocusIntent(event, get(store).direction, get(store).orientation);
 
         if (intent) {
             event.preventDefault();
