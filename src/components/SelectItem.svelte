@@ -1,7 +1,7 @@
 <script lang="ts">
   export let value: string = "";
 
-  import Select from "./lib/components/Select";
+  import Select from "$lib/components/Select";
 </script>
 
 <Select.Item {value} class="select__item">

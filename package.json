@@ -4,24 +4,26 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite dev",
     "build": "vite build",
+    "package": "svelte-kit package",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.1.0",
-    "@tsconfig/svelte": "^3.0.0",
-    "svelte": "^3.52.0",
-    "svelte-check": "^2.9.2",
-    "svelte-floating-ui": "^1.1.6",
-    "svelte-preprocess": "^4.10.7",
-    "tslib": "^2.4.0",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "@sveltejs/adapter-auto": "^1.0.1",
+    "@sveltejs/kit": "1.0.1",
+    "svelte": "^3.55.0",
+    "svelte-check": "^2.10.3",
+    "svelte-preprocess": "^5.0.0",
+    "tslib": "^2.4.1",
+    "typescript": "~4.9.4",
+    "vite": "^4.0.2"
   },
   "dependencies": {
     "@floating-ui/dom": "^1.0.9",
+    "svelte-floating-ui": "^1.1.6",
     "aria-hidden": "^1.2.2",
     "svelte-portal": "^2.2.0"
   }

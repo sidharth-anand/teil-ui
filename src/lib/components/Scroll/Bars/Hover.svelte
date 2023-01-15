@@ -32,13 +32,13 @@
   }
 
   onMount(() => {
-    $scrollStore.area.addEventListener("pointerenter", pointerenter);
-    $scrollStore.area.addEventListener("pointerleave", pointerleave);
+    $scrollStore.area?.addEventListener("pointerenter", pointerenter);
+    $scrollStore.area?.addEventListener("pointerleave", pointerleave);
   });
 
   onDestroy(() => {
-    $scrollStore.area.removeEventListener("pointerenter", pointerenter);
-    $scrollStore.area.removeEventListener("pointerleave", pointerleave);
+    $scrollStore.area?.removeEventListener("pointerenter", pointerenter);
+    $scrollStore.area?.removeEventListener("pointerleave", pointerleave);
   });
 </script>
 

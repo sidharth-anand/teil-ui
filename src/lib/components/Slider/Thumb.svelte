@@ -15,42 +15,16 @@
   }
 
   const sliderStore = getContext<Writable<SliderStoreType>>(CONTEXT.SLIDER);
-  const observer = new ResizeObserver((entries) => {
-    if (!Array.isArray(entries)) {
-      return;
-    }
-
-    if (entries.length === 0) {
-      return;
-    }
-
-    const entry = entries[0];
-
-    let width: number;
-    let height: number;
-
-    if ("borderBoxSize" in entry) {
-      const borderSize = Array.isArray(entry.borderBoxSize)
-        ? entry.borderBoxSize[0]
-        : entry.borderBoxSize;
-
-      width = borderSize.inlineSize;
-      height = borderSize.blockSize;
-    } else {
-      width = element.offsetWidth;
-      height = element.offsetHeight;
-    }
-
-    rect = { width, height };
-  });
 
   let element: HTMLElement | null = null;
+  let observer: ResizeObserver | null = null;
   let rect: { width: number; height: number } | null = null;
 
-  $: index = Array.from($sliderStore.thumbs).indexOf(element);
+  $: index = Array.from($sliderStore.thumbs).indexOf(element!);
   $: value = $sliderStore.value[index] as number | undefined;
   $: percentage =
-    (100 / ($sliderStore.max - $sliderStore.min)) * (value - $sliderStore.min);
+    (100 / ($sliderStore.max - $sliderStore.min)) *
+    (value ?? 0 - $sliderStore.min);
 
   $: size =
     $sliderStore.orientation === "horizontal" ? rect?.width : rect?.height;
@@ -66,7 +40,38 @@
 
   $: computedLabel = label || computeLabel(index, $sliderStore.value.length);
 
-  function computeLabel(index: number, count: number): string {
+  function initObserver(): ResizeObserver {
+    return new ResizeObserver((entries) => {
+      if (!Array.isArray(entries)) {
+        return;
+      }
+
+      if (entries.length === 0) {
+        return;
+      }
+
+      const entry = entries[0];
+
+      let width: number;
+      let height: number;
+
+      if ("borderBoxSize" in entry!) {
+        const borderSize = Array.isArray(entry.borderBoxSize)
+          ? entry.borderBoxSize[0]
+          : entry.borderBoxSize;
+
+        width = borderSize.inlineSize;
+        height = borderSize.blockSize;
+      } else {
+        width = element?.offsetWidth ?? 0;
+        height = element?.offsetHeight ?? 0;
+      }
+
+      rect = { width, height };
+    });
+  }
+
+  function computeLabel(index: number, count: number): string | undefined {
     if (count > 2) {
       return `Value ${index + 1} of ${count}`;
     } else if (count === 2) {
@@ -97,14 +102,19 @@
       thumbs: new Set([...state.thumbs, element]),
     }));
 
-    if ($sliderStore.value.length <= Array.from($sliderStore.thumbs).indexOf(element)) {
+    if (
+      $sliderStore.value.length <=
+      Array.from($sliderStore.thumbs).indexOf(element)
+    ) {
       sliderStore.update((state) => ({
         ...state,
         value: [...state.value, 0],
       }));
     }
 
-    observer.observe(element);
+    observer = initObserver();
+
+    observer.observe(element!);
   });
 
   onDestroy(() => {
@@ -113,7 +123,7 @@
       thumbs: new Set([...state.thumbs].filter((thumb) => thumb !== element)),
     }));
 
-    observer.disconnect();
+    observer?.disconnect();
   });
 </script>
 

@@ -302,11 +302,15 @@
   });
 
   onDestroy(() => {
-    document.removeEventListener("pointermove", pointermove);
-    document.removeEventListener("pointerup", pointerup, { capture: true });
+    if (globalThis.document) {
+      document.removeEventListener("pointermove", pointermove);
+      document.removeEventListener("pointerup", pointerup, { capture: true });
+    }
 
-    window.removeEventListener("blur", blur);
-    window.removeEventListener("resize", resize);
+    if (globalThis.window) {
+      window.removeEventListener("blur", blur);
+      window.removeEventListener("resize", resize);
+    }
   });
 
   setContext(CONTEXT.FOCUS, focusStore);

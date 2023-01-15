@@ -99,7 +99,9 @@
       document.body.style.userSelect = originalUserSelect;
     }
 
-    document.removeEventListener("pointerup", pointerup);
+    if (globalThis.document) {
+      document.removeEventListener("pointerup", pointerup);
+    }
   });
 
   $: {

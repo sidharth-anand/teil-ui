@@ -12,6 +12,6 @@ export type SliderStoreType = {
     max: number;
     value: Array<number>;
 
-    thumbs: Set<HTMLElement>;
+    thumbs: Set<HTMLElement | null>;
     activeThumb: number;
 };

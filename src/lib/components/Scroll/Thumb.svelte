@@ -14,7 +14,7 @@
 
   const scrollStore = getContext<Writable<ScrollStoreType>>(CONTEXT.SCROLL);
 
-  let removeUnlinkedScrollListener: () => void = null;
+  let removeUnlinkedScrollListener: (() => void) | null = null;
   const debouncedScrollEnd = debounce(() => {
     if (removeUnlinkedScrollListener) {
       removeUnlinkedScrollListener();
@@ -42,12 +42,12 @@
     debouncedScrollEnd();
     if (!removeUnlinkedScrollListener) {
       const listener = addUnlinkedScrollListener(
-        $scrollStore.viewport,
+        $scrollStore.viewport!,
         $scrollStore.thumbpositionchange
       );
 
       removeUnlinkedScrollListener = listener;
-      $scrollStore.thumbpositionchange();
+      $scrollStore.thumbpositionchange?.();
     }
   }
 
@@ -59,17 +59,17 @@
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
-    $scrollStore.thumbpointerdown({ x, y });
+    $scrollStore.thumbpointerdown?.({ x, y });
   }
 
   onMount(() => {
-    $scrollStore.viewport.addEventListener("scroll", scroll);
+    $scrollStore.viewport?.addEventListener("scroll", scroll);
 
-    $scrollStore.thumbpositionchange();
+    $scrollStore.thumbpositionchange?.();
   });
 
   onDestroy(() => {
-    $scrollStore.viewport.removeEventListener("scroll", scroll);
+    $scrollStore.viewport?.removeEventListener("scroll", scroll);
   });
 </script>
 
