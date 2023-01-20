@@ -51,3 +51,9 @@
     <label class="switch__label">Airplane Mode</label>
 </div>
 <!--code end-->
+
+```svelte
+<Switch.Track>
+    <Switch.Thumb />
+</Switch.Track>
+```
