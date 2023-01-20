@@ -29,12 +29,6 @@
 		</Popper.Content>
 	</Popper.Container>
 
-	<ToggleGroup.Group class="toggle__group">
-		<ToggleGroup.Button value="1" class="toggle">1</ToggleGroup.Button>
-		<ToggleGroup.Button value="2" class="toggle">2</ToggleGroup.Button>
-		<ToggleGroup.Button value="3" class="toggle">3</ToggleGroup.Button>
-	</ToggleGroup.Group>
-
 	<p>
 		Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer"
 			>SvelteKit</a
@@ -76,24 +70,5 @@
 	}
 	.menu__anchor {
 		margin-bottom: 200px;
-	}
-
-	.toggle__group {
-		display: inline-flex;
-		background-color: magenta;
-		border-radius: 4px;
-		box-shadow: 0 2px 10px black;
-	}
-	.toggle__group > .toggle {
-		box-shadow: none;
-		border-radius: 0;
-	}
-	.toggle__group > .toggle:first-of-type {
-		border-top-left-radius: 4px;
-		border-bottom-left-radius: 4px;
-	}
-	.toggle__group > .toggle:last-of-type {
-		border-top-right-radius: 4px;
-		border-bottom-right-radius: 4px;
 	}
 </style>

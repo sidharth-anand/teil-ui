@@ -77,3 +77,13 @@
     <Tabs.Content value="2" class="tabs__content">Tab 2</Tabs.Content>
 </Tabs.Container>
 <!--code end-->
+
+
+```svelte
+<Tabs.Container>
+    <Tabs.List>
+        <Tabs.Trigger />
+    </Tabs.List>
+    <Tabs.Content />
+</Tabs.Container>
+```
