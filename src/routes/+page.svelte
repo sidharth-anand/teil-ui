@@ -23,9 +23,6 @@
 	<h1>Vite + Svelte</h1>
 
 	<div class="card">
-		<Switch.Track class="switch__track">
-			<Switch.Thumb class="switch__thumb" />
-		</Switch.Track>
 	</div>
 
 	<Popper.Container>
@@ -76,27 +73,6 @@
 	}
 	.read-the-docs {
 		color: #888;
-	}
-	:global(.switch__track) {
-		width: 40px;
-		height: 20px;
-		border-radius: 15px;
-		background-color: #ccc;
-		display: flex;
-		align-items: center;
-		padding: 0;
-	}
-	:global(.switch__thumb) {
-		background: red;
-		width: 20px;
-		height: 20px;
-		border-radius: 15px;
-		display: block;
-	}
-	:global(.switch__track[checked='true'] .switch__thumb) {
-		background: green;
-		transform: translateX(20px);
-		transform-origin: center;
 	}
 	:global(.radio__button .radio__indicator) {
 		width: 10px;

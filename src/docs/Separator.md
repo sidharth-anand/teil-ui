@@ -49,3 +49,7 @@
     </div>
 </div>
 <!--code end-->
+
+```svelte
+<Separator />
+```
