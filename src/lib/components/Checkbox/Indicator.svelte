@@ -1,24 +1,28 @@
 <script lang="ts">
-  import {hasContext, getContext} from 'svelte';
-  import type {Readable} from 'svelte/store';
+	import { hasContext, getContext } from 'svelte';
+	import type { Readable } from 'svelte/store';
 
-  import {CONTEXT} from '../../constants';
+	import { CONTEXT } from '../../constants';
 
-  import type { CheckboxState, CheckboxStoreType } from "./types";
+	import type { CheckboxStoreType } from './types';
 
-  if (!hasContext(CONTEXT.CHECKBOX)) {
-    throw new Error('Checkbox.Indicator must be used inside Checkbox.Box');
-  }
+	if (!hasContext(CONTEXT.CHECKBOX)) {
+		throw new Error('Checkbox.Indicator must be used inside Checkbox.Box');
+	}
 
-  const checkboxStore: Readable<CheckboxStoreType> = getContext(CONTEXT.CHECKBOX);
+	const checkboxStore: Readable<CheckboxStoreType> = getContext(CONTEXT.CHECKBOX);
 </script>
 
-<span class={$$props.class} disabled={$checkboxStore.disabled} aria-disabled={$checkboxStore.disabled}>
-  {#if $checkboxStore.state === true || (!$$slots.indeterminate && $checkboxStore.state === "indeterminate")}
-    <slot name="checked" />
-  {:else if $checkboxStore.state === "indeterminate" && $$slots.indeterminate}
-    <slot name="indeterminate" />
-  {:else}
-    <slot name="unchecked" />
-  {/if}
+<span
+	class={$$props.class}
+	disabled={$checkboxStore.disabled}
+	aria-disabled={$checkboxStore.disabled}
+>
+	{#if $checkboxStore.state === true || (!$$slots.indeterminate && $checkboxStore.state === 'indeterminate')}
+		<slot name="checked" />
+	{:else if $checkboxStore.state === 'indeterminate' && $$slots.indeterminate}
+		<slot name="indeterminate" />
+	{:else}
+		<slot name="unchecked" />
+	{/if}
 </span>

@@ -1,23 +1,23 @@
-import type { ReferenceAction, UpdatePosition, ComputeConfig } from "svelte-floating-ui";
+import type { ReferenceAction, UpdatePosition, ComputeConfig } from 'svelte-floating-ui';
 
 export type Side = 'top' | 'right' | 'bottom' | 'left';
 export type Alignment = 'start' | 'center' | 'end';
 export type Sticky = 'partial' | 'always';
 
 export type Position = {
-    x: number | null;
-    y: number | null;
+	x: number | null;
+	y: number | null;
 };
 
 export type Boundary = Element | null;
 
 export interface Measurable {
-    getBoundingClientRect: () => DOMRect;
+	getBoundingClientRect: () => DOMRect;
 }
 
 export type PopperStoreType = {
-    initialized?: boolean;
-    anchor?: Measurable;
-    side?: Side;
-    reference?: ReferenceAction;
+	initialized?: boolean;
+	anchor?: Measurable;
+	side?: Side;
+	reference?: ReferenceAction;
 };

@@ -13,4 +13,19 @@ import Up from './Up.svelte';
 import Value from './Value.svelte';
 import Viewport from './Viewport.svelte';
 
-export default { Container, Content, Down, Group, Icon, Indicator, Item, Label, Separator, Text, Trigger, Up, Value, Viewport };
+export default {
+	Container,
+	Content,
+	Down,
+	Group,
+	Icon,
+	Indicator,
+	Item,
+	Label,
+	Separator,
+	Text,
+	Trigger,
+	Up,
+	Value,
+	Viewport
+};

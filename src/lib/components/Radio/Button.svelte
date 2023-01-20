@@ -1,74 +1,72 @@
 <script lang="ts">
-  import { hasContext, getContext, onMount } from "svelte";
-  import type { Writable } from "svelte/store";
+	import { hasContext, getContext, onMount } from 'svelte';
+	import type { Writable } from 'svelte/store';
 
-  import Focus from "../Focus";
+	import Focus from '../Focus';
 
-  import { CONTEXT } from "../../constants";
+	import { CONTEXT } from '../../constants';
 
-  import type { FocusStoreType } from "../Focus/types";
-  import type { RadioStoreType } from "./types";
+	import type { FocusStoreType } from '../Focus/types';
+	import type { RadioStoreType } from './types';
 
-  export let value: any;
+	export let value: any;
 
-  if (!hasContext(CONTEXT.RADIO)) {
-    throw new Error("Radio.Button must be used inside Radio.Group");
-  }
+	if (!hasContext(CONTEXT.RADIO)) {
+		throw new Error('Radio.Button must be used inside Radio.Group');
+	}
 
-  const radioStore = getContext<Writable<RadioStoreType>>(CONTEXT.RADIO);
-  const focusStore = getContext<Writable<FocusStoreType>>(CONTEXT.FOCUS);
+	const radioStore = getContext<Writable<RadioStoreType>>(CONTEXT.RADIO);
+	const focusStore = getContext<Writable<FocusStoreType>>(CONTEXT.FOCUS);
 
-  $: checked = $radioStore.value === value;
+	$: checked = $radioStore.value === value;
 
-  let arrowKeyNavigation = false;
+	let arrowKeyNavigation = false;
 
-  onMount(() => {
-    document.addEventListener("keydown", (event) => {
-      if (
-        ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)
-      ) {
-        arrowKeyNavigation = true;
-      } else {
-        arrowKeyNavigation = false;
-      }
-    });
-  });
+	onMount(() => {
+		document.addEventListener('keydown', (event) => {
+			if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+				arrowKeyNavigation = true;
+			} else {
+				arrowKeyNavigation = false;
+			}
+		});
+	});
 
-  function update() {
-    radioStore.update((state) => ({
-      ...state,
-      value,
-    }));
-  }
+	function update() {
+		radioStore.update((state) => ({
+			...state,
+			value
+		}));
+	}
 
-  function focus() {
-    if (arrowKeyNavigation) {
-      update();
-    }
-  }
+	function focus() {
+		if (arrowKeyNavigation) {
+			update();
+		}
+	}
 </script>
 
 <button
-  use:Focus.Item={{
-    focusable: true,
-    active: checked,
-    store: focusStore,
-  }}
-  class={$$props.class}
-  {checked}
-  aria-checked={checked}
-  disabled={$radioStore.disabled}
-  aria-disabled={$radioStore.disabled}
-  {value}
-  on:click={(event) => {
-    update();
-    event.stopPropagation();
-  }}
-  on:keydown={(event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-    }
-  }}
-  on:focus={focus}
-  ><slot />
+	use:Focus.Item={{
+		focusable: true,
+		active: checked,
+		store: focusStore
+	}}
+	class={$$props.class}
+	{checked}
+	aria-checked={checked}
+	disabled={$radioStore.disabled}
+	aria-disabled={$radioStore.disabled}
+	{value}
+	on:click={(event) => {
+		update();
+		event.stopPropagation();
+	}}
+	on:keydown={(event) => {
+		if (event.key === 'Enter') {
+			event.preventDefault();
+		}
+	}}
+	on:focus={focus}
+	><slot />
 </button>

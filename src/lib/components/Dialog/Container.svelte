@@ -1,27 +1,27 @@
 <script lang="ts">
-  import type { DialogStoreType } from "./types";
+	import type { DialogStoreType } from './types';
 
-  import { setContext } from "svelte";
-  import { writable } from "svelte/store";
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 
-  import { CONTEXT } from "../../constants";
+	import { CONTEXT } from '../../constants';
 
-  import id from "../id";
+	import id from '../id';
 
-  export let open: boolean = false;
-  export let modal: boolean = true;
+	export let open: boolean = false;
+	export let modal: boolean = true;
 
-  const dialogStore = writable<DialogStoreType>({
-    open,
-    modal,
+	const dialogStore = writable<DialogStoreType>({
+		open,
+		modal,
 
-    triggerID: id(),
-    titleID: id(),
-    contentID: id(),
-    descriptionID: id(),
-  });
+		triggerID: id(),
+		titleID: id(),
+		contentID: id(),
+		descriptionID: id()
+	});
 
-  setContext(CONTEXT.DIALOG, dialogStore);
+	setContext(CONTEXT.DIALOG, dialogStore);
 </script>
 
 <slot />

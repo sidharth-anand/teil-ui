@@ -1,4 +1,4 @@
 export type ProgressStoreType = {
-    value: number | null | undefined;
-    max: number;
+	value: number | null | undefined;
+	max: number;
 };

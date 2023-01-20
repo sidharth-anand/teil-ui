@@ -1,4 +1,4 @@
 export type HoverCardStoreType = {
-    open: boolean;
-    toggle?: (open: boolean) => void;
+	open: boolean;
+	toggle?: (open: boolean) => void;
 };

@@ -6,4 +6,4 @@ import Overlay from './Overlay.svelte';
 import Title from './Title.svelte';
 import Trigger from './Trigger.svelte';
 
-export default { Container, Close, Content, Description, Overlay, Title, Trigger }
+export default { Container, Close, Content, Description, Overlay, Title, Trigger };

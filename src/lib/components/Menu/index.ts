@@ -12,4 +12,17 @@ import Label from './Label.svelte';
 import RadioGroup from './RadioGroup.svelte';
 import Sub from './Sub.svelte';
 
-export default { Arrow: Popper.Arrow, Anchor, Container, Content, Group, Item, ItemCheck, ItemIndicator, ItemRadio, Label, RadioGroup, Sub };
+export default {
+	Arrow: Popper.Arrow,
+	Anchor,
+	Container,
+	Content,
+	Group,
+	Item,
+	ItemCheck,
+	ItemIndicator,
+	ItemRadio,
+	Label,
+	RadioGroup,
+	Sub
+};

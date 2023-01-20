@@ -3,10 +3,10 @@ export type Orientation = 'horizontal' | 'vertical';
 export type Direction = 'ltr' | 'rtl';
 
 export type TabsStoreType = {
-    id: string;
+	id: string;
 
-    value: string;
-    orientation: Orientation;
-    direction: Direction;
-    activation: Activation;
+	value: string;
+	orientation: Orientation;
+	direction: Direction;
+	activation: Activation;
 };

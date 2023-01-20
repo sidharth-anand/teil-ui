@@ -1,4 +1,4 @@
 export type RadioStoreType = {
-    disabled: boolean;
-    value: any;
-}
+	disabled: boolean;
+	value: any;
+};

@@ -1,3 +1,3 @@
 export type SwitchStoreType = {
-    checked: boolean;
-}
+	checked: boolean;
+};

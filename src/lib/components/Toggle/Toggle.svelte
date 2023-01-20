@@ -1,20 +1,20 @@
 <script lang="ts">
-  export let pressed: boolean = false;
-  export let disabled: boolean = false;
+	export let pressed: boolean = false;
+	export let disabled: boolean = false;
 
-  function click() {
-    if (!disabled) {
-      pressed = !pressed;
-    }
-  }
+	function click() {
+		if (!disabled) {
+			pressed = !pressed;
+		}
+	}
 </script>
 
 <button
-  type="button"
-  class={$$props.class}
-  aria-pressed={pressed}
-  aria-disabled={disabled}
-  on:click={click}
+	type="button"
+	class={$$props.class}
+	aria-pressed={pressed}
+	aria-disabled={disabled}
+	on:click={click}
 >
-  <slot />
+	<slot />
 </button>

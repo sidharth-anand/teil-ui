@@ -3,36 +3,36 @@ import type { Writable } from 'svelte/store';
 export type Direction = 'ltr' | 'rtl';
 
 export type Point = {
-    x: number;
-    y: number;
+	x: number;
+	y: number;
 };
 
 export type Checked = boolean | 'indeterminate';
 
 export type MenuStoreType = {
-    open: boolean;
-    modal: boolean;
-    submenu: boolean;
-    keyboard: boolean;
-    direction: Direction;
-    value: string;
+	open: boolean;
+	modal: boolean;
+	submenu: boolean;
+	keyboard: boolean;
+	direction: Direction;
+	value: string;
 };
 
 export type SubmenuStoreType = {
-    open: boolean;
+	open: boolean;
 
-    triggerID: string;
-    contentID: string;
+	triggerID: string;
+	contentID: string;
 
-    trigger?: HTMLElement;
-    content?: HTMLElement;
+	trigger?: HTMLElement;
+	content?: HTMLElement;
 
-    refocus?: () => void;
-    reset?: () => void;
+	refocus?: () => void;
+	reset?: () => void;
 
-    root: Writable<MenuStoreType>;
-}
+	root: Writable<MenuStoreType>;
+};
 
 export type MenuItemIndicatorStoreType = {
-    checked: Checked;
+	checked: Checked;
 };

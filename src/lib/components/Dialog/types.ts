@@ -1,9 +1,9 @@
 export type DialogStoreType = {
-    open: boolean;
-    modal: boolean;
+	open: boolean;
+	modal: boolean;
 
-    triggerID: string;
-    titleID: string;
-    contentID: string;
-    descriptionID: string;
+	triggerID: string;
+	titleID: string;
+	contentID: string;
+	descriptionID: string;
 };

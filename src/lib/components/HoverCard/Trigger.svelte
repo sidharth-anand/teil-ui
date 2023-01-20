@@ -1,61 +1,57 @@
 <script lang="ts">
-  import type { Writable } from "svelte/store";
+	import type { Writable } from 'svelte/store';
 
-  import type { HoverCardStoreType } from "./types";
+	import type { HoverCardStoreType } from './types';
 
-  import { hasContext, getContext } from "svelte";
+	import { hasContext, getContext } from 'svelte';
 
-  import { CONTEXT } from "../../constants";
+	import { CONTEXT } from '../../constants';
 
-  import Popper from "../Popper";
+	import Popper from '../Popper';
 
-  export let delayOpen: number = 700;
-  export let delayClose: number = 300;
+	export let delayOpen: number = 700;
+	export let delayClose: number = 300;
 
-  if (!hasContext(CONTEXT.HOVERCARD)) {
-    throw new Error(
-      "HoverCard.Trigger must be used inside HoverCard.Container"
-    );
-  }
+	if (!hasContext(CONTEXT.HOVERCARD)) {
+		throw new Error('HoverCard.Trigger must be used inside HoverCard.Container');
+	}
 
-  const hoverCardStore = getContext<Writable<HoverCardStoreType>>(
-    CONTEXT.HOVERCARD
-  );
+	const hoverCardStore = getContext<Writable<HoverCardStoreType>>(CONTEXT.HOVERCARD);
 
-  let openTimer: NodeJS.Timeout = null;
-  let closeTimer: NodeJS.Timeout = null;
+	let openTimer: NodeJS.Timeout = null;
+	let closeTimer: NodeJS.Timeout = null;
 
-  function toggle(open: boolean) {
-    hoverCardStore.update((state) => ({
-      ...state,
-      open,
-    }));
-  }
+	function toggle(open: boolean) {
+		hoverCardStore.update((state) => ({
+			...state,
+			open
+		}));
+	}
 
-  function open() {
-    clearTimeout(closeTimer);
-    openTimer = setTimeout(() => toggle(true), delayOpen);
-  }
+	function open() {
+		clearTimeout(closeTimer);
+		openTimer = setTimeout(() => toggle(true), delayOpen);
+	}
 
-  function close() {
-    clearTimeout(openTimer);
-    closeTimer = setTimeout(() => toggle(false), delayClose);
-  }
+	function close() {
+		clearTimeout(openTimer);
+		closeTimer = setTimeout(() => toggle(false), delayClose);
+	}
 
-  hoverCardStore.update((state) => ({
-    ...state,
-    toggle: (change: boolean) => {
-      change ? open() : close();
-    },
-  }));
+	hoverCardStore.update((state) => ({
+		...state,
+		toggle: (change: boolean) => {
+			change ? open() : close();
+		}
+	}));
 </script>
 
 <Popper.Anchor
-  on:pointerenter={open}
-  on:pointerleave={close}
-  on:focus={open}
-  on:blur={close}
-  on:touchstart={(event) => event.preventDefault()}
+	on:pointerenter={open}
+	on:pointerleave={close}
+	on:focus={open}
+	on:blur={close}
+	on:touchstart={(event) => event.preventDefault()}
 >
-  <slot />
+	<slot />
 </Popper.Anchor>

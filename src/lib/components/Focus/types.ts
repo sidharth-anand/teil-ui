@@ -1,4 +1,4 @@
-import type { Writable } from "svelte/store";
+import type { Writable } from 'svelte/store';
 
 export type Orientation = 'horizontal' | 'vertical' | 'both';
 export type Direction = 'ltr' | 'rtl';
@@ -6,60 +6,60 @@ export type Direction = 'ltr' | 'rtl';
 export type FocusIntent = 'first' | 'last' | 'next' | 'previous';
 
 export type FocusItemState = {
-    focusable: boolean;
-    focused: boolean;
-    active: boolean;
+	focusable: boolean;
+	focused: boolean;
+	active: boolean;
 
-    node: HTMLElement;
-}
+	node: HTMLElement;
+};
 
 export type FocusStoreType = {
-    orientation: Orientation;
-    direction: Direction;
-    loop: boolean;
+	orientation: Orientation;
+	direction: Direction;
+	loop: boolean;
 
-    forceFocusAll: boolean;
-    forceFocusContainer: boolean;
-    forceFocusFirst: boolean;
-    
-    disableTabbing: boolean;
-    focusContainerOnMount: boolean;
-    blurContainerOnLeave: boolean;
+	forceFocusAll: boolean;
+	forceFocusContainer: boolean;
+	forceFocusFirst: boolean;
 
-    currentStopIndex?: number;
-    tabbingOut: boolean;
+	disableTabbing: boolean;
+	focusContainerOnMount: boolean;
+	blurContainerOnLeave: boolean;
 
-    items: Array<number>;
-    state: Map<number, FocusItemState>;
+	currentStopIndex?: number;
+	tabbingOut: boolean;
 
-    getFocusIntent?: (event: KeyboardEvent) => FocusIntent;
+	items: Array<number>;
+	state: Map<number, FocusItemState>;
 
-    shiftFocus: (intent: FocusIntent) => number;
+	getFocusIntent?: (event: KeyboardEvent) => FocusIntent;
 
-    register: () => number;
-    unregister: (index: number) => void;
+	shiftFocus: (intent: FocusIntent) => number;
+
+	register: () => number;
+	unregister: (index: number) => void;
 };
 
 export type FocusContextOptions = {
-    orientation: Orientation;
-    direction: Direction;
-    loop: boolean;
+	orientation: Orientation;
+	direction: Direction;
+	loop: boolean;
 
-    forceFocusAll?: boolean;
-    forceFocusContainer?: boolean;
-    forceFocusFirst?: boolean;
-    
-    disableTabbing?: boolean;
-    focusContainerOnMount?: boolean;
-    blurContainerOnLeave?: boolean;
+	forceFocusAll?: boolean;
+	forceFocusContainer?: boolean;
+	forceFocusFirst?: boolean;
 
-    getFocusIntent?: (event: KeyboardEvent) => FocusIntent;
+	disableTabbing?: boolean;
+	focusContainerOnMount?: boolean;
+	blurContainerOnLeave?: boolean;
+
+	getFocusIntent?: (event: KeyboardEvent) => FocusIntent;
 };
 
 export type FocusItemActionInput = {
-    focusable?: boolean;
-    focused?: boolean;
-    active?: boolean;
+	focusable?: boolean;
+	focused?: boolean;
+	active?: boolean;
 
-    store: Writable<FocusStoreType>;
-}
+	store: Writable<FocusStoreType>;
+};

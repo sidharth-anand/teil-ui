@@ -1,3 +1,3 @@
-import { id } from "./id";
+import { id } from './id';
 
 export default id;
