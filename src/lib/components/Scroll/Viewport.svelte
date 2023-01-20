@@ -39,6 +39,5 @@
 
 	.scroll-viewport > div {
 		min-width: 100%;
-		display: table;
 	}
 </style>

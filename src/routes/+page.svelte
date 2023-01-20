@@ -1,24 +1,11 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
-
 	import { assets } from '$app/paths';
 
-	import Accordion from '$lib/components/Accordion';
-	import Collapsible from '$lib/components/Collapsible';
 	import Switch from '$lib/components/Switch';
-	import Radio from '$lib/components/Radio';
 	import Popper from '$lib/components/Popper';
-	import Menu from '$lib/components/Menu';
-	import ContextMenu from '$lib/components/ContextMenu';
-	import Dialog from '$lib/components/Dialog';
-	import DropdownMenu from '$lib/components/DropdownMenu';
-	import HoverCard from '$lib/components/HoverCard';
-	import Progress from '$lib/components/Progress';
 	import Scroll from '$lib/components/Scroll';
 	import Select from '$lib/components/Select';
-	import Slider from '$lib/components/Slider';
 	import Tabs from '$lib/components/Tabs';
-	import Toggle from '$lib/components/Toggle';
 	import ToggleGroup from '$lib/components/ToggleGroup';
 
 	import SelectItem from '../components/SelectItem.svelte';
@@ -41,46 +28,6 @@
 		</Switch.Track>
 	</div>
 
-	<Radio.Group class="radio__group">
-		<Radio.Button class="radio__button" id="x" value="asd">
-			<Radio.Indicator class="radio__indicator" />
-		</Radio.Button>
-		<Radio.Button class="radio__button" id="y" value="qwe">
-			<Radio.Indicator class="radio__indicator" />
-		</Radio.Button>
-		<label>ASD</label>
-		<label>QWE</label>
-	</Radio.Group>
-
-	<Accordion.Container class="accordion__container">
-		<Accordion.Item class="accordion__item" value="item-1">
-			<Accordion.Trigger class="accordion__trigger">Is it accessible?</Accordion.Trigger>
-			<Accordion.Content class="accordion__content">
-				<div class="accordion__content__text" transition:slide>
-					Yes! You can animate the Accordion with CSS or JavaScript.
-				</div></Accordion.Content
-			>
-		</Accordion.Item>
-
-		<Accordion.Item class="accordion__item" value="item-2">
-			<Accordion.Trigger class="accordion__trigger">Is it unstyled?</Accordion.Trigger>
-			<Accordion.Content class="accordion__content">
-				<div class="accordion__content__text" transition:slide>
-					Yes! You can animate the Accordion with CSS or JavaScript.
-				</div>
-			</Accordion.Content>
-		</Accordion.Item>
-
-		<Accordion.Item class="accordion__item" value="item-3">
-			<Accordion.Trigger class="accordion__trigger">Can it be animated?</Accordion.Trigger>
-			<Accordion.Content class="accordion__content">
-				<div class="accordion__content__text" transition:slide>
-					Yes! You can animate the Accordion with CSS or JavaScript.
-				</div>
-			</Accordion.Content>
-		</Accordion.Item>
-	</Accordion.Container>
-
 	<Popper.Container>
 		<Popper.Anchor class="popper__anchor">
 			<button>Click me</button>
@@ -91,137 +38,11 @@
 		</Popper.Content>
 	</Popper.Container>
 
-	<Menu.Container>
-		<Menu.Anchor class="menu__anchor"><button>ASD</button></Menu.Anchor>
-		<Menu.Content class="menu__content">
-			<Popper.Arrow class="popper__arrow" height={10} width={20} />
-			<Menu.Group>
-				<Menu.Item><a>Item 1</a></Menu.Item>
-				<Menu.Item><a>Item 2</a></Menu.Item>
-				<Menu.Item><a>Item 3</a></Menu.Item>
-				<Menu.Sub>
-					<a slot="item">Submenu Item -&lt;</a>
-					<Menu.Content slot="menu">
-						<Popper.Arrow class="popper__arrow" height={10} width={20} />
-						<Menu.Group>
-							<Menu.Item><a>Submenu Item 1</a></Menu.Item>
-							<Menu.Item><a>Submenu Item 2</a></Menu.Item>
-							<Menu.Item><a>Submenu Item 3</a></Menu.Item>
-						</Menu.Group>
-					</Menu.Content>
-				</Menu.Sub>
-				<Menu.ItemCheck>
-					Check Item
-					<Menu.ItemIndicator>
-						<svelte:fragment slot="checked">+</svelte:fragment>
-					</Menu.ItemIndicator>
-				</Menu.ItemCheck>
-			</Menu.Group>
-			<Menu.Label>Radio Group</Menu.Label>
-			<Menu.RadioGroup>
-				<Menu.ItemRadio value="a"
-					><Menu.ItemIndicator>
-						<svelte:fragment slot="checked">+</svelte:fragment>
-					</Menu.ItemIndicator> Option A</Menu.ItemRadio
-				>
-				<Menu.ItemRadio value="b"
-					><Menu.ItemIndicator>
-						<svelte:fragment slot="checked">+</svelte:fragment>
-					</Menu.ItemIndicator> Option B</Menu.ItemRadio
-				>
-				<Menu.ItemRadio value="c"
-					><Menu.ItemIndicator>
-						<svelte:fragment slot="checked">+</svelte:fragment>
-					</Menu.ItemIndicator> Option C</Menu.ItemRadio
-				>
-			</Menu.RadioGroup>
-		</Menu.Content>
-	</Menu.Container>
-
-	<ContextMenu.Container>
-		<ContextMenu.Trigger class="contextmenu__area">
-			Right click for context menu
-		</ContextMenu.Trigger>
-		<ContextMenu.Content>
-			<ContextMenu.Item>
-				<a>Item 1</a>
-			</ContextMenu.Item>
-			<ContextMenu.Item>
-				<a>Item 2</a>
-			</ContextMenu.Item>
-			<ContextMenu.Item>
-				<a>Item 3</a>
-			</ContextMenu.Item>
-		</ContextMenu.Content>
-	</ContextMenu.Container>
-
-	<HoverCard.Container>
-		<HoverCard.Trigger>+</HoverCard.Trigger>
-		<HoverCard.Content>Preview Content</HoverCard.Content>
-	</HoverCard.Container>
-
-	<Scroll.Area type="hover" class="scroll__area">
-		<Scroll.Viewport class="scroll__viewport">
-			<div>
-				<div class="scroll__viewport-heading">Tags</div>
-				{#each Array(100) as _, i}
-					<div class="scroll__viewport-item">Item {i}</div>
-				{/each}
-			</div>
-		</Scroll.Viewport>
-		<Scroll.Bar class="scroll__bar">
-			<Scroll.Thumb class="scroll__thumb" />
-		</Scroll.Bar>
-	</Scroll.Area>
-
 	<ToggleGroup.Group class="toggle__group">
 		<ToggleGroup.Button value="1" class="toggle">1</ToggleGroup.Button>
 		<ToggleGroup.Button value="2" class="toggle">2</ToggleGroup.Button>
 		<ToggleGroup.Button value="3" class="toggle">3</ToggleGroup.Button>
 	</ToggleGroup.Group>
-
-	<Select.Container>
-		<Select.Trigger class="SelectTrigger" aria-label="Food">
-			<Select.Value placeholder="Select a fruit…" />
-			<Select.Icon class="SelectIcon">+</Select.Icon>
-		</Select.Trigger>
-		<Select.Content class="SelectContent">
-			<Select.Up class="SelectScrollButton">+</Select.Up>
-			<Select.Viewport class="SelectViewport">
-				<Select.Group>
-					<Select.Label class="SelectLabel">Fruits</Select.Label>
-
-					<SelectItem value="apple">Apple</SelectItem>
-					<SelectItem value="banana">Banana</SelectItem>
-					<SelectItem value="blueberry">Blueberry</SelectItem>
-					<SelectItem value="grapes">Grapes</SelectItem>
-					<SelectItem value="pineapple">Pineapple</SelectItem>
-				</Select.Group>
-
-				<Select.Separator class="SelectSeparator" />
-
-				<Select.Group>
-					<Select.Label class="SelectLabel">Vegetables</Select.Label>
-					<SelectItem value="aubergine">Aubergine</SelectItem>
-					<SelectItem value="broccoli">Broccoli</SelectItem>
-					<SelectItem value="carrot">Carrot</SelectItem>
-					<SelectItem value="courgette">Courgette</SelectItem>
-					<SelectItem value="leek">leek</SelectItem>
-				</Select.Group>
-
-				<Select.Separator class="SelectSeparator" />
-
-				<Select.Group>
-					<Select.Label class="SelectLabel">Meat</Select.Label>
-					<SelectItem value="beef">Beef</SelectItem>
-					<SelectItem value="chicken">Chicken</SelectItem>
-					<SelectItem value="lamb">Lamb</SelectItem>
-					<SelectItem value="pork">Pork</SelectItem>
-				</Select.Group>
-			</Select.Viewport>
-			<Select.Down class="SelectScrollButton">+</Select.Down>
-		</Select.Content>
-	</Select.Container>
 
 	<Tabs.Container class="tabs__container" value="1">
 		<Tabs.List class="tabs__list">
@@ -296,78 +117,6 @@
 		margin-bottom: 200px;
 	}
 
-	.scroll__area {
-		width: 200px;
-		height: 225px;
-		border-radius: 4px;
-		overflow: hidden;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.44);
-		background-color: white;
-		--scrollbar-size: 5px;
-	}
-
-	.scroll__viewport {
-		width: 100%;
-		height: 100%;
-		border-radius: inherit;
-	}
-
-	.scroll__bar {
-		display: flex;
-		user-select: none;
-		touch-action: none;
-		padding-top: 10px;
-		padding-bottom: 5px;
-		background: rgba(0, 0, 0, 0.44);
-		transition: background 160ms ease-out;
-	}
-	.scroll__bar:hover {
-		background: var(--blackA8);
-	}
-	.scroll__bar[data-orientation='vertical'] {
-		width: var(--scrollbar-size);
-	}
-	.scroll__bar[data-orientation='horizontal'] {
-		flex-direction: column;
-		height: var(--scrollbar-size);
-	}
-
-	.scroll__thumb {
-		flex: 1;
-		background: mediumslateblue;
-		border-radius: var(--scrollbar-size);
-		position: relative;
-	}
-	/* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
-	.scroll__thumb::before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 100%;
-		height: 100%;
-		min-width: 44px;
-		min-height: 44px;
-	}
-
-	.scroll__viewport-heading {
-		color: violet;
-		font-size: 15px;
-		line-height: 18px;
-		font-weight: 500;
-	}
-
-	.scroll__viewport-item {
-		color: mediumslateblue;
-		font-size: 13px;
-		line-height: 18px;
-		margin-top: 10px;
-		border-top: 1px solid pink;
-		padding-top: 10px;
-	}
-
-	
 	.toggle__group {
 		display: inline-flex;
 		background-color: magenta;
