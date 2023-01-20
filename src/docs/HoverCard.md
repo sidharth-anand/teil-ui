@@ -17,7 +17,7 @@
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
-  z-index: 100;
+  z-index: 999;
 }
 .hovercard__content[data-side='top'] {
   animation-name: slideDownAndFade;

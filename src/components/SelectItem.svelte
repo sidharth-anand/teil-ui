@@ -13,7 +13,7 @@
 	.select__item {
 		font-size: 13px;
 		line-height: 1;
-		color: violet;
+		color: #eceff4;
 		border-radius: 3px;
 		display: flex;
 		align-items: center;
@@ -26,10 +26,11 @@
 		color: magenta;
 		pointer-events: none;
 	}
-	.select__item[data-highlighted] {
+	.select__item[data-highlighted],
+	.select__item:hover {
 		outline: none;
-		background-color: var(--violet9);
-		color: var(--violet1);
+		background-color: #5e81ac;
+		color: #eceff4;
 	}
 	.select__indicator {
 		position: absolute;

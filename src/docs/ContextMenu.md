@@ -9,6 +9,9 @@
 </script>
 
 <style global>
+.popper-content {
+  z-index: 999;
+}
 .contextmenu__area {
     display: block;
     color: #2e3440;
