@@ -1,6 +1,7 @@
 ---
   title: ContextMenu
   description: Displays a menu located at the pointer, triggered by a right-click or a long-press.
+  exclude: [Anchor]
 ---
 
 <script>
@@ -148,3 +149,34 @@
     </ContextMenu.Content>
 </ContextMenu.Container>
 <!--code end-->
+
+```svelte
+<ContextMenu.Container>
+  <ContextMenu.Trigger />
+  <ContextMenu.Content>
+    <ContextMenu.Label />
+    <ContextMenu.Item />
+
+    <ContextMenu.Group>
+      <ContextMenu.Item />
+    </ContextMenu.Group>
+
+    <ContextMenu.CheckboxItem>
+      <ContextMenu.ItemIndicator />
+    </ContextMenu.CheckboxItem>
+
+    <ContextMenu.RadioGroup>
+      <ContextMenu.RadioItem>
+        <ContextMenu.ItemIndicator />
+      </ContextMenu.RadioItem>
+    </ContextMenu.RadioGroup>
+
+    <ContextMenu.Sub>
+      <ContextMenu.Content />
+    </ContextMenu.Sub>
+
+    <ContextMenu.Separator />
+  </ContextMenu.Content>
+</ContextMenu.Container>
+
+```
