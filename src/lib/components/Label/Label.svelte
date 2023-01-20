@@ -4,4 +4,4 @@
 	}
 </script>
 
-<label on:mousedown on:mousedown={mousedown}><slot /></label>
+<label class={$$props.class} on:mousedown on:mousedown={mousedown}><slot /></label>
