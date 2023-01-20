@@ -17,7 +17,7 @@
 	<div class="reference">
 		<h2>API Reference</h2>
 
-		{#each Array.from(data.components?.entries() ?? []) as [component, info]}
+		{#each Array.from(data.components?.entries() ?? []).filter(([component, _]) => !data.meta.exclude?.includes(component)) as [component, info]}
 			<div class="reference__component">
 				<h3>{component}</h3>
 				{#if info.props.length > 0}
@@ -38,7 +38,10 @@
 									<td class="type">
 										<code>{prop.type}</code>
 									</td>
-									<td class="default" class:empty={prop.defaultValue === undefined}>
+									<td
+										class="default"
+										class:empty={prop.defaultValue === undefined}
+									>
 										<code>{prop.defaultValue ?? '-'}</code>
 									</td>
 								</tr>
@@ -63,7 +66,7 @@
 	}
 
 	.title h5 {
-		color: #B1B1B1;
+		color: #b1b1b1;
 	}
 
 	.component {
@@ -120,12 +123,11 @@
 		background: #4c566a;
 		color: #eceff4;
 		border-radius: 2px;
-
 	}
 
 	.reference__component > table td.default.empty > code {
 		background: transparent;
 		font-size: 2em;
-		color: #B1B1B1;
+		color: #b1b1b1;
 	}
 </style>

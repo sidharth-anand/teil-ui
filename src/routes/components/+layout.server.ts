@@ -11,8 +11,8 @@ const extra = ['Menu'];
 
 export const load = (() => {
 	try {
-		const components = fs.readdirSync('src/docs').map((file) => file.replace('.md', '')).concat(extra);
-		const elements = components.reduce((acc, component) => {
+		const components = fs.readdirSync('src/docs').map((file) => file.replace('.md', ''));
+		const elements = components.concat(extra).reduce((acc, component) => {
 			return new Map<string, Map<string, SvelteInformations>>([
 				...acc.entries(),
 				[
@@ -32,7 +32,7 @@ export const load = (() => {
 				]
 			]);
 		}, new Map<string, Map<string, SvelteInformations>>());
-		const raw = components.filter(component => !extra.includes(component)).reduce(
+		const raw = components.reduce(
 			(acc, component) =>
 				new Map<string, string>([
 					...acc.entries(),

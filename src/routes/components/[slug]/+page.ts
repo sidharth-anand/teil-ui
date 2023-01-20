@@ -8,10 +8,12 @@ import { error } from '@sveltejs/kit';
 type MetadataType = {
 	title: string;
 	description: string;
+	exclude?: Array<string>;
 }
 
 const inherits: Record<string, string> = {
-	'ContextMenu': 'Menu'
+	'ContextMenu': 'Menu',
+	'DropdownMenu': 'Menu',
 };
 
 function extractCode(text: string): { code: string; style: string } {

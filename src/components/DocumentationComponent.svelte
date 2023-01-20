@@ -212,7 +212,7 @@
 	}
 	:global(re[class*='language-'] > code[class*='language-']) {
 		position: relative;
-		z-index: 1;
+		z-index: -1;
 	}
 	:global(.line-highlight) {
 		position: absolute;

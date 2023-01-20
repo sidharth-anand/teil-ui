@@ -234,7 +234,6 @@ kbd {
 	line-height: 1.7;
 }
 code {
-	position: relative;
 	border-radius: 0.3em;
 	white-space: nowrap;
 	color: var(--sk-text-2);
@@ -249,11 +248,9 @@ pre {
 }
 pre code {
 	white-space: inherit;
-	background-color: transparent;
 	padding: 0;
 	margin: 0;
 	top: 0;
-	background: transparent;
 }
 ::selection {
 	background: var(--sk-theme-3);

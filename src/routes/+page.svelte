@@ -155,23 +155,6 @@
 		</ContextMenu.Content>
 	</ContextMenu.Container>
 
-	
-
-	<DropdownMenu.Container>
-		<DropdownMenu.Trigger>Dropdown</DropdownMenu.Trigger>
-		<DropdownMenu.Content>
-			<DropdownMenu.Item>
-				<a>Item 1</a>
-			</DropdownMenu.Item>
-			<DropdownMenu.Item>
-				<a>Item 2</a>
-			</DropdownMenu.Item>
-			<DropdownMenu.Item>
-				<a>Item 3</a>
-			</DropdownMenu.Item>
-		</DropdownMenu.Content>
-	</DropdownMenu.Container>
-
 	<HoverCard.Container>
 		<HoverCard.Trigger>+</HoverCard.Trigger>
 		<HoverCard.Content>Preview Content</HoverCard.Content>
