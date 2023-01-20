@@ -120,6 +120,13 @@
         <HoverCard.Arrow class="HoverCardArrow" />
     </HoverCard.Content>
 </HoverCard.Container>
-
 <!--code end-->
 
+```svelte
+<HoverCard.Container>
+    <HoverCard.Trigger/>
+    <HoverCard.Content>
+        <HoverCard.Arrow/>
+    <HoverCard.Content>
+</HoverCard.Container>
+```
