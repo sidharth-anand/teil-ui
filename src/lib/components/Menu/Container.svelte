@@ -54,6 +54,21 @@
 	setContext(CONTEXT.MENU, menuStore);
 
 	$: {
+		if (open !== $menuStore.open && !submenu) {
+			menuStore.update((state) => ({
+				...state,
+				open
+			}));
+		}
+	}
+
+	$: {
+		if (!submenu) {
+			open = $menuStore.open;
+		}
+	}
+
+	$: {
 		menuStore.update((state) => ({
 			...state,
 			keyboard,

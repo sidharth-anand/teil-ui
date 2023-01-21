@@ -4,6 +4,8 @@
 ---
 
 <script>
+    import {slide} from 'svelte/transition';
+
     import Collapsible from '$lib/components/Collapsible';
 </script>
 
@@ -64,7 +66,7 @@
         </ul>
     </div>
     <Collapsible.Content class="collapsible__content">
-        <ul>
+        <ul transition:slide>
             <li>Item 2</li>
             <li>Item 3</li>
             <li>Item 4</li>

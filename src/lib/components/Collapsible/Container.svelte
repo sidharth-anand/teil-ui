@@ -29,15 +29,17 @@
 	setContext(CONTEXT.COLLAPSIBLE, collapsibleStore);
 
 	$: {
-		open = $collapsibleStore.open;
-		dispatch('toggle');
+		if (open !== $collapsibleStore.open) {
+			collapsibleStore.update((state) => ({
+				...state,
+				open
+			}));
+		}
 	}
 
 	$: {
-		collapsibleStore.update((state) => ({
-			...state,
-			open
-		}));
+		open = $collapsibleStore.open;
+		dispatch('toggle');
 	}
 </script>
 

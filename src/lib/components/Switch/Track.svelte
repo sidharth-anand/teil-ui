@@ -18,9 +18,16 @@
 	setContext(CONTEXT.SWITCH, switchStore);
 
 	$: {
-		switchStore.update((_) => ({
-			checked
-		}));
+		if (checked !== $switchStore.checked) {
+			switchStore.update(state => ({
+				...state,
+				checked
+			}));
+		}
+	}
+
+	$: {
+		checked = $switchStore.checked;
 	}
 </script>
 

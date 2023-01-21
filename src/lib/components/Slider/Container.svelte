@@ -196,6 +196,19 @@
 			movement: slideDirection
 		}));
 	}
+
+	$: {
+		if (!value.every((value, index) => value === $sliderStore.value[index])) {
+			sliderStore.update((state) => ({
+				...state,
+				value
+			}));
+		}
+	}
+
+	$: {
+		value = $sliderStore.value;
+	}
 </script>
 
 <span

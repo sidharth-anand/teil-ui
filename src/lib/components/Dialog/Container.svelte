@@ -22,6 +22,19 @@
 	});
 
 	setContext(CONTEXT.DIALOG, dialogStore);
+
+	$: {
+		if (open !== $dialogStore.open) {
+			dialogStore.update((state) => ({
+				...state,
+				open
+			}));
+		}
+	}
+
+	$: {
+		open = $dialogStore.open;
+	}
 </script>
 
 <slot />

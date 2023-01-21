@@ -23,6 +23,19 @@
 	});
 
 	setContext(CONTEXT.TABS, tabsStore);
+
+	$: {
+		if (value !== $tabsStore.value) {
+			tabsStore.update(state => ({
+				...state,
+				value
+			}));
+		}
+	}
+
+	$: {
+		value = $tabsStore.value;
+	}
 </script>
 
 <div class={$$props.class}>

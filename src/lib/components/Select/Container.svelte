@@ -37,6 +37,16 @@
 	setContext(CONTEXT.SELECT, selectStore);
 
 	$: {
+		if (value !== $selectStore.value || open !== $selectStore.open) {
+			selectStore.update((state) => ({
+				...state,
+				value,
+				open
+			}));
+		}
+	}
+
+	$: {
 		selectStore.update((state) => ({
 			...state,
 			disabled,

@@ -31,6 +31,19 @@
 
 	setContext(CONTEXT.ACCORDION, accordionStore);
 	setContext(CONTEXT.FOCUS, focusStore);
+
+	$: {
+		if (!value.every((v: any, i: number) => v === $accordionStore.open[i])) {
+			accordionStore.update(state => ({
+				...state,
+				open: value
+			}));
+		}
+	}
+
+	$: {
+		value = $accordionStore.open;
+	}
 </script>
 
 <div class={$$props.class} use:Focus.Group={focusStore}><slot /></div>

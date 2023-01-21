@@ -27,6 +27,19 @@
 
 	setContext(CONTEXT.RADIO, radioStore);
 	setContext(CONTEXT.FOCUS, focusStore);
+
+	$: {
+		if (value !== $radioStore.value) {
+			radioStore.update(state => ({
+				...state,
+				value
+			}));
+		}
+	}
+
+	$: {
+		value = $radioStore.value;
+	}
 </script>
 
 <div

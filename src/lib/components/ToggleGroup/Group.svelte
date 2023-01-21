@@ -28,15 +28,24 @@
 	setContext(CONTEXT.FOCUS, focusStore);
 
 	$: {
+		if (value !== $toggleGroupStore.value) {
+			toggleGroupStore.update((state) => ({
+				...state,
+				value
+			}));
+		}
+	}
+
+	$: {
+		value = $toggleGroupStore.value;
+	}
+
+	$: {
 		toggleGroupStore.update((state) => ({
 			...state,
 			type,
 			disabled
 		}));
-	}
-
-	$: {
-		value = $toggleGroupStore.value;
 	}
 </script>
 

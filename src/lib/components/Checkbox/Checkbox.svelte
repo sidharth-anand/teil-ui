@@ -18,8 +18,21 @@
 	});
 
 	$: {
-		checkboxStore.update((_) => ({
-			state: checked,
+		if (checked !== $checkboxStore.state) {
+			checkboxStore.update(state => ({
+				...state,
+				state: checked
+			}));
+		}
+	}
+
+	$: {
+		checked = $checkboxStore.state;
+	}
+
+	$: {
+		checkboxStore.update((state) => ({
+			...state,
 			disabled
 		}));
 	}

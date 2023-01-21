@@ -23,6 +23,6 @@
 	setContext(CONTEXT.DROPDOWNMENU, dropdownStore);
 </script>
 
-<Menu.Container {open} {modal} {direction}>
+<Menu.Container bind:open {modal} {direction}>
 	<slot />
 </Menu.Container>
