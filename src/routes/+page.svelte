@@ -1,74 +1,98 @@
 <script lang="ts">
-	import { assets } from '$app/paths';
-
-	import Popper from '$lib/components/Popper';
-	import ToggleGroup from '$lib/components/ToggleGroup';
 </script>
 
 <main>
 	<div>
-		<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-			<img src="{assets}/vite.svg" class="logo" alt="Vite Logo" />
-		</a>
-		<a href="https://svelte.dev" target="_blank" rel="noreferrer">
-			<img src="{assets}/svelte.svg" class="logo svelte" alt="Svelte Logo" />
-		</a>
+		<h1>Headless is a better way <br /> to build design systems with svelte</h1>
+		<h2>
+			Unstyled, accessible, headless components for building high-quality design systems and
+			web apps in Svelte
+		</h2>
+		<a href="/components">Get Started &gt;</a>
 	</div>
-	<h1>Vite + Svelte</h1>
-
-	<div class="card">
-	</div>
-
-	<Popper.Container>
-		<Popper.Anchor class="popper__anchor">
-			<button>Click me</button>
-		</Popper.Anchor>
-		<Popper.Content class="popper__content" side="right" alignment="center">
-			<div>Popper content</div>
-			<Popper.Arrow class="popper__arrow" height={20} width={40} />
-		</Popper.Content>
-	</Popper.Container>
-
-	<p>
-		Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer"
-			>SvelteKit</a
-		>, the official Svelte app framework powered by Vite!
-	</p>
-
-	<p class="read-the-docs">Click on the Vite and Svelte logos to learn more</p>
 </main>
 
-<style global>
-	.logo {
-		height: 6em;
-		padding: 1.5em;
-		will-change: filter;
+<style>
+	main {
+		background: radial-gradient(
+			ellipse 80% 50% at 50% -20%,
+			#88c0d044,
+			rgba(0, 0, 0, 0)
+		);
+		height: 100vh;
 	}
-	.logo:hover {
-		filter: drop-shadow(0 0 2em #646cffaa);
+
+	main > div {
+		margin: auto;
+		display: flex;
+		width: 50%;
+		justify-content: center;
+		flex-direction: column;
+		padding-top: 10%;
 	}
-	.logo.svelte:hover {
-		filter: drop-shadow(0 0 2em #ff3e00aa);
+
+	main > div > :where(h1, h2) {
+		text-align: center;
 	}
-	.read-the-docs {
-		color: #888;
+
+	main > div > h1 {
+		text-align: center;
+		margin: 24px 0px;
+		background: linear-gradient(
+				to right bottom,
+				rgb(255, 255, 255) 30%,
+				rgba(255, 255, 255, 0.38)
+			);
+		background-clip: padding-box text;
+		box-decoration-break: clone;
+		-webkit-background-clip: text;
+		-webkit-box-decoration-break: clone;
+		-webkit-text-fill-color: transparent;
+		color: unset;
+		padding-bottom: 0.13em;
+		font-size: 80px;
+		line-height: 1;
+		letter-spacing: -0.02em;
+		font-weight: 500;
 	}
-	:global(.radio__button .radio__indicator) {
-		width: 10px;
-		height: 10px;
-		display: inline-block;
-		background: white;
+
+	main > div > h2 {
+		color: rgb(180, 188, 208);
+		text-align: center;
+		margin: 0px 0px 48px;
+		font-size: 22px;
+		line-height: 1.3;
+		font-weight: 400;
 	}
-	:global(.radio__button[checked='true'] .radio__indicator) {
-		background: green;
+
+	main > div > a {
+		width: max-content;
+		appearance: none;
+		cursor: pointer;
+		display: inline-flex;
+		-moz-box-align: center;
+		align-items: center;
+		-moz-box-pack: center;
+		justify-content: center;
+		gap: 8px;
+		flex-shrink: 0;
+		margin: 0px;
+		color: #2e3440;
+		font-weight: 500;
+		transition-property: border, background-color, color, box-shadow, opacity;
+		font-size: 16px;
+		height: 48px;
+		border-radius: 9999px;
+		padding: 0px 24px;
+		border: medium none;
+		background: #88c0d0;
+		text-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+		margin: 0 auto;
 	}
-	.popper__anchor button {
-		width: 100%;
-	}
-	.popper__arrow {
-		fill: green;
-	}
-	.menu__anchor {
-		margin-bottom: 200px;
+
+	main > div > a:hover {
+		text-shadow: rgba(255, 255, 255, 0.56) 0px 3px 12px;
+		box-shadow: #88c0d066 0px 1px 40px;
+		text-decoration: none;
 	}
 </style>

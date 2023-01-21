@@ -125,7 +125,7 @@
 	}}
 />
 
-{#if $searching}
+{#if $searching && ready}
 	<div class="modal-background" on:click={close} />
 
 	<div bind:this={modal} class="modal">
