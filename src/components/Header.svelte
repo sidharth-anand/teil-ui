@@ -1,9 +1,13 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { page, navigating } from '$app/stores';
 
 	import HeaderItem from './HeaderItem.svelte';
 	import Loading from './Loading.svelte';
 	import Icon from './Icon.svelte';
+
+	import Search from './search/Search.svelte';
+	import SearchBox from './search/SearchBox.svelte';
 
 	let open: boolean = false;
 	let visible = true;
@@ -54,7 +58,9 @@
 {/if}
 
 <header bind:this={element} class:visible={visible || open} class:open>
-	<a href="/" class="header-spot home" title="Home"> headless </a>
+	<a href="/" class="header-spot home" title="Home">
+		<span>headless</span>
+	</a>
 
 	<button
 		aria-label="Toggle menu"
@@ -66,26 +72,33 @@
 		X
 	</button>
 
-	<ul>Search</ul>
+	<ul>
+		<li>
+			<Search></Search>
+		</li>
+	</ul>
 
 	<ul class="external">
 		<HeaderItem selected={$page.url.pathname.startsWith('/docs')} href="/components">
 			Docs
 		</HeaderItem>
+		<li aria-hidden="true"><span class="separator" /></li>
+		<HeaderItem external="https://github.com/sveltejs/kit" title="GitHub Repo">
+			<span class="small">GitHub</span>
+			<span class="large">
+				<Icon name="github" />
+			</span>
+		</HeaderItem>
 	</ul>
-	<li aria-hidden="true"><span class="separator" /></li>
-
-	<HeaderItem external="https://github.com/sveltejs/kit" title="GitHub Repo">
-		<span class="small">GitHub</span>
-		<span class="large">
-			<Icon name="github" />
-		</span>
-	</HeaderItem>
 </header>
 
 <main id="main">
 	<slot />
 </main>
+
+{#if browser}
+	<SearchBox />
+{/if}
 
 <style>
 	.modal-background {
@@ -110,7 +123,7 @@
 		width: 100vw;
 		height: var(--header-height);
 		margin: 0 auto;
-		background-color: #d8dee9;
+		background-color: #2e3440;
 		font-family: var(--font);
 		z-index: 100;
 		user-select: none;
@@ -142,6 +155,14 @@
 		background-position: calc(var(--side-nav) - 1rem) 50%;
 		background-repeat: no-repeat;
 		background-size: auto 70%;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+	}
+	.home span {
+		box-sizing: border-box;
+		text-transform: uppercase;
+		font-weight: 700;
 	}
 	button {
 		position: absolute;

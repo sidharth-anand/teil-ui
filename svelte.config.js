@@ -30,7 +30,15 @@ const config = {
 				'src/components/DocumentationComponent.svelte'
 			)
 		})
-	]
+	],
+
+	vitePlugin: {
+		experimental: {
+			inspector: {
+				holdMode: true
+			}
+		}
+	}
 };
 
 export default config;

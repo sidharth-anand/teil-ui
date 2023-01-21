@@ -18,6 +18,7 @@
 		"@sveltejs/adapter-auto": "^1.0.1",
 		"@sveltejs/kit": "1.0.1",
 		"@types/prismjs": "^1.26.0",
+		"flexsearch": "^0.7.31",
 		"mdsvex": "^0.10.6",
 		"prettier": "^2.8.3",
 		"prettier-plugin-svelte": "^2.9.0",
