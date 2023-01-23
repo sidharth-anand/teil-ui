@@ -87,6 +87,7 @@ export const load = (() => {
 			components: getComponentInformation()
 		};
 	} catch (err) {
+		console.log(err);
 		throw error(500, (err as Error).message);
 	}
 }) satisfies LayoutServerLoad;

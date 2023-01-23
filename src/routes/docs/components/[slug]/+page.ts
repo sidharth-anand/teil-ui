@@ -26,18 +26,20 @@ export const load = (async ({ params, parent }) => {
 	const { components, elements, raw } = (await parent()).components;
 	const { slug } = params;
 
-	if (!components.map(component => component.toLowerCase()).includes(slug)) {
+	const title = components.find(component => component.toLowerCase() === slug);
+
+	if (title === undefined) {
 		throw error(404, 'Not found');
 	}
 
 	try {
-		const markdown = await import(`../../../../../src/docs/02 - Components/${slug}.md` /* @vite-ignore */);
+		const markdown = await import(`../../../../../src/docs/02 - Components/${title}.md` /* @vite-ignore */);
 
 		return {
-			components: slug in inherits ? new Map<string, SvelteInformations>([...elements.get(inherits[slug] ?? '')?.entries() ?? [], ...elements.get(slug)?.entries() ?? []]) : elements.get(slug),
+			components: title in inherits ? new Map<string, SvelteInformations>([...elements.get(inherits[title] ?? '')?.entries() ?? [], ...elements.get(title)?.entries() ?? []]) : elements.get(title),
 			content: markdown.default as typeof SvelteComponent,
 			meta: markdown.metadata as MetadataType,
-			...extractCode(raw.get(slug) ?? '')
+			...extractCode(raw.get(title) ?? '')
 		};
 	} catch (err) {
 		throw error(500, (err as Error).message);
