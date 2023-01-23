@@ -88,7 +88,7 @@
             <img
                 class="Image normal"
                 src="https://api.dicebear.com/5.x/adventurer/svg?seed=Cuddles"
-                alt="ParsUI"
+                alt="TeilUI"
             />
         </a>
     </HoverCard.Trigger>
@@ -97,7 +97,7 @@
             <img
             class="Image large"
             src="https://api.dicebear.com/5.x/adventurer/svg?seed=Cuddles"
-            alt="ParsUI"
+            alt="TeilUI"
             />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 15 }}>
                 <div>

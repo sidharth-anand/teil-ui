@@ -104,5 +104,10 @@
 <!--code end-->
 
 ```svelte
-<Accordion.Container />
+<Accordion.Container>
+  <Accordion.Item>
+    <Accordion.Trigger />
+    <Accordion.Content />
+  </Accordion.Item>
+</Accordion.Container>
 ```

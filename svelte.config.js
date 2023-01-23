@@ -11,7 +11,9 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			strict: false
+		}),
 		alias: {
 			$lib: 'src/lib',
 			$models: 'src/models',

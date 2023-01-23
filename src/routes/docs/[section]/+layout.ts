@@ -2,6 +2,8 @@ import type { LayoutLoad } from "./$types";
 
 import { error } from '@sveltejs/kit';
 
+export const prerender = false;
+
 export const load = (async ({ params, parent }) => {
     try {
         const { sections } = await parent();

@@ -3,7 +3,7 @@
 
 <main>
 	<div>
-		<h1>ParsUI is a better way <br /> to build design systems with svelte</h1>
+		<h1>TeilUI is a better way <br /> to build design systems with svelte</h1>
 		<h2>
 			Unstyled, accessible, keyboard-navigable, headless components for building high-quality design systems and
 			web apps in Svelte

@@ -59,7 +59,7 @@
 
 <header bind:this={element} class:visible={visible || open} class:open>
 	<a href="/" class="header-spot home" title="Home">
-		<span>Pars</span>
+		<span>TeilUI</span>
 	</a>
 
 	<button
@@ -79,7 +79,7 @@
 	</ul>
 
 	<ul class="external">
-		<HeaderItem selected={$page.url.pathname.startsWith('/docs')} href="/components">
+		<HeaderItem selected={$page.url.pathname.startsWith('/docs')} href="/docs">
 			Docs
 		</HeaderItem>
 		<li aria-hidden="true"><span class="separator" /></li>
