@@ -1,5 +1,5 @@
 <script>
-	import * as Prism from 'prismjs';
+	import Prism from 'prismjs';
 	import 'prism-svelte';
 
 	import Tabs from '$lib/components/Tabs';

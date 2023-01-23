@@ -3,12 +3,12 @@
 
 <main>
 	<div>
-		<h1>Headless is a better way <br /> to build design systems with svelte</h1>
+		<h1>ParsUI is a better way <br /> to build design systems with svelte</h1>
 		<h2>
-			Unstyled, accessible, headless components for building high-quality design systems and
+			Unstyled, accessible, keyboard-navigable, headless components for building high-quality design systems and
 			web apps in Svelte
 		</h2>
-		<a href="/components">Get Started &gt;</a>
+		<a href="/docs">Get Started &gt;</a>
 	</div>
 </main>
 

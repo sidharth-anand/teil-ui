@@ -1,12 +1,15 @@
 {
-	"name": "headless",
+	"name": "pars-ui",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"author": {
+		"name": "Sidharth Anand"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"package": "svelte-kit package",
+		"package": "svelte-package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -16,7 +19,9 @@
 	"devDependencies": {
 		"@el3um4s/svelte-get-component-info": "^0.0.16",
 		"@sveltejs/adapter-auto": "^1.0.1",
+		"@sveltejs/adapter-static": "^1.0.5",
 		"@sveltejs/kit": "1.0.1",
+		"@sveltejs/package": "^1.0.2",
 		"@types/prismjs": "^1.26.0",
 		"flexsearch": "^0.7.31",
 		"mdsvex": "^0.10.6",

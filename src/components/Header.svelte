@@ -59,7 +59,7 @@
 
 <header bind:this={element} class:visible={visible || open} class:open>
 	<a href="/" class="header-spot home" title="Home">
-		<span>headless</span>
+		<span>Pars</span>
 	</a>
 
 	<button
@@ -161,7 +161,6 @@
 	}
 	.home span {
 		box-sizing: border-box;
-		text-transform: uppercase;
 		font-weight: 700;
 	}
 	button {

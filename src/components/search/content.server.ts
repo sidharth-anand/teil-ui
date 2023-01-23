@@ -8,7 +8,7 @@ const categories = [
         slug: 'docs',
         label: null,
         href: (parts: Array<string>) =>
-            parts.length > 1 ? `/components/${parts[0]}#${parts.slice(1).join('-')}` : `/components/${parts[0]}`
+            parts.length > 1 ? `/docs/components/${parts[0]}#${parts.slice(1).join('-')}` : `/docs/components/${parts[0]}`
     },
 ];
 
@@ -30,8 +30,8 @@ export function content() {
     const blocks: Array<Block> = [];
 
     for (const category of categories) {
-        for (const file of fs.readdirSync('src/docs')) {
-            const text = fs.readFileSync(path.join('src/docs', file), 'utf-8');
+        for (const file of fs.readdirSync('src/docs/02 - Components')) {
+            const text = fs.readFileSync(path.join('src/docs/02 - Components', file), 'utf-8');
             const frontmatter = extractMeta(text);
 
             blocks.push({

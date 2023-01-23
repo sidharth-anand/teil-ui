@@ -1,7 +1,7 @@
 import * as path from 'node:path';
 import * as url from 'node:url';
 
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 import { mdsvex } from 'mdsvex';
@@ -25,10 +25,12 @@ const config = {
 		preprocess(),
 		mdsvex({
 			extensions: ['.md'],
-			layout: path.join(
-				path.dirname(url.fileURLToPath(import.meta.url)),
-				'src/components/DocumentationComponent.svelte'
-			)
+			layout: {
+				component: path.join(
+					path.dirname(url.fileURLToPath(import.meta.url)),
+					'src/components/DocumentationComponent.svelte'
+				)
+			}
 		})
 	],
 

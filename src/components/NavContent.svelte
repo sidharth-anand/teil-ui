@@ -1,7 +1,9 @@
 <script lang="ts">
+	import type { DocsSection } from 'src/global';
+
 	import { page } from '$app/stores';
 
-	export let sections: Array<{ title: string; contents: Array<string> }> = [];
+	export let sections: Array<DocsSection> = [];
 </script>
 
 <nav aria-label="Docs">
@@ -13,15 +15,16 @@
 				</span>
 
 				<ul>
-					{#each section.contents as content}
+					{#each section.pages as sectionpage}
 						<li>
 							<a
 								data-sveltekit-preload-data
 								class="page"
-								class:active={`/components/${content}` === $page.url.pathname}
-								href={`/components/${content}`}
+								class:active={`/docs/${section.prefix}/${sectionpage.prefix}` ===
+									$page.url.pathname}
+								href={`/docs/${section.prefix}/${sectionpage.prefix}`}
 							>
-								{content}
+								{sectionpage.title}
 							</a>
 						</li>
 					{/each}
@@ -76,6 +79,7 @@
 		font-size: 1.6rem;
 		font-family: var(--sk-font);
 		padding-bottom: 0.6em;
+		text-transform: capitalize;
 	}
 	.active {
 		font-weight: 700;

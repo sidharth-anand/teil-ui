@@ -187,6 +187,11 @@
   dependencies:
     import-meta-resolve "^2.2.0"
 
+"@sveltejs/adapter-static@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-1.0.5.tgz#3c691b30717d73aa77f41409ed1ce1f2e3a52e48"
+  integrity sha512-W5jbgvy9sbYEHs27NQOSFEun+zQwdcL4kpk5qc2kSHl8cKsP5wfXuWDTDRmD1Co40aFcesi5Az5ZzdnPI8KCVg==
+
 "@sveltejs/kit@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sveltejs/kit/-/kit-1.0.1.tgz#8c8e7889ed921ec452cf20e71bbcd376eaa7f536"
@@ -205,6 +210,16 @@
     sirv "^2.0.2"
     tiny-glob "^0.2.9"
     undici "5.14.0"
+
+"@sveltejs/package@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@sveltejs/package/-/package-1.0.2.tgz#5b282e91f17754667db76a11fbd40ed4caca7e83"
+  integrity sha512-VY9U+05d9uNFDj7ScKRlHORYlfPSHwJewBjV+V2RsnViexpLFPUrboC9SiPYDCpLnbeqwXerxhO6twGHUBGeIA==
+  dependencies:
+    chokidar "^3.5.3"
+    kleur "^4.1.5"
+    sade "^1.8.1"
+    svelte2tsx "~0.6.0"
 
 "@sveltejs/vite-plugin-svelte@^2.0.0":
   version "2.0.2"
@@ -307,7 +322,7 @@ callsites@^3.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
-chokidar@^3.4.1:
+chokidar@^3.4.1, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -902,6 +917,14 @@ svelte2tsx@^0.5.11:
   version "0.5.22"
   resolved "https://registry.yarnpkg.com/svelte2tsx/-/svelte2tsx-0.5.22.tgz#3d3610691b062cd4679ce60ebaef53b896aa51ba"
   integrity sha512-OytIql7Bv53oFuL0jjsnp/gNvR4ngAUdAjswgibmIQT2Lj2OIQYn2J3gKqRd+wSj/n3M/wrz4zJpudQRSfncZw==
+  dependencies:
+    dedent-js "^1.0.1"
+    pascal-case "^3.1.1"
+
+svelte2tsx@~0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/svelte2tsx/-/svelte2tsx-0.6.0.tgz#83efa0d4cad8102145c140e956cf152282bbb05d"
+  integrity sha512-TrxfQkO7CKi8Pu2eC/FyteDCdk3OOeQV5u6z7OjYAsOhsd0ClzAKqxJdvp6xxNQLrbFzf/XvCi9Fy8MQ1MleFA==
   dependencies:
     dedent-js "^1.0.1"
     pascal-case "^3.1.1"
