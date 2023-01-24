@@ -4,6 +4,11 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>TeilUI - {data.meta.title}</title>
+	<meta name="description" content={data.meta.description}>
+</svelte:head>
+
 <div class="container">
 	<div class="title">
 		<h1>{data.meta.title}</h1>

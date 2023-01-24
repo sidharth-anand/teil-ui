@@ -2,6 +2,11 @@
 	import { base } from '$app/paths';
 </script>
 
+<svelte:head>
+	<title>Teil UI</title>
+	<meta name="description" content="A high quality, comprehensive svelte headless low-level UI component library with an emphasis on accessibility, customisation, and developer experience." />
+</svelte:head>
+
 <main>
 	<div>
 		<h1>TeilUI is a better way <br /> to build design systems with svelte</h1>

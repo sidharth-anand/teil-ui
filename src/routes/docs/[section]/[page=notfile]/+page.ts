@@ -16,6 +16,7 @@ export const load = (async ({ params, parent }) => {
         const markdown: any = await match!();
 
         return {
+            page,
             component: markdown.default
         };
     } catch (err) {
