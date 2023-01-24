@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { page, navigating } from '$app/stores';
+	import { base } from '$app/paths';
 
 	import HeaderItem from './HeaderItem.svelte';
 	import Loading from './Loading.svelte';
@@ -58,7 +59,7 @@
 {/if}
 
 <header bind:this={element} class:visible={visible || open} class:open>
-	<a href="/" class="header-spot home" title="Home">
+	<a href="{base}/" class="header-spot home" title="Home">
 		<span>TeilUI</span>
 	</a>
 
@@ -79,11 +80,11 @@
 	</ul>
 
 	<ul class="external">
-		<HeaderItem selected={$page.url.pathname.startsWith('/docs')} href="/docs">
+		<HeaderItem selected={$page.url.pathname.startsWith(`${base}/docs`)} href="{base}/docs">
 			Docs
 		</HeaderItem>
 		<li aria-hidden="true"><span class="separator" /></li>
-		<HeaderItem external="https://github.com/sveltejs/kit" title="GitHub Repo">
+		<HeaderItem external="https://github.com/sidharth-anand/teil-ui" title="GitHub Repo">
 			<span class="small">GitHub</span>
 			<span class="large">
 				<Icon name="github" />

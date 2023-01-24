@@ -3,12 +3,14 @@ import type { Block } from './types';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
+import {base} from '$app/paths';
+
 const categories = [
     {
         slug: 'docs',
         label: null,
         href: (parts: Array<string>) =>
-            parts.length > 1 ? `/docs/components/${parts[0]}#${parts.slice(1).join('-')}` : `/docs/components/${parts[0]}`
+            parts.length > 1 ? `${base}/docs/components/${parts[0]}#${parts.slice(1).join('-')}` : `${base}/docs/components/${parts[0]}`
     },
 ];
 

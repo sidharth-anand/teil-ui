@@ -2,6 +2,7 @@
 	import type { DocsSection } from 'src/global';
 
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 
 	export let sections: Array<DocsSection> = [];
 </script>
@@ -20,9 +21,9 @@
 							<a
 								data-sveltekit-preload-data
 								class="page"
-								class:active={`/docs/${section.prefix}/${sectionpage.prefix}` ===
+								class:active={`${base}/docs/${section.prefix}/${sectionpage.prefix}` ===
 									$page.url.pathname}
-								href={`/docs/${section.prefix}/${sectionpage.prefix}`}
+								href={`${base}/docs/${section.prefix}/${sectionpage.prefix}`}
 							>
 								{sectionpage.title}
 							</a>

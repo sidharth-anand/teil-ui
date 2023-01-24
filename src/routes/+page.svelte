@@ -1,24 +1,21 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 </script>
 
 <main>
 	<div>
 		<h1>TeilUI is a better way <br /> to build design systems with svelte</h1>
 		<h2>
-			Unstyled, accessible, keyboard-navigable, headless components for building high-quality design systems and
-			web apps in Svelte
+			Unstyled, accessible, keyboard-navigable, headless components for building high-quality
+			design systems and web apps in Svelte
 		</h2>
-		<a href="/docs">Get Started &gt;</a>
+		<a href="{base}/docs">Get Started &gt;</a>
 	</div>
 </main>
 
 <style>
 	main {
-		background: radial-gradient(
-			ellipse 80% 50% at 50% -20%,
-			#88c0d044,
-			rgba(0, 0, 0, 0)
-		);
+		background: radial-gradient(ellipse 80% 50% at 50% -20%, #88c0d044, rgba(0, 0, 0, 0));
 		height: 100vh;
 	}
 
@@ -39,10 +36,10 @@
 		text-align: center;
 		margin: 24px 0px;
 		background: linear-gradient(
-				to right bottom,
-				rgb(255, 255, 255) 30%,
-				rgba(255, 255, 255, 0.38)
-			);
+			to right bottom,
+			rgb(255, 255, 255) 30%,
+			rgba(255, 255, 255, 0.38)
+		);
 		background-clip: padding-box text;
 		box-decoration-break: clone;
 		-webkit-background-clip: text;

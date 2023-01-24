@@ -1,5 +1,6 @@
-import * as path from 'node:path';
 import * as url from 'node:url';
+import * as path from 'node:path';
+import * as process from 'node:process';
 
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
@@ -19,6 +20,9 @@ const config = {
 			$models: 'src/models',
 			$styles: 'src/styles',
 			$components: 'src/components'
+		},
+		paths: {
+			base: process.env.NODE_ENV === 'production' ? '/teil-ui' : ''
 		}
 	},
 
