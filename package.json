@@ -6,9 +6,14 @@
 	"author": {
 		"name": "Sidharth Anand"
 	},
+	"repository": {
+		"url": "https://github.com/sidharth-anand/teil-ui"
+	},
+	"homepage": "https://sidharth-anand.github.io/teil-ui",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"postbuild": "svelte-sitemap --domain https://sidharth-anand.github.io/teil-ui",
 		"package": "svelte-package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -34,6 +39,7 @@
 		"svelte-floating-ui": "^1.2.8",
 		"svelte-portal": "^2.2.0",
 		"svelte-preprocess": "^5.0.0",
+		"svelte-sitemap": "^2.5.4",
 		"tslib": "^2.4.1",
 		"typescript": "~4.9.4",
 		"vite": "^4.0.2"

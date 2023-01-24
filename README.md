@@ -6,7 +6,7 @@ Unlike most UI libraries, TeilUI is built specifically with [WAI-ARIA](https://w
 
 # Documentation
 
-For full documentation visit [teil-ui.github.io](https://teil-ui.github.io)
+For full documentation visit [https://sidharth-anand.github.io/teil-ui](https://sidharth-anand.github.io/teil-ui)
 
 # Installation
 

@@ -1,10 +1,12 @@
+import { base } from '$app/paths';
+
 import { initialize, search, lookup } from "./search";
 
 addEventListener('message', async (event) => {
     const { type, payload } = event.data;
 
     if (type === 'init') {
-        const res = await fetch(`${payload.origin}/search.json`);
+        const res = await fetch(`${payload.origin}${base}/search.json`);
         const { blocks } = await res.json();
 
         initialize(blocks);

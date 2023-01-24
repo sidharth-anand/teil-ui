@@ -1,0 +1,16 @@
+name: Update Google Sitemap
+
+on:
+  workflow_run:
+    workflows: [Deploy Documentation]
+    types:
+      - completed
+jobs:
+  on-success:
+    ping:
+      name: Ping Google
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Send HTTP GET request
+          run: curl http://www.google.com/ping?sitemap=https://sidharth-anand.github.io/teil-ui/sitemap.xml
