@@ -4,7 +4,10 @@
 
 <svelte:head>
 	<title>Teil UI</title>
-	<meta name="description" content="A high quality, comprehensive svelte headless low-level UI component library with an emphasis on accessibility, customisation, and developer experience." />
+	<meta
+		name="description"
+		content="A high quality, comprehensive svelte headless low-level UI component library with an emphasis on accessibility, customisation, and developer experience."
+	/>
 </svelte:head>
 
 <main>
@@ -96,5 +99,22 @@
 		text-shadow: rgba(255, 255, 255, 0.56) 0px 3px 12px;
 		box-shadow: #88c0d066 0px 1px 40px;
 		text-decoration: none;
+	}
+
+	@media (max-width: 768px) {
+		main > div {
+			width: 100%;
+			padding: 20px 50px;
+		}
+
+		main > div > h1 {
+			font-size: 44px;
+			letter-spacing: -0.01em;
+			font-weight: 600;
+		}
+
+		main > div > h2 {
+			font-size: 18px;
+		}
 	}
 </style>

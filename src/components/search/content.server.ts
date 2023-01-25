@@ -3,7 +3,7 @@ import type { Block } from './types';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-import {base} from '$app/paths';
+import { base } from '$app/paths';
 
 const categories = [
     {
@@ -13,6 +13,17 @@ const categories = [
             parts.length > 1 ? `${base}/docs/components/${parts[0]}#${parts.slice(1).join('-')}` : `${base}/docs/components/${parts[0]}`
     },
 ];
+
+function slugify(title: string): string {
+    return title
+        .toLowerCase()
+        .replace(/&lt;/g, '')
+        .replace(/&gt;/g, '')
+        .replace(/[^a-z0-9-$]/g, '-')
+        .replace(/-{2,}/g, '-')
+        .replace(/^-/, '')
+        .replace(/-$/, '');
+}
 
 function extractMeta(markdown: string) {
     const match = /---\r?\n([\s\S]+?)\r?\n---/.exec(markdown);
@@ -38,7 +49,7 @@ export function content() {
 
             blocks.push({
                 breadcrumbs: [file.replace('.md', '')],
-                href: category.href([file.replace('.md', '')]),
+                href: category.href([slugify(file.replace('.md', ''))]),
                 content: frontmatter.body.trim(),
                 rank: parseInt(frontmatter.metadata.rank ?? '0')
             });
