@@ -81,6 +81,16 @@
 		margin-top: 50px;
 	}
 
+	@media (max-width: 1200px) {
+		.container {
+			padding-left: 0;
+		}
+
+		.component {
+			--component-width: var(--sk-page-padding-side);
+		}
+	}
+
 	.reference {
 		margin-top: 50px;
 	}

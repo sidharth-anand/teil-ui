@@ -50,6 +50,11 @@
 		columns: 2;
 		margin: 0;
 	}
+	@media(max-width: 768px) {
+		.sidebar {
+			padding: var(--sk-page-padding-top) 0 var(--sk-page-padding-top) 3.2rem;
+		}
+	}
 	li {
 		display: block;
 		line-height: 1.2;

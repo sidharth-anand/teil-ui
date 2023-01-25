@@ -70,7 +70,7 @@
 		class:open
 		on:click={toggle}
 	>
-		X
+		<Icon name={open ? 'close' : 'menu'} size="1em"></Icon>
 	</button>
 
 	<ul>
@@ -108,7 +108,8 @@
 		height: 100%;
 		top: 0;
 		left: 0;
-		background: rgba(255, 255, 255, 0.8);
+		background: var(--back);
+		opacity: 0.8;
 		z-index: 2;
 		backdrop-filter: grayscale(0.5) blur(2px);
 	}
@@ -175,7 +176,7 @@
 			position: relative;
 			display: none;
 			width: 100%;
-			background: white;
+			background: #2e3440;
 			padding: 1rem var(--side-nav);
 		}
 		.open ul {

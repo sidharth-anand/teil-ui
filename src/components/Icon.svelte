@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let name: string;
-	export let size: number = 20;
+	export let size: string = "20px";
 </script>
 
 <svg class="icon" width={size} height={size}>
