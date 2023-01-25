@@ -42,6 +42,7 @@
     max-height: 85vh;
     padding: 25px;
     color: #4c566a;
+    z-index: 99;
 }
 .dialog__title {
     color: #2e3440;

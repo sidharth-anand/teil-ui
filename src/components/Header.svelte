@@ -60,7 +60,6 @@
 
 <header bind:this={element} class:visible={visible || open} class:open>
 	<a href="{base}/" class="header-spot home" title="Home">
-		<span>TeilUI</span>
 	</a>
 
 	<button
@@ -156,10 +155,11 @@
 		display: flex;
 		background-position: calc(var(--side-nav) - 1rem) 50%;
 		background-repeat: no-repeat;
-		background-size: auto 70%;
+		background-size: auto 50%;
 		justify-content: center;
 		align-items: center;
 		box-sizing: border-box;
+		background-image: url('../../icons/teil-long.svg');
 	}
 	.home span {
 		box-sizing: border-box;

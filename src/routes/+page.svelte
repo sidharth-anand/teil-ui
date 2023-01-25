@@ -8,6 +8,16 @@
 		name="description"
 		content="A high quality, comprehensive svelte headless low-level UI component library with an emphasis on accessibility, customisation, and developer experience."
 	/>
+	<meta property="og:title" content="Teil UI" />
+	<meta
+		property="og:description"
+		content="A high quality, comprehensive svelte headless low-level UI component library with an emphasis on accessibility, customisation, and developer experience."
+	/>
+	<meta name="twitter:title" content="Teil UI" />
+	<meta
+		name="twitter:description"
+		content="A high quality, comprehensive svelte headless low-level UI component library with an emphasis on accessibility, customisation, and developer experience."
+	/>
 </svelte:head>
 
 <main>

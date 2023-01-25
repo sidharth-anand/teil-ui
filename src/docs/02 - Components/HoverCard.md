@@ -18,7 +18,6 @@
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
-  z-index: 999;
 }
 .hovercard__content[data-side='top'] {
   animation-name: slideDownAndFade;
@@ -73,6 +72,9 @@
 }
 .Text.bold {
   font-weight: 500;
+}
+.popper-content:has(> .hovercard__content) {
+  z-index: 99;
 }
 </style>
 

@@ -6,7 +6,11 @@
 
 <svelte:head>
 	<title>TeilUI - {data.meta.title}</title>
-	<meta name="description" content={data.meta.description}>
+	<meta name="description" content={data.meta.description} />
+	<meta property="og:title" content="Teil UI - {data.meta.title}" />
+	<meta property="og:description" content={data.meta.description} />
+	<meta name="twitter:title" content="Teil UI - {data.meta.title}" />
+	<meta name="twitter:description" content={data.meta.description} />
 </svelte:head>
 
 <div class="container">
