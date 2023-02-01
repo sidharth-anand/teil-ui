@@ -15,7 +15,6 @@
 
 <span
 	class={$$props.class}
-	disabled={$checkboxStore.disabled}
 	aria-disabled={$checkboxStore.disabled}
 >
 	{#if $checkboxStore.state === true || (!$$slots.indeterminate && $checkboxStore.state === 'indeterminate')}
