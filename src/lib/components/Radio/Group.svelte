@@ -11,16 +11,21 @@
 	import type { Direction, Orientation } from '../Focus/types';
 	import type { RadioStoreType } from './types';
 
+	export let name: string = '';
 	export let disabled: boolean = false;
-	export let value: string | undefined = undefined;
+	export let required: boolean = false;
+
+	export let value: string = '';
 
 	export let direction: Direction = 'ltr';
 	export let orientation: Orientation = 'both';
 	export let loop: boolean = true;
 
 	const radioStore = writable<RadioStoreType>({
-		value,
-		disabled
+		name,
+		required,
+		disabled,
+		value
 	});
 
 	const focusStore = createFocusContext({ orientation, direction, loop });
@@ -30,7 +35,7 @@
 
 	$: {
 		if (value !== $radioStore.value) {
-			radioStore.update(state => ({
+			radioStore.update((state) => ({
 				...state,
 				value
 			}));
@@ -43,13 +48,14 @@
 </script>
 
 <div
-	use:Focus.Group={focusStore}
-	class={$$props.class}
 	role="radiogroup"
-	aria-orientation={orientation === 'both' ? undefined : orientation}
-	{disabled}
-	aria-disabled={disabled}
+	id={$$props.id}
+	class={$$props.class}
+	style={$$props.style}
 	dir={direction}
+	aria-orientation={orientation === 'both' ? undefined : orientation}
+	aria-disabled={disabled}
+	use:Focus.Group={focusStore}
 >
 	<slot />
 </div>

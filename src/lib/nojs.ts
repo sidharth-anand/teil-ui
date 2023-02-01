@@ -3,4 +3,7 @@ export function NoJS(node: HTMLElement) {
     node.style.opacity = "0";
     node.style.margin = "0";
     node.style.pointerEvents = "none";
+
+    node.setAttribute("aria-hidden", "true");
+    node.setAttribute("tabindex", "-1");
 }

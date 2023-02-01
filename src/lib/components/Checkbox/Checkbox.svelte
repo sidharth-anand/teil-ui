@@ -77,11 +77,11 @@
 	id={$$props.id}
 	style="position: absolute;"
 	{name}
-	{disabled}
 	{required}
-	tabindex="-1"
+	{disabled}
+	aria-required={required}
+	aria-disabled={disabled}
 	formaction={$$props.formaction}
 	checked={checked === 'indeterminate' ? true : checked}
-	aria-hidden
 	use:NoJS
 />

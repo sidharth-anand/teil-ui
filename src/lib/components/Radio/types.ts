@@ -1,4 +1,6 @@
 export type RadioStoreType = {
+	name: string;
 	disabled: boolean;
-	value: any;
+	required: boolean;
+	value: string;
 };
