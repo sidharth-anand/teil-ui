@@ -13,8 +13,6 @@
 	export let required: boolean = false;
 	export let disabled: boolean = false;
 
-	const isFormControl = hasContext(CONTEXT.FORM);
-
 	const checkboxStore = writable<CheckboxStoreType>({
 		state: checked,
 		disabled
@@ -28,10 +26,7 @@
 
 	function click(event: MouseEvent) {
 		checked = checked === 'indeterminate' ? true : !checked;
-
-		if (isFormControl) {
-			event.stopPropagation();
-		}
+		event.stopPropagation();
 	}
 
 	$: {

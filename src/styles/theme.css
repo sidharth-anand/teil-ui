@@ -137,27 +137,6 @@
 	--sidebar-mid-w: 36rem;
 	--sidebar-large-w: 48rem;
 }
-@font-face {
-	font-family: Overpass;
-	font-style: normal;
-	font-weight: 300;
-	src: local('Overpass Light '), local('Overpass-Light'),
-		url(./overpass-latin-300-3782c01a.woff2) format('woff2');
-}
-@font-face {
-	font-family: Overpass;
-	font-style: normal;
-	font-weight: 600;
-	src: local('Overpass Bold '), local('Overpass-Bold'),
-		url(./overpass-latin-600-0ca25556.woff2) format('woff2');
-}
-@font-face {
-	font-family: Fira Mono;
-	font-style: normal;
-	font-weight: 400;
-	src: local('Fira Mono Regular '), local('Fira Mono-Regular'),
-		url(./fira-mono-latin-400-8d4e0c52.woff2) format('woff2');
-}
 html {
 	font-size: 62.5%;
 	-webkit-text-size-adjust: 100%;

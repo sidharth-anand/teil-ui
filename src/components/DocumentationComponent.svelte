@@ -100,7 +100,7 @@
 		color: #d8dee9;
 		font-size: 1em;
 		text-shadow: none;
-		font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+		font-family: var(--font-mono);
 		direction: ltr;
 		text-align: left;
 		white-space: pre;

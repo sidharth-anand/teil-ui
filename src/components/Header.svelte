@@ -159,7 +159,7 @@
 		justify-content: center;
 		align-items: center;
 		box-sizing: border-box;
-		background-image: url('../../icons/teil-long.svg');
+		background-image: url('/teil-long.svg');
 	}
 	.home span {
 		box-sizing: border-box;

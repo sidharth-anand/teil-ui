@@ -2,8 +2,9 @@ import * as url from 'node:url';
 import * as path from 'node:path';
 import * as process from 'node:process';
 
-import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 import { mdsvex } from 'mdsvex';
 
@@ -28,6 +29,7 @@ const config = {
 
 	extensions: ['.svelte', '.md'],
 	preprocess: [
+		vitePreprocess(),
 		preprocess(),
 		mdsvex({
 			extensions: ['.md'],
