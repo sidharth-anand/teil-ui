@@ -27,7 +27,9 @@
 	<div class="fade" />
 {/if}
 
-<style>
+<style lang="scss">
+	@use 'src/scss/variables' as variables;
+
 	.progress-container {
 		position: absolute;
 		top: 0;
@@ -41,14 +43,14 @@
 		left: 0;
 		top: 0;
 		height: 100%;
-		background-color: var(--prime);
+		background-color: var(--tui-theme-1);
 		transition: width 0.4s;
 	}
 	.fade {
 		position: fixed;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(255, 255, 255, 0.3);
+		background-color: rgba(variables.$color-white, 0.3);
 		pointer-events: none;
 		z-index: 998;
 		animation: fade 0.4s;

@@ -13,7 +13,7 @@
 	.select__item {
 		font-size: 13px;
 		line-height: 1;
-		color: #eceff4;
+		color: var(--tui-text-5);
 		border-radius: 3px;
 		display: flex;
 		align-items: center;
@@ -29,8 +29,8 @@
 	.select__item[data-highlighted],
 	.select__item:hover {
 		outline: none;
-		background-color: #5e81ac;
-		color: #eceff4;
+		background-color: var(--tui-theme-4);
+		color: var(--tui-text-5);
 	}
 	.select__indicator {
 		position: absolute;
