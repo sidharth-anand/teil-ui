@@ -23,6 +23,13 @@ npm install teil-ui
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://sreekarnutulapati.vercel.app"><img src="https://avatars.githubusercontent.com/u/64355404?v=4?s=100" width="100px;" alt="Sreekar Venkata Nutulapati"/><br /><sub><b>Sreekar Venkata Nutulapati</b></sub></a><br /><a href="https://github.com/sidharth-anand/teil-ui/commits?author=sreekarnv" title="Code">💻</a> <a href="https://github.com/sidharth-anand/teil-ui/commits?author=sreekarnv" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
