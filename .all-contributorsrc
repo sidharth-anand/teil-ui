@@ -10,5 +10,15 @@
   "repoHost": "https://github.com",
   "commitConvention": "angular",
   "skipCi": true,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "UttejK",
+      "name": "UTTEJ KURUMA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114231462?v=4",
+      "profile": "https://uttejk.github.io",
+      "contributions": [
+        "design"
+      ]
+    }
+  ]
 }
