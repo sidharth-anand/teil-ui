@@ -23,6 +23,13 @@ npm install teil-ui
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sidharth-anand"><img src="https://avatars.githubusercontent.com/u/55060749?v=4?s=100" width="100px;" alt="Sidharth Anand"/><br /><sub><b>Sidharth Anand</b></sub></a><br /><a href="https://github.com/sidharth-anand/teil-ui/commits?author=sidharth-anand" title="Code">💻</a> <a href="https://github.com/sidharth-anand/teil-ui/commits?author=sidharth-anand" title="Documentation">📖</a> <a href="#design-sidharth-anand" title="Design">🎨</a> <a href="#maintenance-sidharth-anand" title="Maintenance">🚧</a> <a href="#infra-sidharth-anand" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
