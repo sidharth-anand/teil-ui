@@ -10,5 +10,16 @@
   "repoHost": "https://github.com",
   "commitConvention": "angular",
   "skipCi": true,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "sreekarnv",
+      "name": "Sreekar Venkata Nutulapati",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64355404?v=4",
+      "profile": "https://sreekarnutulapati.vercel.app",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ]
 }
