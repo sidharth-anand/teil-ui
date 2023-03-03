@@ -12,8 +12,6 @@ const hrefs: Map<string, string> = new Map();
 let indices: Array<Index<string>> = [];
 
 function tree(breadcrumbs: Array<string>, blocks: Array<Block>): Tree {
-    console.log(breadcrumbs);
-
     const depth = breadcrumbs.length;
 
     const node = blocks.find(block => {
@@ -21,14 +19,10 @@ function tree(breadcrumbs: Array<string>, blocks: Array<Block>): Tree {
         return breadcrumbs.every((breadcrumb, i) => block.breadcrumbs[i] === breadcrumb);
     });
 
-    console.log(blocks, node);
-
     const descendants = blocks.filter(block => {
         if (block.breadcrumbs.length <= depth) return false;
         return breadcrumbs.every((breadcrumb, i) => block.breadcrumbs[i] === breadcrumb);
     });
-
-    console.log(descendants);
 
     const children: Array<string | undefined> = Array.from(new Set(descendants.map(block => block.breadcrumbs[depth])));
 
@@ -62,8 +56,6 @@ export function initialize(blocks: Array<Block>): void {
             breadcrumbs: block.breadcrumbs,
             content: block.content
         });
-
-        console.log(block.href, title);
 
         indices[block.rank ?? 0]?.add(block.href, `${title} ${block.content}`);
 
