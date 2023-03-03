@@ -32,13 +32,13 @@
 </script>
 
 <button
-	class={$$props.class}
 	type="button"
 	role="switch"
 	{checked}
 	{disabled}
 	aria-checked={checked}
 	aria-disabled={disabled}
+	{...$$restProps}
 	on:click={(event) => {
 		checked = !checked;
 		if (isFormControl) {
