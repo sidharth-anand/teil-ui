@@ -55,7 +55,7 @@
 {/if}
 
 {#if open}
-	<div class="modal-background hide-if-desktop" on:click={click} />
+	<button aria-roledescription="close header" class="modal-background hide-if-desktop" on:click={click} />
 {/if}
 
 <header bind:this={element} class:visible={visible || open} class:open>
@@ -161,10 +161,11 @@
 		box-sizing: border-box;
 		background-image: url('/teil-long.svg');
 	}
-	.home span {
+	/* comment out unused style */
+	/* .home span {
 		box-sizing: border-box;
 		font-weight: 700;
-	}
+	} */
 	button {
 		position: absolute;
 		top: calc(var(--header-height) / 2 - 1rem);

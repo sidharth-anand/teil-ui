@@ -126,7 +126,7 @@
 />
 
 {#if $searching && ready}
-	<div class="modal-background" on:click={close} />
+	<button aria-roledescription="close searchbox" class="modal-background" on:click={close} />
 
 	<div bind:this={modal} class="modal">
 		<div class="search-box">
@@ -135,10 +135,11 @@
 				autofocus
 				on:keydown={(e) => {
 					if (e.key === 'Enter') {
-						modal?.querySelector('a[data-has-node]')?.click();
+						modal?.querySelector('a[data-has-node]')?.dispatchEvent(new Event('click'));
 					}
 				}}
 				on:input={(e) => {
+					// @ts-ignore
 					$query = e.target.value;
 				}}
 				value={$query}
@@ -158,6 +159,7 @@
 
 			<div class="results">
 				{#if search?.query}
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<div class="results-container" on:click={() => ($searching = false)}>
 						<SearchResults
 							results={search.results}
