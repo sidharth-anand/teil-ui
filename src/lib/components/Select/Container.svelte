@@ -10,7 +10,6 @@
 
 	import id from '../id';
 
-	export let name: string = '';
 	export let direction: Direction = 'ltr';
 	export let autocomplete: boolean = true;
 
