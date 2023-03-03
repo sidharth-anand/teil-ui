@@ -47,15 +47,6 @@
   outline: none;
 }
 
-.contextmenu__item a,
-.contextmenu__checkboxitem a,
-.contextmenu__radioitem a,
-.contextmenu__subtrigger a {
-  color: #88c0d0;
-  text-decoration: none;
-  cursor: default;
-}
-
 .contextmenu__item[aria-disabled="true"],
 .contextmenu__checkboxitem[aria-disabled="true"],
 .contextmenu__radioitem[aria-disabled="true"],
@@ -64,25 +55,11 @@
   pointer-events: 'none';
 }
 
-.contextmenu__item[aria-disabled="true"] a,
-.contextmenu__checkboxitem[aria-disabled="true"] a,
-.contextmenu__radioitem[aria-disabled="true"] a,
-.contextmenu__subtrigger[aria-disabled="true"] a{
-  color: #4c566a;
-}
-
 .contextmenu__item[data-active="true"],
 .contextmenu__checkboxitem[data-active="true"],
 .contextmenu__radioitem[data-active="true"],
 .contextmenu__subtrigger[data-active="true"] {
   background-color: #88c0d0;
-  color: #3b4252;
-}
-
-.contextmenu__item[data-active="true"] a,
-.contextmenu__checkboxitem[data-active="true"] a,
-.contextmenu__radioitem[data-active="true"] a,
-.contextmenu__subtrigger[data-active="true"]  a{
   color: #3b4252;
 }
 
@@ -109,16 +86,16 @@
     </ContextMenu.Trigger>
     <ContextMenu.Content class="contextmenu__content">
         <ContextMenu.Group>
-            <ContextMenu.Item class="contextmenu__item"><a>Item 1</a></ContextMenu.Item>
-            <ContextMenu.Item class="contextmenu__item" disabled><a>Item 2</a></ContextMenu.Item>
-            <ContextMenu.Item class="contextmenu__item"><a>Item 3</a></ContextMenu.Item>
+            <ContextMenu.Item class="contextmenu__item">Item 1</ContextMenu.Item>
+            <ContextMenu.Item class="contextmenu__item" disabled>Item 2</ContextMenu.Item>
+            <ContextMenu.Item class="contextmenu__item">Item 3</ContextMenu.Item>
             <ContextMenu.Sub class="contextmenu__subtrigger">
-                <a slot="item">Submenu Item</a>
+                <span slot="item">Submenu Item</span>
                 <ContextMenu.Content class="contextmenu__subcontent" slot="menu">
                     <ContextMenu.Group>
-                        <ContextMenu.Item class="contextmenu__item"><a>Submenu Item 1</a></ContextMenu.Item>
-                        <ContextMenu.Item class="contextmenu__item"><a>Submenu Item 2</a></ContextMenu.Item>
-                        <ContextMenu.Item class="contextmenu__item"><a>Submenu Item 3</a></ContextMenu.Item>
+                        <ContextMenu.Item class="contextmenu__item">Submenu Item 1</ContextMenu.Item>
+                        <ContextMenu.Item class="contextmenu__item">Submenu Item 2</ContextMenu.Item>
+                        <ContextMenu.Item class="contextmenu__item">Submenu Item 3</ContextMenu.Item>
                     </ContextMenu.Group>
                 </ContextMenu.Content>
             </ContextMenu.Sub>

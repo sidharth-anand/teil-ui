@@ -42,14 +42,7 @@
   user-select: none;
   outline: none;
 }
-.dropdown__item a,
-.dropdown__checkboxitem a,
-.dropdown__radioitem a,
-.dropdown__subtrigger a {
-  color: #88c0d0;
-  text-decoration: none;
-  cursor: default;
-}
+
 .dropdown__item[aria-disabled="true"],
 .dropdown__checkboxitem[aria-disabled="true"],
 .dropdown__radioitem[aria-disabled="true"],
@@ -57,12 +50,7 @@
   color: #4c566a;
   pointer-events: 'none';
 }
-.dropdown__item[aria-disabled="true"] a,
-.dropdown__checkboxitem[aria-disabled="true"] a,
-.dropdown__radioitem[aria-disabled="true"] a,
-.dropdown__subtrigger[aria-disabled="true"] a{
-  color: #4c566a;
-}
+
 .dropdown__item[data-active="true"],
 .dropdown__checkboxitem[data-active="true"],
 .dropdown__radioitem[data-active="true"],
@@ -70,12 +58,7 @@
   background-color: #88c0d0;
   color: #3b4252;
 }
-.dropdown__item[data-active="true"] a,
-.dropdown__checkboxitem[data-active="true"] a,
-.dropdown__radioitem[data-active="true"] a,
-.dropdown__subtrigger[data-active="true"]  a{
-  color: #3b4252;
-}
+
 .dropdown__arrow {
     fill: #3b4252;
 }
@@ -87,13 +70,13 @@
     <DropdownMenu.Content class="dropdown__content">
         <DropdownMenu.Arrow class="dropdown__arrow"/>
         <DropdownMenu.Item class="dropdown__item">
-            <a>Item 1</a>
+            Item 1
         </DropdownMenu.Item>
         <DropdownMenu.Item class="dropdown__item">
-            <a>Item 2</a>
+            Item 2
         </DropdownMenu.Item>
         <DropdownMenu.Item class="dropdown__item">
-            <a>Item 3</a>
+            Item 3
         </DropdownMenu.Item>
     </DropdownMenu.Content>
 </DropdownMenu.Container>
