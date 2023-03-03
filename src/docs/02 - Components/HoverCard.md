@@ -73,7 +73,7 @@
 .Text.bold {
   font-weight: 500;
 }
-.popper-content:has(> .hovercard__content) {
+.popper-content {
   z-index: 99;
 }
 </style>

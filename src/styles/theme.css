@@ -474,7 +474,8 @@ figcaption,
 .text a.permalink {
 	position: absolute !important;
 	display: block;
-	background: url(./link-1a918426.svg) 0 50% no-repeat;
+	/* where is this image? */
+	/* background: url(./link-1a918426.svg) 0 50% no-repeat; */
 	background-size: 1em 1em;
 	width: 1.4em;
 	height: 1em;
