@@ -1,0 +1,43 @@
+$breakpoints: (
+	sm: 480px,
+	md: 768px
+);
+
+$color-black: hsl(0, 0%, 0%);
+$color-white: hsl(0, 0%, 100%);
+
+$back-colors: (
+	'back-1': hsl(224, 15%, 15%),
+	'back-2': hsl(220, 16%, 22%),
+	'back-3': hsl(222, 16%, 28%),
+	'back-4': hsl(220, 17%, 32%),
+	'back-5': hsl(218, 17%, 45%),
+	'back-6': hsl(0, 0%, 40%),
+	'back-translucent': hsla(220, 16%, 36%, 0.2)
+);
+
+$theme-colors: (
+	'1': hsl(193, 43%, 67%),
+	'2': hsl(179, 25%, 65%),
+	'3': hsl(204, 100%, 63%),
+	'4': hsl(213, 32%, 52%)
+);
+
+$font-sizes: (
+	'xxl': 3.6rem,
+	'xl': 3rem,
+	'l': 2.4rem,
+	'm': 2rem,
+	's': 1.6rem,
+	'xs': 1.3rem
+);
+
+$text-colors: (
+	'1': hsl(0, 0%, 90%),
+	'2': hsl(0, 0%, 80%),
+	'3': hsl(0, 0%, 65%),
+	'4': hsl(219, 28%, 88%),
+	'5': hsl(218, 27%, 94%),
+	'6': hsl(0, 0%, 45%),
+	'translucent': hsla(0, 0%, 100%, 0.9)
+);

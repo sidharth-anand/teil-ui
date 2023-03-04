@@ -100,32 +100,29 @@
 	<SearchBox />
 {/if}
 
-<style>
+<style lang="scss" >
+	@use '/src/scss/variables' as variables;
+
 	.modal-background {
 		position: fixed;
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
-		background: var(--back);
+		background: var(--tui-back-1);
 		opacity: 0.8;
 		z-index: 2;
 		backdrop-filter: grayscale(0.5) blur(2px);
 	}
 	header {
 		--shadow-height: 0.5rem;
-		--shadow-gradient: linear-gradient(
-			to bottom,
-			rgba(0, 0, 0, 0.1) 0%,
-			rgba(0, 0, 0, 0.05) 30%,
-			transparent 100%
-		);
+		
 		position: fixed;
 		width: 100vw;
 		height: var(--header-height);
 		margin: 0 auto;
-		background-color: #2e3440;
-		font-family: var(--font);
+		background-color: var(--tui-back-2);
+		font-family: var(--tui-font);
 		z-index: 100;
 		user-select: none;
 		transition: transform 0.2s;
@@ -137,7 +134,12 @@
 		height: var(--shadow-height);
 		left: 0;
 		bottom: calc(-1 * var(--shadow-height));
-		background: var(--shadow-gradient);
+		background: linear-gradient(
+			to bottom,
+			rgba(variables.$color-black, 0.1) 0%,
+			rgba(variables.$color-black, 0.05) 30%,
+			transparent 100%
+		);
 	}
 	ul {
 		position: relative;
@@ -147,7 +149,7 @@
 		list-style: none;
 	}
 	ul :global(a) {
-		color: var(--text);
+		color: var(--tui-text-2);
 	}
 	.home {
 		width: 30rem;
@@ -177,7 +179,7 @@
 			position: relative;
 			display: none;
 			width: 100%;
-			background: #2e3440;
+			background: var(--tui-back-2);
 			padding: 1rem var(--side-nav);
 		}
 		.open ul {
@@ -193,7 +195,7 @@
 			left: var(--side-nav);
 			width: calc(100% - 2 * var(--side-nav));
 			height: 1px;
-			background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+			background: radial-gradient(circle at center, rgba(variables.$color-black, 0.1), rgba(variables.$color-black, 0.05));
 		}
 		ul.external::after {
 			content: '';
@@ -202,7 +204,12 @@
 			height: var(--shadow-height);
 			left: 0;
 			bottom: calc(-1 * var(--shadow-height));
-			background: var(--shadow-gradient);
+			background: linear-gradient(
+				to bottom,
+				rgba(variables.$color-black, 0.1) 0%,
+				rgba(variables.$color-black, 0.05) 30%,
+				transparent 100%
+			);
 		}
 	}
 	@media (min-width: 800px) {
@@ -241,7 +248,7 @@
 	main {
 		position: relative;
 		margin: 0 auto;
-		padding-top: var(--sk-nav-height);
+		padding-top: var(--tui-nav-height);
 		overflow: hidden;
 	}
 	.small {
@@ -256,7 +263,7 @@
 		position: relative;
 		height: 1px;
 		margin: 0.5rem 0;
-		background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
+		background: radial-gradient(circle at center, rgba(variables.$color-black, 0.1), rgba(variables.$color-black, 0.05));
 	}
 	@media (min-width: 800px) {
 		.small {
@@ -278,7 +285,7 @@
 		.separator::before {
 			content: '•';
 			margin: 0 0.3rem;
-			color: #ccc;
+			color: var(--text-color-2);
 		}
 	}
 	@media (min-width: 960px) {
@@ -296,7 +303,7 @@
 		align-items: center;
 	}
 	:global(.examples-container, .repl-outer, .tutorial-outer) {
-		height: calc(100vh - var(--sk-nav-height)) !important;
+		height: calc(100vh - var(--tui-nav-height)) !important;
 	}
 	:global(.toggle) {
 		bottom: 0 !important;

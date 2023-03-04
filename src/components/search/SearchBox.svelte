@@ -216,7 +216,9 @@
 	{/if}
 </div>
 
-<style>
+<style lang="scss" >
+	@use '/src/scss/variables' as variables;
+
 	input {
 		font-family: inherit;
 		font-size: 1.6rem;
@@ -224,26 +226,26 @@
 		padding: 1rem 6rem 0.5rem 1rem;
 		height: 5rem;
 		border: none;
-		border-bottom: 1px solid var(--sk-back-3);
+		border-bottom: 1px solid var(--tui-back-2);
 		font-weight: 600;
 		flex-shrink: 0;
-		background: var(--sk-back-2);
-		color: var(--sk-text-1);
+		background: var(--tui-back-2);
+		color: var(--tui-text-1);
 	}
 	input::selection {
-		background-color: var(--sk-back-translucent);
+		background-color: var(--tui-back-translucent);
 	}
 	input::placeholder {
-		color: var(--sk-back-2);
+		color: var(--tui-back-2);
 		opacity: 0.6;
 	}
 	input:focus-visible {
-		background: var(--sk-theme-2);
-		color: var(--sk-back-2);
+		background: var(--tui-theme-2);
+		color: var(--tui-back-2);
 		outline: none;
 	}
 	input:focus-visible::placeholder {
-		color: rgba(255, 255, 255, 0.5);
+		color: rgba(variables.$color-white, 0.5);
 	}
 	button[aria-label='Close'] {
 		--size: 2rem;
@@ -253,15 +255,15 @@
 		width: 5rem;
 		height: 5rem;
 		background: none;
-		color: var(--sk-text-2);
+		color: var(--tui-text-2);
 	}
 	button[aria-label='Close']:focus-visible {
-		background: var(--sk-theme-2);
-		color: var(--sk-back-1);
+		background: var(--tui-theme-2);
+		color: var(--tui-back-1);
 		outline: none;
 	}
 	input:focus-visible + button[aria-label='Close'] {
-		color: var(--sk-back-1);
+		color: var(--tui-back-1);
 	}
 	ul {
 		margin: 0;
@@ -276,7 +278,7 @@
 		z-index: 9999;
 	}
 	.modal-background {
-		background: var(--sk-back-1);
+		background: var(--tui-back-1);
 		opacity: 0.7;
 	}
 	.modal {
@@ -291,8 +293,8 @@
 		width: calc(100vw - 2rem);
 		max-width: 50rem;
 		max-height: 50rem;
-		filter: drop-shadow(2px 4px 16px rgba(0, 0, 0, 0.2));
-		border-radius: var(--sk-border-radius);
+		filter: drop-shadow(2px 4px 16px rgba(variables.$color-black, 0.2));
+		border-radius: var(--tui-border-radius);
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
@@ -305,8 +307,8 @@
 		overscroll-behavior-y: none;
 	}
 	.results-container {
-		background: var(--sk-back-2);
-		border-radius: 0 0 var(--sk-border-radius) var(--sk-border-radius);
+		background: var(--tui-back-2);
+		border-radius: 0 0 var(--tui-border-radius) var(--tui-border-radius);
 		pointer-events: all;
 	}
 	.info {
@@ -314,11 +316,11 @@
 		font-size: 1.2rem;
 		font-weight: normal;
 		text-transform: uppercase;
-		background-color: var(--sk-back-2);
+		background-color: var(--tui-back-2);
 		pointer-events: all;
 	}
 	.info.empty {
-		border-radius: 0 0 var(--sk-border-radius) var(--sk-border-radius);
+		border-radius: 0 0 var(--tui-border-radius) var(--tui-border-radius);
 	}
 	a {
 		display: block;
@@ -327,11 +329,11 @@
 		padding: 1rem;
 	}
 	a:hover {
-		background: rgba(0, 0, 0, 0.05);
+		background: rgba(variables.$color-black, 0.05);
 	}
 	a:focus {
-		background: var(--sk-theme-2);
-		color: var(--sk-back-1);
+		background: var(--tui-theme-2);
+		color: var(--tui-back-1);
 		outline: none;
 	}
 	a small,
@@ -346,11 +348,11 @@
 		font-size: 1rem;
 		text-transform: uppercase;
 		font-weight: 600;
-		color: var(--sk-text-3);
+		color: var(--tui-text-3);
 	}
 	a strong {
 		font-size: 1.6rem;
-		color: var(--sk-text-2);
+		color: var(--tui-text-2);
 		margin: 0.4rem 0;
 	}
 	a:focus small {
@@ -361,8 +363,8 @@
 		color: white;
 	}
 	a strong :global(mark) {
-		background: var(--sk-theme-2);
-		color: var(--sk-text-3);
+		background: var(--tui-theme-2);
+		color: var(--tui-text-3);
 		text-decoration: none;
 		border-radius: 1px;
 	}
@@ -375,19 +377,19 @@
 		right: 0;
 		width: 5rem;
 		height: 100%;
-		color: var(--sk-text-2);
+		color: var(--tui-text-2);
 		opacity: 0.1;
 	}
 	a:focus + [aria-label='Delete'] {
-		color: var(--sk-back-1);
+		color: var(--tui-back-1);
 	}
 	button[aria-label='Delete']:hover {
 		opacity: 1;
 		outline: none;
 	}
 	button[aria-label='Delete']:focus-visible {
-		background: var(--sk-theme-2);
-		color: var(--sk-text-1);
+		background: var(--tui-theme-2);
+		color: var(--tui-text-1);
 		opacity: 1;
 		outline: none;
 	}

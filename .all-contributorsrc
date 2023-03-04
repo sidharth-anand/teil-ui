@@ -10,5 +10,38 @@
   "repoHost": "https://github.com",
   "commitConvention": "angular",
   "skipCi": true,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "sidharth-anand",
+      "name": "Sidharth Anand",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55060749?v=4",
+      "profile": "https://github.com/sidharth-anand",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "maintenance",
+        "infra"
+      ]
+    },
+    {
+        "login": "sreekarnv",
+        "name": "Sreekar Venkata Nutulapati",
+        "avatar_url": "https://avatars.githubusercontent.com/u/64355404?v=4",
+        "profile": "https://sreekarnutulapati.vercel.app",
+        "contributions": [
+          "code",
+          "doc"
+        ]
+    },
+    {
+      "login": "UttejK",
+        "name": "UTTEJ KURUMA",
+        "avatar_url": "https://avatars.githubusercontent.com/u/114231462?v=4",
+        "profile": "https://uttejk.github.io",
+        "contributions": [
+          "design"
+        ]
+    }
+  ]
 }
