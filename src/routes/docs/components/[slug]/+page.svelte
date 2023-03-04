@@ -71,7 +71,7 @@
 	}
 
 	.title h1 {
-		color: #eceff4;
+		color: var(--tui-text-5);
 	}
 
 	.title h5 {
@@ -91,7 +91,7 @@
 		}
 
 		.component {
-			--component-width: var(--sk-page-padding-side);
+			--component-width: var(--tui-page-padding-side);
 		}
 	}
 
@@ -130,17 +130,17 @@
 	}
 
 	.reference__component > table td.prop > code {
-		background: #5e81ac;
+		background: var(--tui-theme-4);
 		border-radius: 2px;
 		padding: 3px;
-		color: #eceff4;
+		color: var(--tui-text-5);
 		font-weight: bold;
 	}
 
 	.reference__component > table td.type > code,
 	.reference__component > table td.default:not(.empty) > code {
 		background: #4c566a;
-		color: #eceff4;
+		color: var(--tui-text-5);
 		border-radius: 2px;
 	}
 

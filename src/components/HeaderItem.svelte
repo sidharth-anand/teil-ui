@@ -28,6 +28,6 @@
 		opacity: 1;
 	}
 	[aria-current] {
-		color: var(--prime);
+		color: var(--tui-theme-1);
 	}
 </style>

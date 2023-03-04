@@ -47,7 +47,7 @@
 <style>
 	.component {
 		width: 100%;
-		background: #d8dee9;
+		background: var(--tui-text-4);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -67,8 +67,8 @@
 	}
 
 	:global(.docs-tabs__list) {
-		background: var(--sk-back-4);
-		box-shadow: inset 0 -1px 0 0 #d8dee9;
+		background: var(--tui-back-4);
+		box-shadow: inset 0 -1px 0 0 var(--tui-text-4);
 	}
 
 	:global(.docs-tabs__trigger) {
@@ -78,7 +78,7 @@
 	:global(.docs-tabs__trigger[aria-selected='true']) {
 		outline: none;
 		font-weight: bold;
-		border-bottom: 2px solid #88c0d0;
+		border-bottom: 2px solid var(--tui-theme-1);
 	}
 
 	:global(.docs-tabs__content) {
@@ -95,27 +95,6 @@
 		background: none;
 	}
 
-	:global(pre[class*='language-']),
-	:global(code[class*='language-']) {
-		color: #d8dee9;
-		font-size: 1em;
-		text-shadow: none;
-		font-family: var(--font-mono);
-		direction: ltr;
-		text-align: left;
-		white-space: pre;
-		word-spacing: normal;
-		word-break: normal;
-		line-height: 1.5;
-		-moz-tab-size: 4;
-		-o-tab-size: 4;
-		tab-size: 4;
-		-webkit-hyphens: none;
-		-moz-hyphens: none;
-		-ms-hyphens: none;
-		hyphens: none;
-	}
-
 	:global(pre[class*='language-']::selection),
 	:global(code[class*='language-']::selection),
 	:global(pre[class*='language-']::mozselection),
@@ -123,23 +102,12 @@
 		text-shadow: none;
 		background: none;
 	}
+	
 	@media print {
 		:global(pre[class*='language-']),
 		:global(code[class*='language-']) {
 			text-shadow: none;
 		}
-	}
-	:global(pre[class*='language-']) {
-		padding: 1em;
-		margin: 0;
-		height: 100%;
-		background: #2e3440;
-	}
-	:global(:not(pre) > code[class*='language-']) {
-		padding: 0.1em;
-		border-radius: 0.3em;
-		color: #d8dee9;
-		background: #2e3440;
 	}
 	/*********************************************************
 * Tokens
@@ -220,8 +188,8 @@
 		right: 0;
 		padding: inherit 0;
 		margin-top: 1em;
-		background: #3b4251;
-		box-shadow: inset 5px 0 0 #d8dee9;
+		background: hsl(221, 16%, 27%);
+		box-shadow: inset 5px 0 0 var(--tui-text-4);
 		z-index: 0;
 		pointer-events: none;
 		line-height: inherit;

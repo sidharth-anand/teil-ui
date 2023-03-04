@@ -92,7 +92,7 @@
 		gap: 8px;
 		flex-shrink: 0;
 		margin: 0px;
-		color: #2e3440;
+		color: var(--tui-back-2);
 		font-weight: 500;
 		transition-property: border, background-color, color, box-shadow, opacity;
 		font-size: 16px;
@@ -100,7 +100,7 @@
 		border-radius: 9999px;
 		padding: 0px 24px;
 		border: medium none;
-		background: #88c0d0;
+		background: var(--tui-theme-1);
 		text-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
 		margin: 0 auto;
 	}
