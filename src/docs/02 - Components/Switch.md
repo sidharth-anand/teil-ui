@@ -46,10 +46,10 @@
 
 <!--code start-->
 <div class="switch__container" slot="component">
-    <Switch.Track class="switch__track">
+    <Switch.Track class="switch__track" id="airplane-mode-switch">
         <Switch.Thumb class="switch__thumb" />
     </Switch.Track>
-    <label class="switch__label">Airplane Mode</label>
+    <label for="airplane-mode-switch" class="switch__label">Airplane Mode</label>
 </div>
 <!--code end-->
 

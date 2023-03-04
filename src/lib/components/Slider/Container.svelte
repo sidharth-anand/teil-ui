@@ -9,7 +9,6 @@
 
 	import { PAGE_KEYS, ARROW_KEYS, BACK_KEYS } from './constants';
 
-	export let name: string = '';
 	export let disabled: boolean = false;
 	export let inverted: boolean = false;
 

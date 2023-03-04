@@ -62,19 +62,19 @@
         <Radio.Button class="radio__button" id="x" value="asd">
             <Radio.Indicator class="radio__indicator" />
         </Radio.Button> 
-        <label class="radio__label" labelfor="x">Default</label>
+        <label class="radio__label" for="x">Default</label>
     </div>
     <div class="radio__item">
         <Radio.Button class="radio__button" id="y" value="qwe">
             <Radio.Indicator class="radio__indicator" />
         </Radio.Button> 
-        <label class="radio__label" labelfor="y">Comfortable</label>
+        <label class="radio__label" for="y">Comfortable</label>
     </div>
     <div class="radio__item">
         <Radio.Button class="radio__button" id="z" value="zxc">
             <Radio.Indicator class="radio__indicator" />
         </Radio.Button> 
-        <label class="radio__label" labelfor="z">Compact</label>
+        <label class="radio__label" for="z">Compact</label>
     </div>
 </Radio.Group>
 <!--code end-->

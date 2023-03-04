@@ -54,10 +54,6 @@
 			event.preventDefault();
 		}
 	}
-
-	$: {
-		console.log($menuStore.open);
-	}
 </script>
 
 <Menu.Anchor>
