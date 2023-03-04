@@ -13,9 +13,10 @@
 	import '@fontsource/roboto/latin-500.css';
 	import '@fontsource/roboto/latin-500-italic.css';
 
-	import '$styles/base.css';
-	import '$styles/theme.css';
-	import '$styles/common.css';
+	// import '$styles/base.css';
+	// import '$styles/theme.css';
+
+	import '../scss/main.scss';
 
 	import Icons from '$components/Icons.svelte';
 </script>

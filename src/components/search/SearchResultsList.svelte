@@ -65,7 +65,9 @@
 	{/each}
 </ul>
 
-<style>
+<style lang="scss" >
+	@use '/src/scss/variables' as variables;
+
 	ul {
 		position: relative;
 		margin: 0;
@@ -73,7 +75,7 @@
 	ul :global(ul) {
 		margin-left: 0.8em !important;
 		padding-left: 0em;
-		border-left: 1px solid var(--sk-back-5);
+		border-left: 1px solid var(--tui-back-6);
 	}
 	li {
 		list-style: none;
@@ -92,11 +94,11 @@
 		padding: 1rem;
 	}
 	a:hover {
-		background: rgba(0, 0, 0, 0.05);
+		background: rgba(variables.$color-black, 0.05);
 	}
 	a:focus {
-		background: var(--sk-theme-2);
-		color: white;
+		background: var(--tui-theme-2);
+		color: variables.$color-white;
 		outline: none;
 	}
 	a strong,
@@ -109,11 +111,11 @@
 	}
 	a strong {
 		font-size: 1.6rem;
-		color: var(--sk-text-2);
+		color: var(--tui-text-2);
 	}
 	a span {
 		font-size: 1.2rem;
-		color: #737373;
+		color: var(--tui-text-6);
 		margin: 0.4rem 0 0 0;
 	}
 	a :global(mark) {
@@ -121,29 +123,27 @@
 	}
 	a span :global(mark) {
 		background: none;
-		color: var(--sk-text-1);
+		color: var(--tui-text-1);
 		background: var(--highlight-color);
 		outline: 2px solid var(--highlight-color);
 		border-top: 2px solid var(--highlight-color);
-		/* mix-blend-mode: darken; */
 	}
 	a:focus span {
-		color: rgba(255, 255, 255, 0.6);
+		color: rgba(variables.$color-white, 0.6);
 	}
 	a:focus strong {
-		color: white;
+		color: variables.$color-white;
 	}
 	a:focus span :global(mark),
 	a:focus strong :global(mark) {
-		--highlight-color: hsl(240, 8%, 54%);
+		--highlight-color: #808093;
 		mix-blend-mode: lighten;
-		color: white;
+		color: variables.$color-white;
 	}
 	a strong :global(mark) {
-		color: var(--sk-text-1);
+		color: var(--tui-text-1);
 		background: var(--highlight-color);
 		outline: 2px solid var(--highlight-color);
-		/* border-top: 2px solid var(--highlight-color); */
 		border-radius: 1px;
 	}
 </style>

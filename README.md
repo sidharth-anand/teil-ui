@@ -26,6 +26,8 @@ npm install teil-ui
 <table>
   <tbody>
     <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sidharth-anand"><img src="https://avatars.githubusercontent.com/u/55060749?v=4?s=100" width="100px;" alt="Sidharth Anand"/><br /><sub><b>Sidharth Anand</b></sub></a><br /><a href="https://github.com/sidharth-anand/teil-ui/commits?author=sidharth-anand" title="Code">💻</a> <a href="https://github.com/sidharth-anand/teil-ui/commits?author=sidharth-anand" title="Documentation">📖</a> <a href="#design-sidharth-anand" title="Design">🎨</a> <a href="#maintenance-sidharth-anand" title="Maintenance">🚧</a> <a href="#infra-sidharth-anand" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://sreekarnutulapati.vercel.app"><img src="https://avatars.githubusercontent.com/u/64355404?v=4?s=100" width="100px;" alt="Sreekar Venkata Nutulapati"/><br /><sub><b>Sreekar Venkata Nutulapati</b></sub></a><br /><a href="https://github.com/sidharth-anand/teil-ui/commits?author=sreekarnv" title="Code">💻</a> <a href="https://github.com/sidharth-anand/teil-ui/commits?author=sreekarnv" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://uttejk.github.io"><img src="https://avatars.githubusercontent.com/u/114231462?v=4?s=100" width="100px;" alt="UTTEJ KURUMA"/><br /><sub><b>UTTEJ KURUMA</b></sub></a><br /><a href="#design-UttejK" title="Design">🎨</a></td>
     </tr>
   </tbody>

@@ -1,0 +1,195 @@
+body {
+	background-color: var(--tui-back-1);
+	color: var(--tui-text-2);
+	font-size: 1.6rem;
+	font-family: var(--tui-font);
+	line-height: 1.5;
+	color: var(--tui-text-2);
+	background-color: var(--tui-back-1);
+	width: 100%;
+	tab-size: 2;
+	-moz-tab-size: 2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+	position: relative;
+	margin: 0;
+	color: var(--tui-text-1);
+}
+
+h6 {
+	font-size: var(--h6);
+}
+
+h5 {
+	font-size: var(--h5);
+}
+
+h4 {
+	font-size: var(--h4);
+}
+h3 {
+	font-size: var(--h3);
+}
+h2 {
+	font-size: var(--h2);
+}
+h1 {
+	font-size: var(--h1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--tui-font);
+	position: relative;
+	font-weight: 400;
+	line-height: 1.35;
+	color: var(--tui-text-1);
+}
+
+h3 {
+	font-weight: 300;
+}
+
+p,
+ol,
+ul {
+	margin: 1em 0;
+}
+
+b,
+strong {
+	font-weight: 600;
+}
+
+tt,
+code,
+kbd,
+samp {
+	font: 400 var(--tui-text-xs) / 1.7 var(--tui-font-mono);
+}
+
+code {
+	position: relative;
+	border-radius: 0.3em;
+	white-space: nowrap;
+	-webkit-font-smoothing: initial;
+	padding: 0.4rem;
+	margin: 0 0.2rem;
+	top: -0.1rem;
+	background: var(--tui-back-4);
+}
+
+pre {
+	overflow-x: auto;
+	hyphens: none;
+	padding: 1em;
+	margin: 0;
+	height: 100%;
+	background: var(--tui-back-2);
+}
+
+pre code {
+	top: 0;
+	white-space: inherit;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	background: transparent;
+	color: var(--tui-text-4);
+	font-size: 1em;
+	text-shadow: none;
+	font-family: var(--tui-font-mono);
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+}
+
+li > h2 {
+	color: var(--tui-theme-2);
+}
+
+blockquote {
+	position: relative;
+	margin: 1.6rem 0 2.4rem;
+	padding: 2rem 2.4rem 1.8rem 2.4rem;
+	max-width: var(--linemax);
+}
+
+blockquote p,
+blockquote ul {
+	font-size: var(--h5);
+}
+
+blockquote :last-child {
+	margin: 0;
+}
+
+button {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: transparent;
+	border: none;
+	color: currentColor;
+	cursor: pointer;
+}
+
+a {
+	position: relative;
+	padding: 0 0 1px 0;
+	color: var(--tui-theme-1);
+}
+
+a.no-underline {
+	border-bottom: none;
+	padding: 0;
+}
+
+table {
+	width: 100%;
+	font-size: var(--h5);
+}
+
+td,
+th {
+	text-align: left;
+	border-bottom: 1px solid #eee;
+	padding: 0.4rem 0.8rem 0.4rem 0;
+}
+
+table code,
+table span {
+	white-space: pre;
+}
+
+@media (min-width: 960px) {
+	ul.external {
+		width: 30rem !important;
+	}
+}
+
+@media (max-width: 830px) {
+	aside {
+		z-index: 9999 !important;
+	}
+}
