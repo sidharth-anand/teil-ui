@@ -25,23 +25,32 @@
       ]
     },
     {
-        "login": "sreekarnv",
-        "name": "Sreekar Venkata Nutulapati",
-        "avatar_url": "https://avatars.githubusercontent.com/u/64355404?v=4",
-        "profile": "https://sreekarnutulapati.vercel.app",
-        "contributions": [
-          "code",
-          "doc"
-        ]
+      "login": "sreekarnv",
+      "name": "Sreekar Venkata Nutulapati",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64355404?v=4",
+      "profile": "https://sreekarnutulapati.vercel.app",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     },
     {
       "login": "UttejK",
-        "name": "UTTEJ KURUMA",
-        "avatar_url": "https://avatars.githubusercontent.com/u/114231462?v=4",
-        "profile": "https://uttejk.github.io",
-        "contributions": [
-          "design"
-        ]
+      "name": "UTTEJ KURUMA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114231462?v=4",
+      "profile": "https://uttejk.github.io",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "TheComputerM",
+      "name": "TheComputerM",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24741538?v=4",
+      "profile": "https://thecomputerm.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
