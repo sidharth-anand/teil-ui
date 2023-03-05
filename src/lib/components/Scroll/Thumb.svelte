@@ -75,10 +75,9 @@
 
 <div
 	bind:this={$scrollStore.thumb}
-	class={$$props.class}
-	style="
-    width: var(--scroll-area-thumb-width); 
-    height: var(--scroll-area-thumb-height);"
+	{...$$restProps}
+	style:width="var(--scroll-area-thumb-width)"
+	style:height="var(--scroll-area-thumb-height)"
 	on:pointerdown|capture={pointerdown}
 	on:pointerup={$scrollStore.thumbpointerup}
 >

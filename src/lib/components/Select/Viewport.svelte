@@ -58,7 +58,7 @@
 <div
 	bind:this={$selectStore.viewport}
 	role="presentation"
-	class={$$props.class}
+	{...$$restProps}
 	on:scroll={scroll}
 >
 	<slot />

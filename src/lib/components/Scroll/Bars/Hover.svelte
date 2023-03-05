@@ -43,5 +43,5 @@
 </script>
 
 {#if visible}
-	<Auto class={$$props.class} {orientation}><slot /></Auto>
+	<Auto {...$$restProps} {orientation}><slot /></Auto>
 {/if}

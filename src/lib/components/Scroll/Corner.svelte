@@ -41,8 +41,8 @@
 	});
 
 	onMount(() => {
-		widthObserver.observe($scrollStore.vertical);
-		heightObserver.observe($scrollStore.horizontal);
+		if ($scrollStore.vertical) widthObserver.observe($scrollStore.vertical);
+		if ($scrollStore.horizontal) heightObserver.observe($scrollStore.horizontal);
 	});
 
 	onDestroy(() => {
@@ -53,16 +53,21 @@
 
 {#if visible}
 	<div
-		class={$$props.class}
+		{...$$restProps}
+		style:right={$scrollStore.direction === 'ltr' ? 0 : undefined}
+		style:left={$scrollStore.direction === 'rtl' ? 0 : undefined}
 		style="
         width: {$scrollStore.corner.width}px;
         height: {$scrollStore.corner.height}px;
-        position: absolute;
-        right: {$scrollStore.direction === 'ltr' ? 0 : undefined};
-        left: {$scrollStore.direction === 'rtl' ? 0 : undefined};
-        bottom: 0;
 "
 	>
 		<slot />
 	</div>
 {/if}
+
+<style>
+	div {
+		position: absolute;
+		bottom: 0;
+	}
+</style>

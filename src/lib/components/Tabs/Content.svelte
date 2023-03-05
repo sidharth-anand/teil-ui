@@ -22,7 +22,7 @@
 	<div
 		role="tabpanel"
 		id={`${$tabsStore.id}-content-${value}`}
-		class={$$props.class}
+		{...$$restProps}
 		hidden={false}
 		aria-labelledby={`${$tabsStore.id}-trigger-${value}`}
 	>

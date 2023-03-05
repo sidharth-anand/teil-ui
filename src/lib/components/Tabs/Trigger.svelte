@@ -47,7 +47,7 @@
 	type="button"
 	role="tab"
 	id={`${$tabsStore.id}-trigger-${value}`}
-	class={$$props.class}
+	{...$$restProps}
 	{disabled}
 	aria-selected={selected}
 	aria-controls={`${$tabsStore.id}-content-${value}`}

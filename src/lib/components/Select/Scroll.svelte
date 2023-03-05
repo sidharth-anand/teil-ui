@@ -53,13 +53,16 @@
 </script>
 
 <div
-	class={$$props.class}
-	style="
-    flex-shrink: 0;
-"
+	{...$$restProps}
 	aria-hidden
 	on:pointermove={pointermove}
 	on:pointerleave={pointerleave}
 >
 	<slot />
 </div>
+
+<style>
+	div {
+		flex-shrink: 0;
+	}
+</style>

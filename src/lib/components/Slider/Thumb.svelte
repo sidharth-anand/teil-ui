@@ -129,8 +129,8 @@
 	<span
 		bind:this={element}
 		role="slider"
-		style={value === undefined ? 'display: none' : ''}
-		class={$$props.class}
+		style:display={value === undefined ? 'none' : 'initial'}
+		{...$$restProps}
 		aria-label={computedLabel}
 		aria-valuemin={$sliderStore.min}
 		aria-valuemax={$sliderStore.max}
