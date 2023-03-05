@@ -129,7 +129,7 @@
 	<span
 		bind:this={element}
 		role="slider"
-		style:display={value === undefined ? 'none' : 'initial'}
+		style:display={value === undefined ? 'none' : 'block'}
 		{...$$restProps}
 		aria-label={computedLabel}
 		aria-valuemin={$sliderStore.min}
