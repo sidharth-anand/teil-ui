@@ -268,7 +268,7 @@
 
 <div
 	bind:this={element}
-	class={$$props.class}
+	{...$$restProps}
 	style="
     position: absolute;
     top: {horizontal ? undefined : 0};

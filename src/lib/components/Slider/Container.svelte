@@ -212,8 +212,8 @@
 
 <span
 	bind:this={element}
-	class={$$props.class}
-	style="--slider-thumb-transform: translate{orientation === 'horizontal' ? 'X' : 'Y'}(-50%)"
+	{...$$restProps}
+	style:--slider-thumb-transform={`translate${orientation === 'horizontal' ? 'X' : 'Y'}(-50%)`}
 	aria-disabled={disabled}
 	aria-orientation={orientation}
 	on:keydown={keydown}

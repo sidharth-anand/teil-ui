@@ -25,7 +25,7 @@
 </script>
 
 <span
-	class={$$props.class}
+	{...$$restProps}
 	style="
     {$sliderStore.movement}: {start}%;
     {OPPOSITES[$sliderStore.movement]}: {end}%;
