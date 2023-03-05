@@ -87,5 +87,5 @@
 </script>
 
 {#if $scrollState !== 'hidden'}
-	<Visible class={$$props.class} {orientation}><slot /></Visible>
+	<Visible {...$$restProps} {orientation}><slot /></Visible>
 {/if}

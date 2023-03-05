@@ -11,7 +11,7 @@
 
 <button
 	type="button"
-	class={$$props.class}
+	{...$$restProps}
 	aria-pressed={pressed}
 	aria-disabled={disabled}
 	on:click={click}

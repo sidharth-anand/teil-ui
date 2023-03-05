@@ -59,11 +59,6 @@
 	bind:this={$selectStore.viewport}
 	role="presentation"
 	class={$$props.class}
-	style="
-    position: relative;
-    flex: 1;
-    overflow: auto;
-"
 	on:scroll={scroll}
 >
 	<slot />
@@ -74,6 +69,9 @@
 		scrollbar-width: none;
 		-ms-overflow-style: none;
 		-webkit-overflow-scrolling: touch;
+		position: relative;
+		flex: 1;
+		overflow: auto;
 	}
 
 	div::-webkit-scrollbar {

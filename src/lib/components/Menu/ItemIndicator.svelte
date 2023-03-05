@@ -14,7 +14,7 @@
 	const indicatorStore: Writable<MenuItemIndicatorStoreType> = getContext(CONTEXT.MENUINDICATOR);
 </script>
 
-<span class={$$props.class}>
+<span {...$$restProps}>
 	{#if $indicatorStore.checked === true || (!$$slots.indeterminate && $indicatorStore.checked === 'indeterminate')}
 		<slot name="checked" />
 	{:else if $indicatorStore.checked === 'indeterminate' && $$slots.indeterminate}

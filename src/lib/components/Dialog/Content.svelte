@@ -62,7 +62,7 @@
 	<div
 		role="dialog"
 		id={$dialogStore.contentID}
-		class={$$props.class}
+		{...$$restProps}
 		aria-describedby={$dialogStore.descriptionID}
 		aria-labelledby={$dialogStore.titleID}
 		on:focusOutside={focusoutside}

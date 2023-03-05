@@ -21,6 +21,6 @@
 			: 'loading';
 </script>
 
-<div class={$$props.class} style={$$props.style} data-value={$progressStore.value} data-state={state}>
+<div {...$$restProps} data-value={$progressStore.value} data-state={state}>
 	<slot />
 </div>

@@ -61,8 +61,7 @@
 
 <Menu.Anchor virtualElement={target}>
 	<span
-		class={$$props.class}
-		style="--webkit-touch-callout: 'none';"
+		{...$$restProps}
 		on:contextmenu={contextmenu}
 		on:pointerdown={pointerdown}
 		on:pointermove={clearLongpress}
@@ -72,3 +71,9 @@
 		<slot />
 	</span>
 </Menu.Anchor>
+
+<style>
+	span {
+		--webkit-touch-callout: 'none'
+	}
+</style>

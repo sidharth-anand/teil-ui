@@ -19,6 +19,6 @@
 	setContext(CONTEXT.SELECTGROUP, selectGroupStore);
 </script>
 
-<div role="group" class={$$props.class} aria-labelledby={$selectGroupStore.id}>
+<div role="group" {...$$restProps} aria-labelledby={$selectGroupStore.id}>
 	<slot />
 </div>

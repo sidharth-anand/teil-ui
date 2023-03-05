@@ -10,4 +10,4 @@
 	}
 </script>
 
-<Collapsible.Trigger class={$$props.class}><slot /></Collapsible.Trigger>
+<Collapsible.Trigger {...$$restProps}><slot /></Collapsible.Trigger>

@@ -17,5 +17,5 @@
 </script>
 
 {#if $dialogStore.open}
-	<div class={$$props.class} style="pointer-events: auto;"><slot /></div>
+	<div {...$$restProps} style:pointer-events="auto"><slot /></div>
 {/if}

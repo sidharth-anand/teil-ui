@@ -60,7 +60,7 @@
 	<button
 		type="button"
 		id={$dropdownStore.triggerID}
-		class={$$props.class}
+		{...$$restProps}
 		{disabled}
 		aria-haspopup="menu"
 		aria-expanded={$menuStore.open}

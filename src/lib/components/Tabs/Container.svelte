@@ -38,6 +38,6 @@
 	}
 </script>
 
-<div class={$$props.class}>
+<div {...$$restProps}>
 	<slot />
 </div>

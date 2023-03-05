@@ -71,7 +71,7 @@
 	type="button"
 	role="combobox"
 	id={$selectStore.triggerID}
-	class={$$props.class}
+	{...$$restProps}
 	disabled={$selectStore.disabled}
 	aria-autocomplete="none"
 	aria-controls={$selectStore.contentID}

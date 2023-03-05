@@ -10,4 +10,4 @@
 	}
 </script>
 
-<Collapsible.Content class={$$props.class}><slot /></Collapsible.Content>
+<Collapsible.Content {...$$restProps}><slot /></Collapsible.Content>

@@ -21,4 +21,4 @@
 	}
 </script>
 
-<Group class={$$props.class}><slot /></Group>
+<Group {...$$restProps}><slot /></Group>

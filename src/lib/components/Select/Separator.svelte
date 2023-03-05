@@ -8,6 +8,6 @@
 	}
 </script>
 
-<div class={$$props.class} aria-hidden>
+<div {...$$restProps} aria-hidden>
 	<slot />
 </div>

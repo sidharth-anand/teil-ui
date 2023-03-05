@@ -15,7 +15,7 @@
 </script>
 
 <span
-	class={$$props.class}
+	{...$$restProps}
 	aria-orientation={$sliderStore.orientation}
 	aria-disabled={$sliderStore.disabled}><slot /></span
 >

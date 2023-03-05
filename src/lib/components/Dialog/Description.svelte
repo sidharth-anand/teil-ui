@@ -14,4 +14,4 @@
 	const dialogStore = getContext<Writable<DialogStoreType>>(CONTEXT.DIALOG);
 </script>
 
-<p id={$dialogStore.descriptionID} class={$$props.class}><slot /></p>
+<p id={$dialogStore.descriptionID} {...$$restProps}><slot /></p>

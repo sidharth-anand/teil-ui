@@ -15,7 +15,7 @@
 </script>
 
 <button
-	class={$$props.class}
+	{...$$restProps}
 	type="button"
 	on:click={() => {
 		dialogStore.update((state) => ({

@@ -33,6 +33,6 @@
 	//TODO: Native form control for option
 </script>
 
-<span bind:this={element} id={$selectItemStore.id} class={$$props.class}>
+<span bind:this={element} id={$selectItemStore.id} {...$$restProps}>
 	<slot />
 </span>

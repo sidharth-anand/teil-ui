@@ -18,6 +18,6 @@
 	const selectGroupStore = getContext<Writable<SelectGroupStoreType>>(CONTEXT.SELECTGROUP);
 </script>
 
-<div id={$selectGroupStore.id} class={$$props.class}>
+<div id={$selectGroupStore.id} {...$$restProps}>
 	<slot />
 </div>

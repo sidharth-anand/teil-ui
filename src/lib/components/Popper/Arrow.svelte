@@ -61,7 +61,7 @@
 		2}px); transform-origin: {TransformOrigins[$popperStore.side]}; transform: {Transforms[
 		$popperStore.side
 	]}"
-	><svg class={$$props.class} {width} {height} viewBox="0 0 30 10" preserveAspectRatio="none">
+	><svg {...$$restProps} {width} {height} viewBox="0 0 30 10" preserveAspectRatio="none">
 		<polygon points="0,0 15,10 30,0" />
 	</svg></span
 >

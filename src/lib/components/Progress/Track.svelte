@@ -33,7 +33,7 @@
 
 <div
 	role="progressbar"
-	class={$$props.class}
+	{...$$restProps}
 	aria-valuemax={max}
 	aria-valuemin={0}
 	aria-valuenow={value}
