@@ -189,7 +189,6 @@
 	}
 
 	function position() {
-		console.log('position', $selectStore.text, $selectStore.content);
 
 		if (!$selectStore.text || !$selectStore.content || $selectStore.positioned) return;
 
@@ -210,7 +209,6 @@
 	}
 
 	function close() {
-		console.log('close');
 		selectStore.update((state) => ({
 			...state,
 			open: false,
