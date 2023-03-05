@@ -147,7 +147,7 @@
 <div
 	bind:this={element}
 	role="option"
-	class={$$props.class}
+	{...$$restProps}
 	tabindex={disabled ? undefined : -1}
 	aria-labelledby={$selectItemStore.id}
 	aria-selected={selected}

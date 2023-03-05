@@ -14,6 +14,6 @@
 	const selectStore = getContext<Writable<SelectStoreType>>(CONTEXT.SELECT);
 </script>
 
-<span class={$$props.class} data-state={$selectStore.open}>
+<span data-state={$selectStore.open} {...$$restProps}>
 	<slot>▼</slot>
 </span>

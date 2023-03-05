@@ -14,7 +14,7 @@
 </script>
 
 <span
-	class={$$props.class}
+	{...$$restProps}
 	aria-disabled={$checkboxStore.disabled}
 >
 	{#if $checkboxStore.state === true || (!$$slots.indeterminate && $checkboxStore.state === 'indeterminate')}

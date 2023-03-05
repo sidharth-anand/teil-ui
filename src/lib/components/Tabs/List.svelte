@@ -28,7 +28,7 @@
 
 <div
 	role="tablist"
-	class={$$props.class}
+	{...$$restProps}
 	aria-orientation={$tabsStore.orientation}
 	use:Focus.Group={focusStore}
 >

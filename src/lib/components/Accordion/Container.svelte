@@ -46,4 +46,4 @@
 	}
 </script>
 
-<div class={$$props.class} use:Focus.Group={focusStore}><slot /></div>
+<div {...$$restProps} use:Focus.Group={focusStore}><slot /></div>

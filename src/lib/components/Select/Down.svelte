@@ -49,7 +49,7 @@
 </script>
 
 {#if canScrollDown}
-	<Scroll class={$$props.class} on:autoscroll={autoscroll}>
+	<Scroll {...$$restProps} on:autoscroll={autoscroll}>
 		<slot />
 	</Scroll>
 {/if}

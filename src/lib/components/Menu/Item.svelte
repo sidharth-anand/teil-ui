@@ -272,7 +272,7 @@
 <div
 	bind:this={element}
 	id={submenu ? $submenuStore.triggerID : null}
-	class={$$props.class}
+	{...$$restProps}
 	{role}
 	{disabled}
 	data-active={active}

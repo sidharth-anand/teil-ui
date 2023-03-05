@@ -53,7 +53,7 @@
 
 <Item
 	role="menuitemradio"
-	class={$$props.class}
+	{...$$restProps}
 	aria-checked={checked}
 	on:keydown={keydown}
 	on:click={toggle}

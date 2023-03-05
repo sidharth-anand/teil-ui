@@ -16,7 +16,7 @@
 
 <button
 	id={$dialogStore.triggerID}
-	class={$$props.class}
+	{...$$restProps}
 	type="button"
 	aria-haspopup="dialog"
 	aria-expanded={$dialogStore.open}

@@ -19,7 +19,7 @@
 </script>
 
 {#if $selectItemStore.selected}
-	<span class={$$props.class} aria-hidden>
+	<span {...$$restProps} aria-hidden>
 		<slot />
 	</span>
 {/if}

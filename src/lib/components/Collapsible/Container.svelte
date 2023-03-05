@@ -44,7 +44,7 @@
 </script>
 
 {#if focus === undefined}
-	<div class={$$props.class}><slot /></div>
+	<div {...$$restProps}><slot /></div>
 {:else}
-	<div class={$$props.class} use:Focus.Item={focus}><slot /></div>
+	<div {...$$restProps} use:Focus.Item={focus}><slot /></div>
 {/if}

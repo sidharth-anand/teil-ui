@@ -47,7 +47,7 @@
 
 <Popper.Container>
 	<Popper.Anchor>
-		<Item submenu class={$$props.class}><slot name="item" /></Item>
+		<Item submenu {...$$restProps}><slot name="item" /></Item>
 	</Popper.Anchor>
 	<Container submenu bind:open modal={$menuStore.modal} direction={$menuStore.direction}>
 		<slot name="menu" />

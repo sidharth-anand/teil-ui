@@ -14,6 +14,6 @@
 	}
 </script>
 
-<Popper.Anchor class={$$props.class} {virtualElement}>
+<Popper.Anchor {...$$restProps} {virtualElement}>
 	<slot />
 </Popper.Anchor>

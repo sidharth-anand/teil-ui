@@ -8,4 +8,4 @@
 	}
 </script>
 
-<div class={$$props.class}><slot /></div>
+<div {...$$restProps}><slot /></div>

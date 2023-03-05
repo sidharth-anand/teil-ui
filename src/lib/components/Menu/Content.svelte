@@ -197,7 +197,7 @@
 		<div
 			bind:this={element}
 			id={id !== null ? id : $menuStore.submenu ? $submenuStore.contentID : null}
-			class={$$props.class}
+			{...$$restProps}
 			aria-labelledby={labelled !== null
 				? labelled
 				: $menuStore.submenu

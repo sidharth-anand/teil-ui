@@ -49,6 +49,6 @@
 	}
 </script>
 
-<div role="group" class={$$props.class} use:Focus.Group={focusStore}>
+<div role="group" {...$$restProps} use:Focus.Group={focusStore}>
 	<slot />
 </div>

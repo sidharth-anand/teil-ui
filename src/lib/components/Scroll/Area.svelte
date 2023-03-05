@@ -32,7 +32,7 @@
 	setContext(CONTEXT.SCROLL, scrollStore);
 </script>
 
-<div bind:this={$scrollStore.area} class={$$props.class}><slot /></div>
+<div bind:this={$scrollStore.area} {...$$restProps}><slot /></div>
 
 <style>
 	div {

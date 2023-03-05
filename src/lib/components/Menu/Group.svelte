@@ -8,4 +8,4 @@
 	}
 </script>
 
-<div class={$$props.class} role="group"><slot /></div>
+<div {...$$restProps} role="group"><slot /></div>

@@ -13,7 +13,7 @@
 	const collapsibleStore = getContext<Writable<CollapsibleStoreType>>(CONTEXT.COLLAPSIBLE);
 </script>
 
-<div id={$collapsibleStore.id} class={$$props.class}>
+<div id={$collapsibleStore.id} {...$$restProps}>
 	{#if $collapsibleStore.open}
 		<slot />
 	{/if}

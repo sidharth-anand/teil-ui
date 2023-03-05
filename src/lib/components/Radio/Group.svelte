@@ -49,9 +49,7 @@
 
 <div
 	role="radiogroup"
-	id={$$props.id}
-	class={$$props.class}
-	style={$$props.style}
+	{...$$restProps}
 	dir={direction}
 	aria-orientation={orientation === 'both' ? undefined : orientation}
 	aria-disabled={disabled}

@@ -16,7 +16,7 @@
 	const selectStore = getContext<Writable<SelectStoreType>>(CONTEXT.SELECT);
 </script>
 
-<span bind:this={$selectStore.display} class={$$props.class} style="pointer-events: none">
+<span bind:this={$selectStore.display} {...$$restProps} style="pointer-events: none">
 	{#if $selectStore.value}
 		{$selectStore.valuetext ?? ''}
 	{:else if placeholder}

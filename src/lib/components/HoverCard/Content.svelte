@@ -117,11 +117,9 @@
 	{#if $hoverCardStore.open}
 		<div
 			bind:this={element}
-			class={$$props.class}
-			style="
-        user-select: {containsSelection ? 'text' : undefined};
-        '--webkit-user-select': {containsSelection ? 'text' : undefined};
-      "
+			{...$$restProps}
+			style:user-select={containsSelection ? 'text' : undefined}
+			style:--webkit-user-select={containsSelection ? 'text' : undefined}
 			on:dismiss={dismiss}
 			on:pointerenter={pointerenter}
 			on:pointerleave={pointerleave}

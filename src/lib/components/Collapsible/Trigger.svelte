@@ -32,5 +32,5 @@
 	aria-disabled={$collapsibleStore.disabled}
 	disabled={$collapsibleStore.disabled}
 	on:click={toggle}
-	class={$$props.class}><slot /></button
+	{...$$restProps}><slot /></button
 >

@@ -7,7 +7,6 @@
 
 <div
 	role={decorative ? 'none' : 'separator'}
-	class={$$props.class}
-	style={$$props.style}
+	{...$$restProps}
 	aria-orientation={decorative ? undefined : orientation}
 />

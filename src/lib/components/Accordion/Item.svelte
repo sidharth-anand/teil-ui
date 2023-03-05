@@ -52,7 +52,7 @@
 <Collapsible.Container
 	bind:open
 	{disabled}
-	class={$$props.class}
+	{...$$restProps}
 	focus={{ focusable: true, active: true, store: focusStore }}
 	on:toggle={toggle}
 >

@@ -52,7 +52,7 @@
 <button
 	type="button"
 	role={$toggleGroupStore.type === 'single' ? 'radio' : undefined}
-	class={$$props.class}
+	{...$$restProps}
 	aria-pressed={$toggleGroupStore.type === 'single' ? pressed : undefined}
 	aria-checked={$toggleGroupStore.type === 'single' ? undefined : pressed}
 	aria-disabled={disabled}

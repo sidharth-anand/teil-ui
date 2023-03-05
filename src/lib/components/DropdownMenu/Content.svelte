@@ -18,7 +18,7 @@
 
 <Menu.Content
 	id={$dropdownStore.contentID}
-	class={$$props.class}
+	{...$$restProps}
 	side="bottom"
 	alignment="center"
 	labelled={$dropdownStore.triggerID}
