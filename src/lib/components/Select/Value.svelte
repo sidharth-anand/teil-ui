@@ -16,7 +16,7 @@
 	const selectStore = getContext<Writable<SelectStoreType>>(CONTEXT.SELECT);
 </script>
 
-<span bind:this={$selectStore.display} {...$$restProps} style="pointer-events: none">
+<span bind:this={$selectStore.display} {...$$restProps}>
 	{#if $selectStore.value}
 		{$selectStore.valuetext ?? ''}
 	{:else if placeholder}
@@ -25,3 +25,9 @@
 		<slot />
 	{/if}
 </span>
+
+<style>
+	span {
+		pointer-events: none;
+	}
+</style>
