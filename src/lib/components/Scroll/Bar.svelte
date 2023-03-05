@@ -19,14 +19,13 @@
 	}
 
 	const scrollStore = getContext<Writable<ScrollStoreType>>(CONTEXT.SCROLL);
+
+	const scrollComponents = {
+		auto: Auto,
+		hover: Hover,
+		scroll: Scroll,
+		always: Visible
+	}
 </script>
 
-{#if $scrollStore.type === 'auto'}
-	<Auto class={$$props.class} {orientation}><slot /></Auto>
-{:else if $scrollStore.type === 'hover'}
-	<Hover class={$$props.class} {orientation}><slot /></Hover>
-{:else if $scrollStore.type === 'scroll'}
-	<Scroll class={$$props.class} {orientation}><slot /></Scroll>
-{:else if $scrollStore.type === 'always'}
-	<Visible class={$$props.class} {orientation}><slot /></Visible>
-{/if}
+<svelte:component this={scrollComponents[$scrollStore.type]} {orientation} {...$$restProps}><slot /></svelte:component>
