@@ -20,8 +20,6 @@
 	//TODO: Handle typeahead
 
 	function open() {
-		console.log('trigger open');
-
 		if (!disabled && !$selectStore.disabled) {
 			selectStore.update((state) => ({
 				...state,
@@ -44,8 +42,6 @@
 		if (event.button === 0 && event.ctrlKey === false) {
 			open();
 			event.preventDefault();
-
-			console.log(event.pageX, event.pageY, Math.round(event.pageX));
 
 			selectStore.update((state) => ({
 				...state,
