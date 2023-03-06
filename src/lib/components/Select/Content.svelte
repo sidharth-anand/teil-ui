@@ -32,6 +32,7 @@
 		forceFocusContainer: true,
 		forceFocusAll: true,
 		focusContainerOnMount: true,
+		forceFocusFirst: true,
 
 		getFocusIntent: intent
 	});
@@ -268,8 +269,8 @@
 		close();
 	}
 
-	function keydown() {
-		//TODO: typeahead
+	function keydown(event: KeyboardEvent) {
+		console.log('typeahead', $focusStore)
 	}
 
 	onMount(() => {
