@@ -190,7 +190,6 @@
 	}
 
 	function position() {
-
 		if (!$selectStore.text || !$selectStore.content || $selectStore.positioned) return;
 
 		horizontal();
@@ -269,8 +268,35 @@
 		close();
 	}
 
+	let itemValueIndexMap: [string, number][] = [];
+	function searchForValue(searchFor: string, skip: number = 0) {
+		for (let i = 0; i < itemValueIndexMap.length; i++) {
+			if ((itemValueIndexMap[i] ?? [''])[0].startsWith(searchFor)) {
+				if (skip === 0) return i;
+				else skip -= 1;
+			}
+		}
+		return -1;
+	}
+	// TODO: will add better typeahead support
+	let typeaheadCache = {
+		searchString: '',
+		skip: 0
+	}
 	function keydown(event: KeyboardEvent) {
-		console.log('typeahead', $focusStore)
+		if (event.key.length === 1) {
+			event.preventDefault();
+			const itemIndex = searchForValue(event.key, 0);
+			if (itemIndex === -1) {
+				const focusIndex = $focusStore.items[itemIndex] ?? 1;
+				focusStore.update((state) => ({
+					...state,
+					currentStopIndex: focusIndex
+				}));
+				$focusStore.state.get(focusIndex)?.node.focus();
+				$focusStore.state.get(focusIndex)?.node.scrollIntoView();
+			}
+		}
 	}
 
 	onMount(() => {
@@ -300,6 +326,9 @@
 			$selectStore.text
 		) {
 			position();
+			itemValueIndexMap = Array.from($focusStore.state.values())
+				.filter((i) => i.focusable)
+				.map((value, index) => [value.node.dataset.value || '', index]);
 		}
 	}
 
