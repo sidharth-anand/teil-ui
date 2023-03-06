@@ -25,9 +25,7 @@
 
 	function autoscroll() {
 		if ($selectStore.viewport && $selectStore.selected) {
-			console.log('scrolling', $selectStore.viewport.scrollTop);
 			$selectStore.viewport.scrollTop += $selectStore.selected.offsetHeight;
-			console.log('scrolling', $selectStore.viewport.scrollTop);
 		}
 	}
 
