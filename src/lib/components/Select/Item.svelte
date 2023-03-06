@@ -152,6 +152,7 @@
 	aria-labelledby={$selectItemStore.id}
 	aria-selected={selected}
 	aria-disabled={disabled}
+	data-value={value}
 	on:pointerup={pointerup}
 	on:pointermove={pointermove}
 	on:pointerleave={pointerleave}
