@@ -282,19 +282,27 @@
 	let typeaheadCache = {
 		searchString: '',
 		skip: 0
+	};
+	function focusOnItemIndex(itemIndex: number) {
+		const focusIndex = $focusStore.items[itemIndex] ?? 1;
+		focusStore.update((state) => ({
+			...state,
+			currentStopIndex: focusIndex
+		}));
+		$focusStore.state.get(focusIndex)?.node.focus();
+		$focusStore.state.get(focusIndex)?.node.scrollIntoView();
 	}
 	function keydown(event: KeyboardEvent) {
 		if (event.key.length === 1) {
 			event.preventDefault();
-			const itemIndex = searchForValue(event.key, 0);
-			if (itemIndex === -1) {
-				const focusIndex = $focusStore.items[itemIndex] ?? 1;
-				focusStore.update((state) => ({
-					...state,
-					currentStopIndex: focusIndex
-				}));
-				$focusStore.state.get(focusIndex)?.node.focus();
-				$focusStore.state.get(focusIndex)?.node.scrollIntoView();
+			const itemIndex = searchForValue(event.key, typeaheadCache.skip);
+			if (itemIndex !== -1) {
+				focusOnItemIndex(itemIndex);
+				typeaheadCache.skip += 1;
+			} else {
+				typeaheadCache.skip = 0;
+				const newItemIndex = searchForValue(event.key, typeaheadCache.skip);
+				focusOnItemIndex(newItemIndex);
 			}
 		}
 	}
