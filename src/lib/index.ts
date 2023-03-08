@@ -1,4 +1,5 @@
 export { default as Accordion } from './components/Accordion';
+export { default as AlertDialog } from './components/AlertDialog';
 export { default as AspectRatio } from './components/AspectRatio';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Collapsible } from './components/Collapsible';
