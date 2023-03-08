@@ -27,6 +27,7 @@
 		"@fontsource/fira-mono": "^4.5.10",
 		"@fontsource/overpass": "^4.5.11",
 		"@fontsource/roboto": "^4.5.8",
+		"@playwright/test": "^1.31.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.1",
 		"@sveltejs/kit": "1.10.0",
