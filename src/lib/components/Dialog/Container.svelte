@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { DialogStoreType } from './types';
 
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -20,6 +20,7 @@
 		contentID: id(),
 		descriptionID: id()
 	});
+	const dispatch = createEventDispatcher();
 
 	setContext(CONTEXT.DIALOG, dialogStore);
 
@@ -34,6 +35,7 @@
 
 	$: {
 		open = $dialogStore.open;
+		dispatch('openChange', open);
 	}
 </script>
 
