@@ -19,10 +19,14 @@ const config = {
 		alias: {
 			$lib: 'src/lib',
 			$models: 'src/models',
-			$styles: 'src/styles',
+			$styles: 'src/scss',
 			$components: 'src/components'
 		},
 		paths: {
+			assets:
+				process.env.NODE_ENV === 'production'
+					? 'https://sidharth-anand.github.io/teil-ui'
+					: undefined,
 			base: process.env.NODE_ENV === 'production' ? '/teil-ui' : ''
 		}
 	},
