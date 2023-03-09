@@ -19,7 +19,7 @@
 
 	$: {
 		if (checked !== $switchStore.checked) {
-			switchStore.update(state => ({
+			switchStore.update((state) => ({
 				...state,
 				checked
 			}));

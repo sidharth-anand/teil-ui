@@ -1,6 +1,6 @@
 export interface MapBlock {
-    title: string;
-    breadcrumbs: Array<string>;
+	title: string;
+	breadcrumbs: Array<string>;
 	href: string;
 	content: string;
 }

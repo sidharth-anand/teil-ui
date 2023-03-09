@@ -85,7 +85,7 @@
 	id={$$props.id}
 	style="position: absolute;"
 	name={$radioStore.name}
-	checked={checked}
+	{checked}
 	disabled={$radioStore.disabled}
 	required={$radioStore.required}
 	formaction={$$props.formaction}

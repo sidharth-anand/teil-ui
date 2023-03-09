@@ -216,7 +216,7 @@
 	{/if}
 </div>
 
-<style lang="scss" >
+<style lang="scss">
 	@use '/src/scss/variables' as variables;
 
 	input {

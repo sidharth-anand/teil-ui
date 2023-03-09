@@ -102,7 +102,7 @@
 		text-shadow: none;
 		background: none;
 	}
-	
+
 	@media print {
 		:global(pre[class*='language-']),
 		:global(code[class*='language-']) {

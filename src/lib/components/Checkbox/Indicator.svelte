@@ -13,10 +13,7 @@
 	const checkboxStore: Readable<CheckboxStoreType> = getContext(CONTEXT.CHECKBOX);
 </script>
 
-<span
-	{...$$restProps}
-	aria-disabled={$checkboxStore.disabled}
->
+<span {...$$restProps} aria-disabled={$checkboxStore.disabled}>
 	{#if $checkboxStore.state === true || (!$$slots.indeterminate && $checkboxStore.state === 'indeterminate')}
 		<slot name="checked" />
 	{:else if $checkboxStore.state === 'indeterminate' && $$slots.indeterminate}

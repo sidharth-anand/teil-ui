@@ -9,11 +9,11 @@ type MetadataType = {
 	title: string;
 	description: string;
 	exclude?: Array<string>;
-}
+};
 
 const inherits: Record<string, string> = {
-	'ContextMenu': 'Menu',
-	'DropdownMenu': 'Menu',
+	ContextMenu: 'Menu',
+	DropdownMenu: 'Menu'
 };
 
 function extractCode(text: string): { code: string; style: string } {
@@ -26,17 +26,25 @@ export const load = (async ({ params, parent }) => {
 	const { components, elements, raw } = (await parent()).components;
 	const { slug } = params;
 
-	const title = components.find(component => component.toLowerCase() === slug);
+	const title = components.find((component) => component.toLowerCase() === slug);
 
 	if (title === undefined) {
 		throw error(404, 'Not found');
 	}
 
 	try {
-		const markdown = await import(`../../../../../src/docs/02 - Components/${title}.md` /* @vite-ignore */);
+		const markdown = await import(
+			`../../../../../src/docs/02 - Components/${title}.md` /* @vite-ignore */
+		);
 
 		return {
-			components: title in inherits ? new Map<string, SvelteInformations>([...elements.get(inherits[title] ?? '')?.entries() ?? [], ...elements.get(title)?.entries() ?? []]) : elements.get(title),
+			components:
+				title in inherits
+					? new Map<string, SvelteInformations>([
+							...(elements.get(inherits[title] ?? '')?.entries() ?? []),
+							...(elements.get(title)?.entries() ?? [])
+					  ])
+					: elements.get(title),
 			content: markdown.default as typeof SvelteComponent,
 			meta: markdown.metadata as MetadataType,
 			...extractCode(raw.get(title) ?? '')

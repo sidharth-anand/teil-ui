@@ -55,12 +55,7 @@
 	}
 </script>
 
-<div
-	bind:this={$selectStore.viewport}
-	role="presentation"
-	{...$$restProps}
-	on:scroll={scroll}
->
+<div bind:this={$selectStore.viewport} role="presentation" {...$$restProps} on:scroll={scroll}>
 	<slot />
 </div>
 

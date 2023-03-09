@@ -6,7 +6,7 @@ const config = {
 	server: {
 		fs: {
 			strict: false
-		}	
+		}
 	}
 };
 

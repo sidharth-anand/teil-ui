@@ -1,9 +1,9 @@
 //Disables native form controls if js is enabled on browser
 export function NoJS(node: HTMLElement) {
-    node.style.opacity = "0";
-    node.style.margin = "0";
-    node.style.pointerEvents = "none";
+	node.style.opacity = '0';
+	node.style.margin = '0';
+	node.style.pointerEvents = 'none';
 
-    node.setAttribute("aria-hidden", "true");
-    node.setAttribute("tabindex", "-1");
+	node.setAttribute('aria-hidden', 'true');
+	node.setAttribute('tabindex', '-1');
 }
