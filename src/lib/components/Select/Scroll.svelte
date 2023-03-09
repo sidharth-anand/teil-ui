@@ -52,12 +52,7 @@
 	});
 </script>
 
-<div
-	{...$$restProps}
-	aria-hidden
-	on:pointermove={pointermove}
-	on:pointerleave={pointerleave}
->
+<div {...$$restProps} aria-hidden on:pointermove={pointermove} on:pointerleave={pointerleave}>
 	<slot />
 </div>
 

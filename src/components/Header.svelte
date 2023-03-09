@@ -55,12 +55,15 @@
 {/if}
 
 {#if open}
-	<button aria-roledescription="close header" class="modal-background hide-if-desktop" on:click={click} />
+	<button
+		aria-roledescription="close header"
+		class="modal-background hide-if-desktop"
+		on:click={click}
+	/>
 {/if}
 
 <header bind:this={element} class:visible={visible || open} class:open>
-	<a href="{base}/" class="header-spot home" title="Home">
-	</a>
+	<a href="{base}/" class="header-spot home" title="Home" />
 
 	<button
 		aria-label="Toggle menu"
@@ -69,12 +72,12 @@
 		class:open
 		on:click={toggle}
 	>
-		<Icon name={open ? 'close' : 'menu'} size="1em"></Icon>
+		<Icon name={open ? 'close' : 'menu'} size="1em" />
 	</button>
 
 	<ul>
 		<li>
-			<Search></Search>
+			<Search />
 		</li>
 	</ul>
 
@@ -100,7 +103,7 @@
 	<SearchBox />
 {/if}
 
-<style lang="scss" >
+<style lang="scss">
 	@use '/src/scss/variables' as variables;
 
 	.modal-background {
@@ -116,7 +119,7 @@
 	}
 	header {
 		--shadow-height: 0.5rem;
-		
+
 		position: fixed;
 		width: 100vw;
 		height: var(--header-height);
@@ -195,7 +198,11 @@
 			left: var(--side-nav);
 			width: calc(100% - 2 * var(--side-nav));
 			height: 1px;
-			background: radial-gradient(circle at center, rgba(variables.$color-black, 0.1), rgba(variables.$color-black, 0.05));
+			background: radial-gradient(
+				circle at center,
+				rgba(variables.$color-black, 0.1),
+				rgba(variables.$color-black, 0.05)
+			);
 		}
 		ul.external::after {
 			content: '';
@@ -263,7 +270,11 @@
 		position: relative;
 		height: 1px;
 		margin: 0.5rem 0;
-		background: radial-gradient(circle at center, rgba(variables.$color-black, 0.1), rgba(variables.$color-black, 0.05));
+		background: radial-gradient(
+			circle at center,
+			rgba(variables.$color-black, 0.1),
+			rgba(variables.$color-black, 0.05)
+		);
 	}
 	@media (min-width: 800px) {
 		.small {

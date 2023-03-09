@@ -25,7 +25,9 @@
 		hover: Hover,
 		scroll: Scroll,
 		always: Visible
-	}
+	};
 </script>
 
-<svelte:component this={scrollComponents[$scrollStore.type]} {orientation} {...$$restProps}><slot /></svelte:component>
+<svelte:component this={scrollComponents[$scrollStore.type]} {orientation} {...$$restProps}
+	><slot /></svelte:component
+>

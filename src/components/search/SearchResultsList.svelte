@@ -6,11 +6,11 @@
 	export let results: Array<Tree>;
 	export let query: string;
 
-    type EventTypes = {
-        select: {
-            href: string;
-        }
-    };
+	type EventTypes = {
+		select: {
+			href: string;
+		};
+	};
 
 	const dispatch = createEventDispatcher<EventTypes>();
 
@@ -65,7 +65,7 @@
 	{/each}
 </ul>
 
-<style lang="scss" >
+<style lang="scss">
 	@use '/src/scss/variables' as variables;
 
 	ul {

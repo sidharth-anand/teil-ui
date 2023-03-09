@@ -74,6 +74,6 @@
 
 <style>
 	span {
-		--webkit-touch-callout: 'none'
+		--webkit-touch-callout: 'none';
 	}
 </style>

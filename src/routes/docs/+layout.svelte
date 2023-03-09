@@ -25,7 +25,7 @@
 	.container {
 		--sidebar-menu-width: 28rem;
 		--sidebar-width: var(--sidebar-menu-width);
-		
+
 		--ts-toggle-height: 4.2rem;
 	}
 	.page {
@@ -40,7 +40,7 @@
 		width: 100%;
 		border-top: 1px solid var(--tui-back-4);
 		background-color: var(--tui-back-2);
-    height: var(--ts-toggle-height);
+		height: var(--ts-toggle-height);
 	}
 	@media (min-width: 832px) {
 		.toc-container {
