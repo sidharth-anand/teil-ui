@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 
 	import { CONTEXT } from '../../constants';
 
@@ -29,6 +29,7 @@
 	});
 
 	const focusStore = createFocusContext({ orientation, direction, loop });
+	const dispatch = createEventDispatcher();
 
 	setContext(CONTEXT.RADIO, radioStore);
 	setContext(CONTEXT.FOCUS, focusStore);
@@ -44,6 +45,7 @@
 
 	$: {
 		value = $radioStore.value;
+		dispatch('valueChange', value);
 	}
 </script>
 
