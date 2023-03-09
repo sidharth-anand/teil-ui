@@ -35,7 +35,7 @@
 
 	$: {
 		open = $dialogStore.open;
-		dispatch('openChange', open);
+		dispatch('toggle', open);
 	}
 </script>
 

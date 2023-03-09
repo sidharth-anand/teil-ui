@@ -17,7 +17,7 @@
 
 	$: {
 		open = $hoverCardStore.open;
-		dispatch('openChange', open);
+		dispatch('toggle', open);
 	}
 
 	setContext(CONTEXT.HOVERCARD, hoverCardStore);
