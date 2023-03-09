@@ -63,6 +63,7 @@
 {/if}
 
 <header bind:this={element} class:visible={visible || open} class:open>
+	<!-- svelte-ignore a11y-missing-content -->
 	<a href="{base}/" class="header-spot home" title="Home" />
 
 	<button
