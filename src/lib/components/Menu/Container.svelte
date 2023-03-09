@@ -66,7 +66,7 @@
 	$: {
 		if (!submenu) {
 			open = $menuStore.open;
-			dispatch('openChange', open);
+			dispatch('toggle', open);
 		}
 	}
 
