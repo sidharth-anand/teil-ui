@@ -3,7 +3,7 @@
 
 	import type { Direction, MenuStoreType, SubmenuStoreType } from './types';
 
-	import { hasContext, getContext, setContext, onMount } from 'svelte';
+	import { hasContext, getContext, setContext, onMount, createEventDispatcher } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -29,6 +29,7 @@
 		direction,
 		value: null
 	});
+	const dispatch = createEventDispatcher();
 
 	onMount(() => {
 		const keyDown = () => {
@@ -65,6 +66,7 @@
 	$: {
 		if (!submenu) {
 			open = $menuStore.open;
+			dispatch('openChange', open);
 		}
 	}
 
