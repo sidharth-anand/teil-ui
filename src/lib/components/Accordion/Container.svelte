@@ -44,7 +44,7 @@
 
 	$: {
 		value = $accordionStore.open;
-		dispatch('valueChange', value);
+		dispatch('change', value);
 	}
 </script>
 

@@ -45,7 +45,7 @@
 
 	$: {
 		value = $radioStore.value;
-		dispatch('valueChange', value);
+		dispatch('change', value);
 	}
 </script>
 
