@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { hasContext, setContext } from 'svelte';
+	import { createEventDispatcher, hasContext, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import type { SwitchStoreType } from './types';
@@ -14,6 +14,7 @@
 	const switchStore = writable<SwitchStoreType>({
 		checked
 	});
+	const dispatch = createEventDispatcher();
 
 	setContext(CONTEXT.SWITCH, switchStore);
 
@@ -28,6 +29,7 @@
 
 	$: {
 		checked = $switchStore.checked;
+		dispatch('change', checked);
 	}
 </script>
 

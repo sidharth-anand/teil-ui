@@ -3,7 +3,7 @@
 
 	import type { DialogStoreType } from './types';
 
-	import { hasContext, getContext } from 'svelte';
+	import { hasContext, getContext, createEventDispatcher } from 'svelte';
 
 	import { CONTEXT } from '../../constants';
 
@@ -16,6 +16,7 @@
 
 	const dialogStore = getContext<Writable<DialogStoreType>>(CONTEXT.DIALOG);
 	const dismissableStore = createDismissableContext();
+	const dispatch = createEventDispatcher();
 
 	$: trapFocus = ($dialogStore.open && $dialogStore.modal) as boolean;
 	$: disableOutsidePointerEvents = $dialogStore.modal as boolean;
@@ -66,8 +67,11 @@
 		aria-describedby={$dialogStore.descriptionID}
 		aria-labelledby={$dialogStore.titleID}
 		on:focusOutside={focusoutside}
+		on:focusOutside
 		on:pointerDownOutside={pointerdownoutside}
+		on:pointerDownOutside
 		on:interact={interactoutside}
+		on:interact
 		on:dismiss={dismiss}
 		use:Dismissable.Layer={{
 			store: dismissableStore,

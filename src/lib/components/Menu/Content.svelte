@@ -205,10 +205,13 @@
 				: null}
 			data-menu-content
 			on:focusOutside={focusOutside}
+			on:focusOutside
 			on:escape={escape}
+			on:escape
 			on:dismiss={dismiss}
 			on:keydown={keydown}
 			on:pointerleave={pointerleave}
+			on:interact
 			use:Focus.Group={focusStore}
 			use:Dismissable.Layer={{
 				store: dismissableStore,

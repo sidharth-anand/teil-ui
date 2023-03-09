@@ -39,7 +39,7 @@
 
 	$: {
 		open = $collapsibleStore.open;
-		dispatch('toggle');
+		dispatch('toggle', open);
 	}
 </script>
 
