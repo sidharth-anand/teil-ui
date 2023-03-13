@@ -1,18 +1,28 @@
-<script>
+<script lang="ts">
+	// @ts-expect-error
 	import Prism from 'prismjs';
 	import 'prism-svelte';
 
 	import Tabs from '$lib/components/Tabs';
+	import { writable } from 'svelte/store';
+	import { setContext } from 'svelte';
 
 	export let code = '';
 	export let style = '';
 
 	$: highlightedCode = Prism.highlight(code, Prism.languages.svelte, 'svelte');
 	$: highlightedStyle = Prism.highlight(style, Prism.languages.css, 'css');
+
+	const options = writable({});
+	setContext('component-options', options);
 </script>
 
+
+<slot name="config" />
 <div class="component">
-	<slot name="component" />
+	{#key $options}
+		<slot name="component" options={$options} />
+	{/key}
 </div>
 
 <div class="component__code">

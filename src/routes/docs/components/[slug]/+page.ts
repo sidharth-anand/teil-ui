@@ -23,7 +23,11 @@ function extractCode(text: string): { code: string; style: string } {
 }
 
 export const load = (async ({ params, parent }) => {
-	const { components, elements, raw } = (await parent()).components;
+	const { components, elements, raw }: {
+		components: string[],
+		elements: Map<string, Map<string, SvelteInformations>>,
+		raw: Map<string, string>
+	} = (await parent()).components;
 	const { slug } = params;
 
 	const title = components.find(component => component.toLowerCase() === slug);

@@ -1,7 +1,7 @@
 import type { LayoutServerLoad } from './$types';
 import type { SvelteInformations } from '@el3um4s/svelte-get-component-info';
 
-import type { ComponentInformation, DocsSection } from 'src/global';
+import type { ComponentInformation, DocsSection } from '../../global';
 
 import * as fs from 'node:fs';
 
