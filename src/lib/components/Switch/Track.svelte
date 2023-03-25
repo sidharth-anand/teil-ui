@@ -14,7 +14,7 @@
 	const switchStore = writable<SwitchStoreType>({
 		checked
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{change: boolean}>();
 
 	setContext(CONTEXT.SWITCH, switchStore);
 

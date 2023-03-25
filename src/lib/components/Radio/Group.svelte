@@ -29,7 +29,7 @@
 	});
 
 	const focusStore = createFocusContext({ orientation, direction, loop });
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{change: string}>();
 
 	setContext(CONTEXT.RADIO, radioStore);
 	setContext(CONTEXT.FOCUS, focusStore);

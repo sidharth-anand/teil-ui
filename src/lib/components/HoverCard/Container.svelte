@@ -13,7 +13,7 @@
 	const hoverCardStore = writable<HoverCardStoreType>({
 		open
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{toggle: boolean}>();
 
 	$: {
 		open = $hoverCardStore.open;

@@ -20,7 +20,7 @@
 		contentID: id(),
 		descriptionID: id()
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{toggle: boolean}>();
 
 	setContext(CONTEXT.DIALOG, dialogStore);
 

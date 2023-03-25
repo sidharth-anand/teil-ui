@@ -21,7 +21,7 @@
 		direction,
 		activation
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{change: string}>();
 
 	setContext(CONTEXT.TABS, tabsStore);
 

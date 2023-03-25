@@ -29,7 +29,7 @@
 		direction,
 		value: null
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{toggle: boolean}>();
 
 	onMount(() => {
 		const keyDown = () => {
