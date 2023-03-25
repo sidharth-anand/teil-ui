@@ -5,12 +5,12 @@
 	export let pressed: boolean = false;
 	export let disabled: boolean = false;
 
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{toggle: boolean}>();
 	function click() {
 		if (!disabled) {
 			pressed = !pressed;
 		}
-		dispatch('pressedChange', pressed);
+		dispatch('toggle', pressed);
 	}
 </script>
 

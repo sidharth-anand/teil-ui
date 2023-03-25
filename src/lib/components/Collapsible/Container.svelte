@@ -11,7 +11,7 @@
 	import id from '../id';
 
 	type EventTypes = {
-		toggle: void;
+		toggle: boolean;
 	};
 
 	export let disabled: boolean = false;

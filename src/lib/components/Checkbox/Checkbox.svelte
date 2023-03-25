@@ -17,7 +17,7 @@
 		state: checked,
 		disabled
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{change: CheckboxState}>();
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === 'Enter') {

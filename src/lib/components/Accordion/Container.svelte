@@ -28,7 +28,7 @@
 		loop: true,
 		forceFocusAll: true
 	});
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{change: boolean}>();
 
 	setContext(CONTEXT.ACCORDION, accordionStore);
 	setContext(CONTEXT.FOCUS, focusStore);
