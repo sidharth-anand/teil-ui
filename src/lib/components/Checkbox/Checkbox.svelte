@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { CheckboxStoreType, CheckboxState } from './types';
 
-	import { setContext } from 'svelte';
+
+	import { createEventDispatcher, hasContext, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -17,6 +18,7 @@
 		state: checked,
 		disabled
 	});
+	const dispatch = createEventDispatcher<{change: CheckboxState}>();
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
@@ -40,6 +42,7 @@
 
 	$: {
 		checked = $checkboxStore.state;
+		dispatch('change', checked);
 	}
 
 	$: {

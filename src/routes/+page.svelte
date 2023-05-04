@@ -27,7 +27,7 @@
 			Unstyled, accessible, keyboard-navigable, headless components for building high-quality
 			design systems and web apps in Svelte
 		</h2>
-		<a href="{base}/docs">Get Started &gt;</a>
+		<a data-sveltekit-preload-data href="https://sidharth-anand.github.io/teil-ui/docs">Get Started &gt;</a>
 	</div>
 </main>
 

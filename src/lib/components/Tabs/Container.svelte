@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Activation, Orientation, Direction, TabsStoreType } from './types';
 
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -21,6 +21,7 @@
 		direction,
 		activation
 	});
+	const dispatch = createEventDispatcher<{change: string}>();
 
 	setContext(CONTEXT.TABS, tabsStore);
 
@@ -35,6 +36,7 @@
 
 	$: {
 		value = $tabsStore.value;
+		dispatch('change', value);
 	}
 </script>
 

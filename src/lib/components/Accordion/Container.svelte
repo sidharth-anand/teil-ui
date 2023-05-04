@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -28,6 +28,7 @@
 		loop: true,
 		forceFocusAll: true
 	});
+	const dispatch = createEventDispatcher<{change: boolean}>();
 
 	setContext(CONTEXT.ACCORDION, accordionStore);
 	setContext(CONTEXT.FOCUS, focusStore);
@@ -43,6 +44,7 @@
 
 	$: {
 		value = $accordionStore.open;
+		dispatch('change', value);
 	}
 </script>
 

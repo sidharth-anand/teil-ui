@@ -11,7 +11,7 @@
 	import id from '../id';
 
 	type EventTypes = {
-		toggle: void;
+		toggle: boolean;
 	};
 
 	export let disabled: boolean = false;
@@ -39,7 +39,7 @@
 
 	$: {
 		open = $collapsibleStore.open;
-		dispatch('toggle');
+		dispatch('toggle', open);
 	}
 </script>
 

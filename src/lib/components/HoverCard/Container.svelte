@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HoverCardStoreType } from './types';
 
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -13,6 +13,12 @@
 	const hoverCardStore = writable<HoverCardStoreType>({
 		open
 	});
+	const dispatch = createEventDispatcher<{toggle: boolean}>();
+
+	$: {
+		open = $hoverCardStore.open;
+		dispatch('toggle', open);
+	}
 
 	setContext(CONTEXT.HOVERCARD, hoverCardStore);
 </script>
