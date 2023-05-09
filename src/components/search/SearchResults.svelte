@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type {Tree} from './types';
+	import type { Tree } from './types';
 
-    import SearchResultsList from "./SearchResultsList.svelte";
+	import SearchResultsList from './SearchResultsList.svelte';
 
-    export let results: Array<Tree>;
-    export let query: string;
+	export let results: Array<Tree>;
+	export let query: string;
 </script>
 
 {#if results.length > 0}

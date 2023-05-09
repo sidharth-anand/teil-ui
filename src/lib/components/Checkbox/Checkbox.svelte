@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { CheckboxStoreType, CheckboxState } from './types';
 
+
 	import { createEventDispatcher, hasContext, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 

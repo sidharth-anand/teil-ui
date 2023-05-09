@@ -39,6 +39,12 @@
 	$: checked = $indicatorStore.checked;
 </script>
 
-<Item role="menuitemcheckbox" {...$$restProps} aria-checked={checked} on:keydown={keydown} on:click={toggle}>
+<Item
+	role="menuitemcheckbox"
+	{...$$restProps}
+	aria-checked={checked}
+	on:keydown={keydown}
+	on:click={toggle}
+>
 	<slot />
 </Item>

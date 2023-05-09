@@ -35,7 +35,7 @@
 
 	$: {
 		if (!value.every((v: any, i: number) => v === $accordionStore.open[i])) {
-			accordionStore.update(state => ({
+			accordionStore.update((state) => ({
 				...state,
 				open: value
 			}));

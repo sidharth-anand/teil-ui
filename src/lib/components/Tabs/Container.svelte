@@ -27,7 +27,7 @@
 
 	$: {
 		if (value !== $tabsStore.value) {
-			tabsStore.update(state => ({
+			tabsStore.update((state) => ({
 				...state,
 				value
 			}));

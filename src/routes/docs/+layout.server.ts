@@ -22,10 +22,9 @@ function slugify(title: string): string {
 		.replace(/-$/, '');
 }
 
-
 function getSections(): Array<DocsSection> {
 	const sections = fs.readdirSync('src/docs').sort();
-	return sections.map(section => {
+	return sections.map((section) => {
 		const pages = fs.readdirSync(`src/docs/${section}`).sort();
 		const title = section.replace(/[0-9]* \- /, '');
 
@@ -33,17 +32,21 @@ function getSections(): Array<DocsSection> {
 			title: title,
 			prefix: slugify(title),
 			dir: `src/docs/${section}`,
-			pages: pages.map(page => page.replace('.md', '')).map(page => ({
-				title: page.replace(/[0-9]* \- /, ''),
-				prefix: slugify(page.replace(/[0-9]* \- /, '')),
-				file: `docs/${section}/${page}`
-			}))
+			pages: pages
+				.map((page) => page.replace('.md', ''))
+				.map((page) => ({
+					title: page.replace(/[0-9]* \- /, ''),
+					prefix: slugify(page.replace(/[0-9]* \- /, '')),
+					file: `docs/${section}/${page}`
+				}))
 		};
-	})
+	});
 }
 
 function getComponentInformation(): ComponentInformation {
-	const components = fs.readdirSync('src/docs/02 - Components').map((file) => file.replace('.md', ''));
+	const components = fs
+		.readdirSync('src/docs/02 - Components')
+		.map((file) => file.replace('.md', ''));
 	const elements = components.concat(extra).reduce((acc, component) => {
 		return new Map<string, Map<string, SvelteInformations>>([
 			...acc.entries(),

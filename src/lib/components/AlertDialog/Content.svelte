@@ -17,7 +17,7 @@
 	const dialogStore = getContext<Writable<DialogStoreType>>(CONTEXT.DIALOG);
 	const dismissableStore = createDismissableContext();
 
-    function escape(event: CustomEvent<KeyboardEvent>) {
+	function escape(event: CustomEvent<KeyboardEvent>) {
 		dialogStore.update((state) => ({
 			...state,
 			open: false
@@ -28,7 +28,7 @@
 {#if $dialogStore.open}
 	<div
 		role="alertdialog"
-        on:escape={escape}
+		on:escape={escape}
 		id={$dialogStore.contentID}
 		{...$$restProps}
 		aria-describedby={$dialogStore.descriptionID}
