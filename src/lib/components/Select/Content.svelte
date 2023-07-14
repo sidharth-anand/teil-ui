@@ -38,6 +38,12 @@
 	});
 	const dismissableStore = createDismissableContext();
 
+	$: offsetRect =
+		$selectStore.content?.offsetParent?.isSameNode(document.body) ||
+		$selectStore.content?.offsetParent?.isSameNode($selectStore.wrapper ?? null)
+			? null
+			: $selectStore.content?.offsetParent?.getBoundingClientRect();
+
 	let delta: { x: number; y: number } = { x: 0, y: 0 };
 
 	function intent(event: KeyboardEvent): FocusIntent {
@@ -65,9 +71,10 @@
 		const value = $selectStore.display.getBoundingClientRect();
 		const text = $selectStore.text.getBoundingClientRect();
 
+		const parent = offsetRect ? offsetRect.left : 0;
 		const offset = text.left - content.left;
-		const left = value.left - offset;
-		const delta = trigger.left - left;
+		const left = value.left - offset - parent;
+		const delta = trigger.left - left - parent;
 
 		const min = trigger.width + delta;
 		const width = Math.max(min, content.width);
@@ -85,8 +92,9 @@
 		const value = $selectStore.display.getBoundingClientRect();
 		const text = $selectStore.text.getBoundingClientRect();
 
+		const parent = offsetRect ? offsetRect.right : 0;
 		const offset = text.right - content.right;
-		const right = window.innerWidth - value.right - offset;
+		const right = window.innerWidth - value.right - offset - parent;
 		const delta = window.innerWidth - right - trigger.right;
 
 		const min = trigger.width + delta;
@@ -161,8 +169,11 @@
 					contentBorderBottomWidth
 			);
 			const height = contentTopToItemMiddle + clampedTriggerMiddleToBottomEdge;
+			const parent = $selectStore.wrapper?.offsetParent?.isSameNode(document.body)
+				? 0
+				: $selectStore.wrapper?.offsetParent?.getBoundingClientRect().top ?? 0;
 
-			$selectStore.wrapper.style.bottom = '0px';
+			$selectStore.wrapper.style.bottom = -parent + 'px';
 			$selectStore.wrapper.style.height = height + 'px';
 		} else {
 			const isFirstItem =
@@ -384,7 +395,7 @@
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
-      height: 100%;
+      max-height: 100%;
       outline: none;
     "
 			on:contextmenu={contextmenu}

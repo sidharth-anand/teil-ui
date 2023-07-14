@@ -29,7 +29,7 @@
 	}
 
 	function click(event: MouseEvent) {
-		(event.currentTarget as HTMLElement).focus();
+		//(event.currentTarget as HTMLElement).focus();
 	}
 
 	function pointerdown(event: PointerEvent) {
