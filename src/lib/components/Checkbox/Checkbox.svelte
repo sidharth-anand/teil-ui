@@ -2,7 +2,7 @@
 	import type { CheckboxStoreType, CheckboxState } from './types';
 
 
-	import { createEventDispatcher, hasContext, setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -13,6 +13,8 @@
 	export let checked: CheckboxState = false;
 	export let required: boolean = false;
 	export let disabled: boolean = false;
+
+	//TODO: add ability to make state controllable to allow state being indeterminate
 
 	const checkboxStore = writable<CheckboxStoreType>({
 		state: checked,
@@ -27,22 +29,14 @@
 	}
 
 	function click(event: MouseEvent) {
-		checked = checked === 'indeterminate' ? true : !checked;
+		checkboxStore.update(state => ({
+			...state,
+			state: $checkboxStore.state === 'indeterminate' ? true : !$checkboxStore.state
+		}));
+
+		dispatch('change', $checkboxStore.state);
+		
 		event.stopPropagation();
-	}
-
-	$: {
-		if (checked !== $checkboxStore.state) {
-			checkboxStore.update((state) => ({
-				...state,
-				state: checked
-			}));
-		}
-	}
-
-	$: {
-		checked = $checkboxStore.state;
-		dispatch('change', checked);
 	}
 
 	$: {
