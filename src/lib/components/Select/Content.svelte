@@ -39,11 +39,7 @@
 	const dismissableStore = createDismissableContext();
 
 	$: offsetRect =
-		$selectStore.content?.offsetParent?.isSameNode(document.body) ||
-		$selectStore.content?.offsetParent?.isSameNode($selectStore.wrapper ?? null)
-			? null
-			: $selectStore.content?.offsetParent?.getBoundingClientRect();
-
+		$selectStore.wrapper?.offsetParent?.getBoundingClientRect();
 	let delta: { x: number; y: number } = { x: 0, y: 0 };
 
 	function intent(event: KeyboardEvent): FocusIntent {
@@ -169,9 +165,7 @@
 					contentBorderBottomWidth
 			);
 			const height = contentTopToItemMiddle + clampedTriggerMiddleToBottomEdge;
-			const parent = $selectStore.wrapper?.offsetParent?.isSameNode(document.body)
-				? 0
-				: $selectStore.wrapper?.offsetParent?.getBoundingClientRect().top ?? 0;
+			const parent = offsetRect?.top ?? 0;
 
 			$selectStore.wrapper.style.bottom = -parent + 'px';
 			$selectStore.wrapper.style.height = height + 'px';
