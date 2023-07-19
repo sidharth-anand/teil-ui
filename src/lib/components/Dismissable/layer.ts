@@ -2,13 +2,10 @@ import type { DismissableLayerActionOptions, DismissableStoreType } from './type
 
 import { get } from 'svelte/store';
 
-let DocumentPointerEvents: string = '';
-
-//TODO: add support for multiple independent dismissable layers
-//Should be as simple as moving the store to a global store?
-
 export function DismissableLayer(node: HTMLElement, options: DismissableLayerActionOptions) {
 	const store = options.store;
+
+	let documentPointerEvents: string = '';
 
 	let disableOutsidePointerEvents = options.disableOutsidePointerEvents ?? false;
 
@@ -48,7 +45,7 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
 	function changePointerStyle() {
 		if (disableOutsidePointerEvents) {
 			if (get(store).pointerDisabled.size === 0) {
-				DocumentPointerEvents = document.body.style.pointerEvents;
+				documentPointerEvents = document.body.style.pointerEvents;
 				document.body.style.pointerEvents = 'none';
 			}
 
@@ -130,8 +127,10 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
 	}
 
 	function destroy() {
+		console.log("destroy ", documentPointerEvents);
+
 		if (disableOutsidePointerEvents && get(store).pointerDisabled.size === 1) {
-			document.body.style.pointerEvents = DocumentPointerEvents;
+			document.body.style.pointerEvents = documentPointerEvents;
 		}
 
 		store.update((state) => {
@@ -156,6 +155,8 @@ export function DismissableLayer(node: HTMLElement, options: DismissableLayerAct
 	store.subscribe((state) => init(state));
 
 	changePointerStyle();
+
+	console.log(documentPointerEvents);
 
 	document.addEventListener('pointerdown', pointerDown);
 	document.addEventListener('focusin', focusOutside);
