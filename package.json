@@ -19,7 +19,8 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"test": "playwright test"
 	},
 	"devDependencies": {
 		"@el3um4s/svelte-get-component-info": "^0.0.16",
@@ -27,6 +28,7 @@
 		"@fontsource/fira-mono": "^4.5.10",
 		"@fontsource/overpass": "^4.5.11",
 		"@fontsource/roboto": "^4.5.8",
+		"@playwright/test": "^1.31.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.1",
 		"@sveltejs/kit": "1.10.0",
