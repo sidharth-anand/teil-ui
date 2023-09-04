@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Type, ToggleGroupStoreType } from './types';
 
-	import { setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
 	import { CONTEXT } from '../../constants';
@@ -13,6 +13,7 @@
 	export let disabled: boolean = false;
 	export let value: string | Array<string> = type === 'single' ? '' : [];
 
+	const dispatch = createEventDispatcher();
 	const toggleGroupStore = writable<ToggleGroupStoreType>({
 		type,
 		value,
@@ -38,6 +39,7 @@
 
 	$: {
 		value = $toggleGroupStore.value;
+		dispatch('change', value);
 	}
 
 	$: {

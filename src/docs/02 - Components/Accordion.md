@@ -5,8 +5,8 @@
 ---
 
 <script>
-    import {slide} from 'svelte/transition';
-
+    import { slide } from 'svelte/transition';
+    import ComponentConfig from '$components/ComponentConfig.svelte';
     import Accordion from '$lib/components/Accordion';
 </script>
 
@@ -68,8 +68,13 @@
 }
 </style>
 
+<ComponentConfig 
+  slot="config" 
+  variants={{type: ['single', 'multiple'], disabled: [false, true]}} 
+  defaults={{type: 0, disabled: 0}}  />
+
 <!--code start-->
-<Accordion.Container class="accordion__container" slot="component">
+<Accordion.Container class="accordion__container" slot="component" let:options type={options.type}>
   <Accordion.Item class="accordion__item" value="item-1">
     <Accordion.Trigger class="accordion__trigger">
       Is it accessible?
